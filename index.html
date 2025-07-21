@@ -2041,7 +2041,10 @@
             try {
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value;
+                // Assuming 'phone' input is added in the HTML, if not, it will be undefined
+                const phoneInput = document.getElementById('phone');
+                const phone = phoneInput ? phoneInput.value : '';
+
 
                 // Generate a unique user ID and store it
                 let userId = localStorage.getItem('mockTestUserId');
@@ -2141,10 +2144,12 @@
         const soundIcon = document.getElementById('sound-icon');
         let isSoundMuted = JSON.parse(localStorage.getItem('isSoundMuted')) || false;
 
-        // Create audio elements for feedback
-        const correctSound = new Audio('https://commondatastorage.googleapis.com/codeskulptor-assets/week7-bounce.m4a');
-        const incorrectSound = new Audio('https://commondatastorage.googleapis.com/codeskulptor-assets/jump.m4a');
-        const warningSound = new Audio('https://commondatastorage.googleapis.com/codeskulptor-assets/Collision_8-bit.mp3');
+        // Create audio elements for feedback - REPLACE THESE PLACEHOLDER URLs
+        // You need to upload your audio files to your Netlify project (e.g., in an 'audio' folder)
+        // and update these paths accordingly.
+        const correctSound = new Audio('https://placehold.co/1x1?text=correct_sound_placeholder'); // Replace with your correct sound URL
+        const incorrectSound = new Audio('https://placehold.co/1x1?text=incorrect_sound_placeholder'); // Replace with your incorrect sound URL
+        const warningSound = new Audio('https://placehold.co/1x1?text=warning_sound_placeholder'); // Replace with your warning sound URL
 
         function updateSoundIcon() {
             if (isSoundMuted) {
@@ -2160,19 +2165,19 @@
 
         function playCorrectSound() {
             if (!isSoundMuted) {
-                correctSound.play();
+                correctSound.play().catch(e => console.error("Error playing correct sound:", e));
             }
         }
 
         function playIncorrectSound() {
             if (!isSoundMuted) {
-                incorrectSound.play();
+                incorrectSound.play().catch(e => console.error("Error playing incorrect sound:", e));
             }
         }
 
         function playWarningSound() {
             if (!isSoundMuted) {
-                warningSound.play();
+                warningSound.play().catch(e => console.error("Error playing warning sound:", e));
             }
         }
 
