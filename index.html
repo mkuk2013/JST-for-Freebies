@@ -1069,13 +1069,17 @@
 
         // Initialize Firebase
         let auth, db;
+        let firebaseInitialized = false; // Flag to track Firebase initialization status
+
         try {
             const app = initializeApp(firebaseConfig);
             auth = getAuth(app);
             db = getFirestore(app);
+            firebaseInitialized = true; // Set flag to true on successful initialization
             console.log('Firebase successfully initialized.');
         } catch (error) {
             console.error('Firebase initialization error:', error);
+            // alert('Firebase initialization failed. Please check your console.'); // Removed alert as per instructions
         }
 
         /*
@@ -1717,6 +1721,7 @@
         let timerInterval;
         let testStartTime;
         let userAuthToken = null; // Store the Firebase auth token
+        let authStateReady = false; // New flag to indicate if auth state is known
 
         const startTestBtn = document.getElementById('start-test-btn');
         const closeNoticeModalBtn = document.getElementById('close-notice-modal-btn');
@@ -1753,16 +1758,39 @@
 
         totalQuestionsElement.textContent = questions.length;
 
-        async function authenticateAnonymously() {
-            try {
-                const userCredential = await signInAnonymously(auth);
-                userAuthToken = await userCredential.user.getIdToken();
-                console.log('Anonymous authentication successful. Token obtained.');
-            } catch (error) {
-                console.error('Anonymous authentication failed:', error);
-                alert('Authentication failed. Please try again later.');
-            }
+        // Firebase initialization and authentication listener
+        // This ensures auth and db are ready before any operations
+        let appInstance; // Store the app instance
+        try {
+            appInstance = initializeApp(firebaseConfig);
+            auth = getAuth(appInstance);
+            db = getFirestore(appInstance);
+            console.log('Firebase successfully initialized.');
+
+            // Listen for auth state changes
+            auth.onAuthStateChanged(async (user) => {
+                if (user) {
+                    userAuthToken = await user.getIdToken();
+                    console.log('User is authenticated. UID:', user.uid);
+                } else {
+                    // Sign in anonymously if no user is found
+                    try {
+                        const userCredential = await signInAnonymously(auth);
+                        userAuthToken = await userCredential.user.getIdToken();
+                        console.log('Anonymous authentication successful. UID:', userCredential.user.uid);
+                    } catch (error) {
+                        console.error('Anonymous authentication failed:', error);
+                        alert('Authentication failed. Please try again later.');
+                    }
+                }
+                authStateReady = true; // Set flag once auth state is known
+            });
+
+        } catch (error) {
+            console.error('Firebase initialization error:', error);
+            // alert('Firebase initialization failed. Please check your console.'); // Removed alert as per instructions
         }
+
 
         async function startTest() {
             const name = document.getElementById('name').value.trim();
@@ -1780,8 +1808,22 @@
                 return;
             }
 
+            // Ensure Firebase is initialized and auth state is ready
+            if (!firebaseInitialized || !authStateReady) {
+                console.warn('Firebase not fully initialized or authentication not ready. Retrying in 1 second...');
+                setTimeout(startTest, 1000); // Retry after a short delay
+                return;
+            }
+
             // First, check if a test has already been submitted with this email address
             try {
+                // Ensure db and auth are defined before using them
+                if (!db || !auth || !auth.currentUser) {
+                    console.error('Firestore or Auth not ready during email check. db:', db, 'auth:', auth);
+                    alert('An internal error occurred. Please refresh the page and try again.');
+                    return;
+                }
+                console.log('Checking for existing email with UID:', auth.currentUser.uid); // Log current UID
                 const emailQuery = query(collection(db, `results`), where("email", "==", email));
                 const emailQuerySnapshot = await getDocs(emailQuery);
 
@@ -1797,7 +1839,7 @@
 
             // Check if user has already submitted a test (this check is now secondary to email)
             const userId = localStorage.getItem('mockTestUserId');
-            if (userId) {
+            if (userId && db && auth && auth.currentUser) { // Add checks for db and auth.currentUser
                 const q = query(collection(db, `results`), where("userId", "==", userId));
                 const querySnapshot = await getDocs(q);
                 if (!querySnapshot.empty) {
@@ -1807,8 +1849,6 @@
                     return;
                 }
             }
-
-            await authenticateAnonymously(); // Ensure authenticated before starting
 
             welcomeScreen.classList.add('hidden');
             testScreen.classList.remove('hidden');
@@ -2055,6 +2095,14 @@
                     }
                     localStorage.setItem('mockTestUserId', userId);
                 }
+
+                // Ensure db and auth are defined before using them
+                if (!db || !auth || !auth.currentUser) {
+                    console.error('Firestore or Auth not ready during result save. db:', db, 'auth:', auth);
+                    alert('An internal error occurred while saving results. Please refresh the page and try again.');
+                    return;
+                }
+                console.log('Saving result to Firebase with UID:', auth.currentUser.uid); // Log current UID
 
                 await addDoc(collection(db, `results`), {
                     name: name,
