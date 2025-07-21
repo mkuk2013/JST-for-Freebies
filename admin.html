@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JST Mock Test Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #6A82FB;
+            --accent-color: #FFC107;
+            --success-color: #4CAF50;
+            --danger-color: #F44347;
+            --warning-color: #FF9800;
+            
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --border-color: #E0E0E0;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        html[data-theme="dark"] {
+            --text-primary: #E0E0E0;
+            --text-secondary: #B0B0B0;
+            --bg-primary: #1A1A1A;
+            --bg-secondary: #2C2C2C;
+            --border-color: #4A4A4A;
+            --primary-color: #8A2BE2;
+            --secondary-color: #4169E1;
+            --accent-color: #FFD700;
+            --success-color: #7FFF00;
+            --danger-color: #FF6347;
+            --warning-color: #FFA500;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-secondary);
+            min-height: 100vh;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: #EBF2F7;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+        }
+
+        html[data-theme="dark"] .form-group input:focus {
+            background: #3A3A3A;
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            width: 100%;
+            margin-top: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            opacity: 0.95;
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary:hover {
+            background: #EBEFF3;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .dashboard-content {
+            margin-top: 2rem;
+        }
+
+        .dashboard-content h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .dashboard-controls {
+            display: flex;
+            justify-content: flex-end; /* Align to right */
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .dashboard-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+            overflow: hidden; /* Ensures rounded corners apply to table content */
+        }
+
+        .dashboard-content th, .dashboard-content td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem; /* Slightly smaller font for table data */
+        }
+
+        .dashboard-content th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem; /* Slightly smaller font for headers */
+        }
+
+        .dashboard-content tr:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
+        .dashboard-content tr:hover {
+            background: #EBF2F7;
+        }
+
+        html[data-theme="dark"] .dashboard-content tr:hover {
+            background: #3A3A3A;
+        }
+
+        .status-pass {
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        .status-fail {
+            color: var(--danger-color);
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            background: var(--danger-color);
+            color: white;
+            /* float: right; Removed float for flexbox layout */
+            width: auto;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .logout-btn:hover {
+            background: #E53935;
+        }
+
+        .delete-all-btn {
+            background: var(--danger-color);
+            color: white;
+            width: auto;
+            padding: 0.75rem 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .delete-all-btn:hover {
+            background: #E53935;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .print-pdf-btn {
+            background: var(--success-color); /* Green for print button */
+            color: white;
+            width: auto;
+            padding: 0.75rem 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .print-pdf-btn:hover {
+            background: #4CAF50; /* Darker green on hover */
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .loading-indicator {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .dashboard-content th, .dashboard-content td {
+                padding: 0.75rem;
+                font-size: 0.85rem;
+            }
+            .dashboard-controls {
+                flex-direction: column;
+                align-items: stretch; /* Stretch buttons to full width */
+            }
+            .logout-btn, .delete-all-btn, .print-pdf-btn {
+                width: 100%;
+                margin-top: 0.5rem; /* Add some space between stacked buttons */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Screen -->
+        <div id="login-screen">
+            <div class="header">
+                <h1><i class="fas fa-user-shield"></i> Admin Login</h1>
+                <p>Admin panel mein dakhil hone ke liye login karein.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="admin-username"><i class="fas fa-user"></i> Username</label>
+                <input type="text" id="admin-username" placeholder="Username daliye..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="admin-password"><i class="fas fa-lock"></i> Password</label>
+                <input type="password" id="admin-password" placeholder="Password daliye..." required>
+            </div>
+
+            <button class="btn btn-primary" onclick="adminLogin()">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="admin-dashboard" class="hidden">
+            <div class="header">
+                <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
+                <p>Users ke test results yahan dekhein.</p>
+            </div>
+
+            <div class="dashboard-controls">
+                <button class="btn print-pdf-btn" onclick="printResultsPdf()">
+                    <i class="fas fa-file-pdf"></i> Print PDF
+                </button>
+                <button class="btn delete-all-btn" onclick="deleteAllResults()">
+                    <i class="fas fa-trash-alt"></i> Delete All Data
+                </button>
+                <button class="btn logout-btn" onclick="adminLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+
+            <div class="dashboard-content">
+                <h2>Test Results</h2>
+                <div id="results-table-container">
+                    <p class="loading-indicator">Results load ho rahe hain...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+        import { getAuth, signInAnonymously, signOut } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+        import { getFirestore, collection, getDocs, deleteDoc, doc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+        // Load html2pdf.js library
+        const loadScript = (src) => {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = src;
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        };
+
+        // Firebase configuration (Same as the main app)
+        const firebaseConfig = {
+            apiKey: "AIzaSyDX3UMTlZiCB0CL9yAeJnuzKg022jbEJEY",
+            authDomain: "mocktestapp-353db.firebaseapp.com",
+            projectId: "mocktestapp-353db",
+            storageBucket: "mocktestapp-353db.firebasestorage.app",
+            messagingSenderId: "658583028202",
+            appId: "1:658583028202:web:d3c264ce467fab3a61b293",
+            measurementId: "G-HVTV85W3Z4"
+        };
+
+        // Initialize Firebase
+        let auth, db;
+        try {
+            const app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            console.log('Firebase successfully initialized for Admin Panel.');
+        } catch (error) {
+            console.error('Firebase initialization error for Admin Panel:', error);
+            showCustomAlert('Firebase initialize karne mein masla hai. Admin panel kaam nahi karega.');
+        }
+
+        /*
+         * IMPORTANT: Firestore Security Rules Configuration for Admin Panel and Main App
+         *
+         * Aapko apne Firebase project mein Firestore security rules ko update karna hoga
+         * taake yeh admin panel data ko read aur delete kar sake aur main app data ko write kar sake.
+         *
+         * Firebase Console (Firestore -> Rules tab) mein in rules ko copy paste karein:
+         *
+         * rules_version = '2';
+         * service cloud.firestore {
+         * match /databases/{database}/documents {
+         * // Rule for the 'results' collection at the root level
+         * // This rule allows any authenticated user (including anonymous) to READ, WRITE, and DELETE data from the 'results' collection.
+         * // Yeh rule main test app ko data save karne, admin panel ko data read aur delete karne ki ijazat dega.
+         * match /results/{document=**} {
+         * allow read, write, delete: if request.auth != null;
+         * }
+         * }
+         * }
+         *
+         * Yeh rules kisi bhi authenticated user (anonymous users bhi shamil hain) ko
+         * 'results' collection mein data read, write, aur delete karne ki ijazat denge.
+         *
+         * Agar aapko ab bhi permissions ka masla aata hai, to confirm karein ke:
+         * 1. Aapne yeh rules sahi tarah se Firebase Console mein deploy (Publish) kiye hain.
+         * 2. Aapka Firebase config sahi hai.
+         * 3. Browser console mein koi aur error nahi hai.
+         * 4. Yaqeen karein ke aapki main test app (code (6).html) bhi data ko seedhe
+         * 'results' collection mein save kar rahi hai (collection(db, 'results')).
+         * Agar main app abhi bhi 'artifacts/{appId}/public/data/results' mein save kar rahi hai,
+         * to admin panel ko data nahi milega.
+         */
+
+        // Hardcoded Admin Credentials (For demonstration purposes only)
+        // Production environment mein inko secure tareeqe se handle karein
+        const ADMIN_USERNAME = 'MockTestHub';
+        const ADMIN_PASSWORD = 'Admin@123+';
+
+        // Custom Alert Box
+        function showCustomAlert(message) {
+            const alertBox = document.createElement('div');
+            alertBox.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: var(--bg-primary);
+                border: 1px solid var(--border-color);
+                border-radius: 10px;
+                padding: 20px 30px;
+                box-shadow: var(--shadow-lg);
+                z-index: 1001;
+                text-align: center;
+                color: var(--text-primary);
+                font-size: 1.1rem;
+            `;
+            alertBox.innerHTML = `
+                <p>${message}</p>
+                <button style="
+                    margin-top: 20px;
+                    padding: 10px 20px;
+                    background-color: var(--primary-color);
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 1rem;
+                " onclick="this.parentNode.remove()">OK</button>
+            `;
+            document.body.appendChild(alertBox);
+        }
+
+        // Custom Confirmation Box (replaces native confirm)
+        function showCustomConfirm(message, onConfirm, onCancel) {
+            const confirmBox = document.createElement('div');
+            confirmBox.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: var(--bg-primary);
+                border: 1px solid var(--border-color);
+                border-radius: 10px;
+                padding: 20px 30px;
+                box-shadow: var(--shadow-lg);
+                z-index: 1001;
+                text-align: center;
+                color: var(--text-primary);
+                font-size: 1.1rem;
+            `;
+            confirmBox.innerHTML = `
+                <p>${message}</p>
+                <div style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+                    <button style="
+                        padding: 10px 20px;
+                        background-color: var(--primary-color);
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-size: 1rem;
+                    " id="confirm-ok">Yes</button>
+                    <button style="
+                        padding: 10px 20px;
+                        background-color: var(--bg-secondary);
+                        color: var(--text-primary);
+                        border: 1px solid var(--border-color);
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-size: 1rem;
+                    " id="confirm-cancel">No</button>
+                </div>
+            `;
+            document.body.appendChild(confirmBox);
+
+            document.getElementById('confirm-ok').onclick = () => {
+                confirmBox.remove();
+                if (onConfirm) onConfirm();
+            };
+            document.getElementById('confirm-cancel').onclick = () => {
+                confirmBox.remove();
+                if (onCancel) onCancel();
+            };
+        }
+
+        // Admin Login Function
+        window.adminLogin = async () => {
+            const username = document.getElementById('admin-username').value;
+            const password = document.getElementById('admin-password').value;
+
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                try {
+                    if (!auth.currentUser) {
+                        await signInAnonymously(auth);
+                        console.log('Admin signed in anonymously for data access.');
+                    }
+                    document.getElementById('login-screen').classList.add('hidden');
+                    document.getElementById('admin-dashboard').classList.remove('hidden');
+                    fetchTestResults(); // Fetch results after successful login
+                } catch (error) {
+                    console.error('Firebase Auth Error during admin login:', error);
+                    showCustomAlert('Login mein masla hai. Firebase authentication failed: ' + error.message);
+                }
+            } else {
+                showCustomAlert('Galat username ya password!');
+            }
+        };
+
+        // Fetch Test Results from Firestore
+        async function fetchTestResults() {
+            const resultsTableContainer = document.getElementById('results-table-container');
+            resultsTableContainer.innerHTML = '<p class="loading-indicator">Results load ho rahe hain...</p>';
+
+            try {
+                const resultsCollectionRef = collection(db, 'results'); 
+                console.log('Firestore collection path (Admin Panel):', 'results');
+                
+                const querySnapshot = await getDocs(resultsCollectionRef);
+
+                if (querySnapshot.empty) {
+                    console.log('No test results found in Firestore for "results" collection.');
+                    resultsTableContainer.innerHTML = '<p>Koi test results nahi mile.</p>';
+                    return;
+                }
+
+                let tableHtml = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Score</th>
+                                <th>Percentage</th>
+                                <th>Status</th>
+                                <th>Time Taken</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                querySnapshot.forEach(doc => {
+                    const data = doc.data();
+                    const statusClass = data.status === 'Pass' ? 'status-pass' : 'status-fail';
+                    const timeTakenMinutes = Math.floor(data.timeTaken / 60);
+                    const timeTakenSeconds = data.timeTaken % 60;
+                    const formattedTime = `${timeTakenMinutes}:${timeTakenSeconds < 10 ? '0' : ''}${timeTakenSeconds}`;
+                    const date = data.timestamp ? new Date(data.timestamp.toDate()).toLocaleDateString('en-GB') : 'N/A'; // Formatted date
+
+                    tableHtml += `
+                        <tr>
+                            <td>${data.name || 'N/A'}</td>
+                            <td>${data.email || 'N/A'}</td>
+                            <td>${data.score !== undefined ? data.score : 'N/A'} / ${data.total !== undefined ? data.total : 'N/A'}</td>
+                            <td>${data.percentage !== undefined ? data.percentage.toFixed(1) : 'N/A'}%</td>
+                            <td><span class="${statusClass}">${data.status || 'N/A'}</span></td>
+                            <td>${formattedTime}</td>
+                            <td>${date}</td>
+                        </tr>
+                    `;
+                });
+
+                tableHtml += `
+                        </tbody>
+                    </table>
+                `;
+                resultsTableContainer.innerHTML = tableHtml;
+                console.log('Test results successfully loaded and displayed.');
+
+            } catch (error) {
+                console.error('Test results fetch karne mein masla:', error);
+                resultsTableContainer.innerHTML = `<p style="color: var(--danger-color);">Results load karne mein error: ${error.message}. Please check Firebase rules and ensure data exists at the correct path.</p>`;
+            }
+        }
+
+        // Delete All Results Function
+        window.deleteAllResults = () => {
+            showCustomConfirm(
+                'Kya aap waqai saara data delete karna chahte hain? Yeh action wapas nahi liya ja sakta!',
+                async () => {
+                    // User confirmed deletion
+                    const resultsTableContainer = document.getElementById('results-table-container');
+                    resultsTableContainer.innerHTML = '<p class="loading-indicator">Data delete ho raha hai...</p>';
+                    
+                    try {
+                        const resultsCollectionRef = collection(db, 'results');
+                        const querySnapshot = await getDocs(resultsCollectionRef);
+                        
+                        if (querySnapshot.empty) {
+                            showCustomAlert('Koi data delete karne ke liye nahi mila.');
+                            fetchTestResults(); // Refresh table
+                            return;
+                        }
+
+                        const deletePromises = [];
+                        querySnapshot.forEach((document) => {
+                            deletePromises.push(deleteDoc(doc(db, 'results', document.id)));
+                        });
+
+                        await Promise.all(deletePromises);
+                        showCustomAlert('Saara data kamyabi se delete ho gaya hai!');
+                        fetchTestResults(); // Refresh table after deletion
+                    } catch (error) {
+                        console.error('Data delete karne mein masla:', error);
+                        showCustomAlert(`Data delete karne mein error: ${error.message}. Please check Firebase rules.`);
+                    }
+                },
+                () => {
+                    // User cancelled deletion
+                    showCustomAlert('Data delete karne ka amal mansookh kar diya gaya.');
+                }
+            );
+        };
+
+        // Print Results to PDF Function
+        window.printResultsPdf = async () => {
+            const resultsTableContainer = document.getElementById('results-table-container');
+            
+            // Get the table element BEFORE changing the innerHTML of the container
+            const tableElement = resultsTableContainer.querySelector('table'); 
+            if (!tableElement) {
+                showCustomAlert('PDF banane ke liye koi table nahi mila. Pehle results load hone dein.');
+                console.error('PDF generation failed: Table element not found.');
+                return;
+            }
+
+            const originalContent = resultsTableContainer.innerHTML; // Save original content
+            resultsTableContainer.innerHTML = '<p class="loading-indicator">PDF banaya ja raha hai...</p>'; // Show loading
+
+            try {
+                // Load html2pdf.js dynamically
+                await loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js');
+
+                // Create a temporary div to hold a clean copy of the table for PDF
+                const tempDiv = document.createElement('div');
+                
+                // Define styles to embed in the PDF, using hardcoded values for reliability
+                const pdfStyles = `
+                    body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; }
+                    .pdf-container {
+                        padding: 20px;
+                        border: 1px solid #E0E0E0; /* --border-color */
+                        border-radius: 10px;
+                        background-color: #FFFFFF; /* --bg-primary */
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* --shadow */
+                    }
+                    h1 {
+                        font-size: 24px;
+                        color: #4A90E2; /* --primary-color */
+                        text-align: center;
+                        margin-bottom: 20px;
+                    }
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        border: 1px solid #E0E0E0; /* Table border */
+                    }
+                    th, td {
+                        padding: 12px;
+                        text-align: left;
+                        border-bottom: 1px solid #E0E0E0; /* --border-color */
+                        font-size: 14px;
+                        color: #333333; /* --text-primary */
+                    }
+                    th {
+                        background-color: #4A90E2; /* --primary-color */
+                        color: white;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        font-size: 13px;
+                    }
+                    tr:nth-child(even) {
+                        background-color: #F8F9FA; /* --bg-secondary */
+                    }
+                    .status-pass-pdf {
+                        color: #4CAF50; /* --success-color */
+                        font-weight: 600;
+                    }
+                    .status-fail-pdf {
+                        color: #F44347; /* --danger-color */
+                        font-weight: 600;
+                    }
+                `;
+
+                // Construct the full HTML for PDF, including styles and a title
+                tempDiv.innerHTML = `
+                    <style>${pdfStyles}</style>
+                    <div class="pdf-container">
+                        <h1>JST Mock Test Results - Admin Panel</h1>
+                        ${tableElement.outerHTML}
+                    </div>
+                `;
+
+                // Apply PDF-specific status classes for coloring in the generated HTML
+                tempDiv.querySelectorAll('.status-pass').forEach(span => {
+                    span.classList.remove('status-pass');
+                    span.classList.add('status-pass-pdf');
+                });
+                tempDiv.querySelectorAll('.status-fail').forEach(span => {
+                    span.classList.remove('status-fail');
+                    span.classList.add('status-fail-pdf');
+                });
+
+                // Options for html2pdf
+                const opt = {
+                    margin: 10,
+                    filename: 'JST_Mock_Test_Results.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' } // Landscape for wider table
+                };
+
+                // Generate PDF
+                await html2pdf().set(opt).from(tempDiv).save();
+                showCustomAlert('PDF kamyabi se download ho gaya hai!');
+
+            } catch (error) {
+                console.error('PDF banane mein masla:', error);
+                showCustomAlert(`PDF banane mein error: ${error.message}.`);
+            } finally {
+                resultsTableContainer.innerHTML = originalContent; // Restore original content
+            }
+        };
+
+
+        // Admin Logout Function
+        window.adminLogout = async () => {
+            try {
+                await signOut(auth);
+                document.getElementById('admin-dashboard').classList.add('hidden');
+                document.getElementById('login-screen').classList.remove('hidden');
+                document.getElementById('admin-username').value = '';
+                document.getElementById('admin-password').value = '';
+                showCustomAlert('Aap logout ho gaye hain.');
+            } catch (error) {
+                console.error('Logout error:', error);
+                showCustomAlert('Logout karne mein masla hai: ' + error.message);
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // No auto-login, always show login screen first for admin panel
+        });
+    </script>
+</body>
+</html>

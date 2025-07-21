@@ -1,0 +1,2276 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junior Science Teacher (JST) Mock Test For Freebies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN link corrected -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Light Mode Professional Colors */
+            --primary-color: #4A90E2; /* A professional, calming blue */
+            --secondary-color: #6A82FB; /* A slightly lighter, vibrant blue */
+            --accent-color: #FFC107; /* A warm, inviting yellow for highlights */
+            --success-color: #4CAF50; /* Standard green for success */
+            --danger-color: #F44347; /* Standard red for danger */
+            --warning-color: #FF9800; /* Standard orange for warnings */
+            
+            --text-primary: #333333; /* Dark gray for main text */
+            --text-secondary: #666666; /* Lighter gray for secondary text */
+            --bg-primary: #FFFFFF; /* Pure white background */
+            --bg-secondary: #F8F9FA; /* Off-white for subtle contrast */
+            --border-color: #E0E0E0; /* Light gray for borders */
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        html[data-theme="dark"] {
+            /* Dark Mode Colors (Improved for readability) */
+            --text-primary: #E0E0E0; /* Light gray for main text */
+            --text-secondary: #B0B0B0; /* Slightly darker gray for secondary text */
+            --bg-primary: #1A1A1A; /* Dark gray background */
+            --bg-secondary: #2C2C2C; /* Slightly lighter dark gray for subtle contrast */
+            --border-color: #4A4A4A; /* Darker border for contrast */
+            --primary-color: #8A2BE2; /* A vibrant purple for primary elements */
+            --secondary-color: #4169E1; /* Royal blue for secondary elements */
+            --accent-color: #FFD700; /* Gold for accents */
+            --success-color: #7FFF00; /* Chartreuse green for success */
+            --danger-color: #FF6347; /* Tomato red for danger */
+            --warning-color: #FFA500; /* Orange for warnings */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-secondary); /* Use secondary background for body */
+            min-height: 100vh;
+            color: var(--text-primary); /* Set default text color */
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Particles - Adjusted for light mode */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(0,0,0,0.1); /* Darker particles for light mode */
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        html[data-theme="dark"] .particle {
+            background: rgba(255,255,255,0.1); /* Lighter particles for dark mode */
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.3; }
+        }
+
+        /* Control Buttons - Adjusted for light mode */
+        .control-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .control-btn {
+            background: rgba(255,255,255,0.8); /* Slightly transparent white */
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-primary); /* Dark text for light mode buttons */
+            font-size: 1.2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        html[data-theme="dark"] .control-btn {
+            background: rgba(44,44,44,0.8); /* Darker background for dark mode buttons */
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .control-btn:hover {
+            background: rgba(255,255,255,0.9);
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        html[data-theme="dark"] .control-btn:hover {
+            background: rgba(60,60,60,0.9);
+        }
+
+        .control-btn.muted {
+            opacity: 0.5;
+        }
+
+        /* Main Container */
+        .main-container {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: var(--bg-primary); /* Pure white background */
+            border: 1px solid var(--border-color);
+            border-radius: 15px; /* Slightly less rounded for professionalism */
+            padding: 2.5rem; /* Increased padding */
+            width: 100%;
+            max-width: 900px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem; /* Increased margin */
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color); /* Primary color for main heading */
+            margin-bottom: 0.75rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header h1 i {
+            color: var(--primary-color); /* Primary color for icon */
+        }
+
+        .header p {
+            color: var(--text-secondary); /* Secondary text color */
+            font-size: 1.1rem;
+            font-weight: 400; /* Adjusted font weight */
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.75rem; /* Increased margin */
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem; /* Adjusted margin */
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem 1.25rem; /* Adjusted padding */
+            border: 1px solid var(--border-color);
+            border-radius: 8px; /* Slightly less rounded */
+            background: var(--bg-secondary); /* Secondary background for inputs */
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color); /* Primary color on focus */
+            background: #EBF2F7; /* Lighter blue on focus */
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* Soft blue shadow */
+        }
+
+        html[data-theme="dark"] .form-group input:focus {
+            background: #3A3A3A;
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3); /* Purple shadow for dark mode */
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem; /* Slightly larger font */
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            /* Added for consistent height */
+            min-height: 55px; /* Ensure a minimum height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* Blue gradient */
+            color: white;
+            width: 100%;
+            margin-top: 1.5rem; /* Increased margin */
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            opacity: 0.95; /* Slight opacity change on hover */
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary:hover {
+            background: #EBEFF3; /* Lighter grey on hover */
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 2.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px; /* Thicker progress bar */
+            background: var(--border-color);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success-color), var(--primary-color)); /* Green to blue gradient */
+            border-radius: 5px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Question Palette */
+        .palette-container {
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .palette-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .palette {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 1.25rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            gap: 10px;
+            padding-bottom: 15px; /* Space for scrollbar */
+            scroll-snap-type: x mandatory;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* Inner shadow for depth */
+            
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) var(--border-color);
+        }
+
+        .palette::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .palette::-webkit-scrollbar-track {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        .palette::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 4px;
+            border: 2px solid var(--bg-secondary);
+        }
+
+        .palette-btn {
+            width: 55px; /* Slightly larger buttons */
+            height: 55px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .palette-btn:hover {
+            transform: scale(1.05);
+            background: var(--bg-secondary);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.2);
+        }
+
+        html[data-theme="dark"] .palette-btn:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+        }
+
+        .palette-btn.current {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.4);
+        }
+
+        html[data-theme="dark"] .palette-btn.current {
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+        }
+
+        .palette-btn.answered {
+            background: var(--success-color);
+            border-color: var(--success-color);
+            color: white;
+        }
+
+        .palette-btn.bookmarked::after {
+            content: '★';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            color: var(--warning-color);
+            font-size: 0.8rem;
+            text-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+
+        /* Question Container */
+        .question-container {
+            background: var(--bg-primary);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.75rem;
+        }
+
+        .question-number {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .bookmark-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .bookmark-btn:hover,
+        .bookmark-btn.active {
+            color: var(--warning-color);
+            transform: scale(1.2);
+        }
+
+        .question-text {
+            font-size: 1.25rem; /* Slightly larger question text */
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        /* New: Passage Display Container */
+        .passage-display {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inner shadow */
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+        html[data-theme="dark"] .passage-display {
+            background: #2C2C2C;
+            border-color: #4A4A4A;
+        }
+
+        /* Options */
+        .options {
+            display: grid;
+            gap: 1.25rem; /* Increased gap */
+        }
+
+        .option {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .option:hover {
+            background: #EBF2F7; /* Lighter blue on hover */
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        html[data-theme="dark"] .option:hover {
+            background: #3A3A3A;
+            border-color: var(--primary-color);
+        }
+
+        .option.selected {
+            background: rgba(74, 144, 226, 0.1); /* Light primary color tint */
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+        }
+
+        html[data-theme="dark"] .option.selected {
+            background: rgba(138, 43, 226, 0.2); /* Dark mode primary tint */
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+        }
+
+        .option input[type="radio"] {
+            width: 22px; /* Larger radio button */
+            height: 22px;
+            accent-color: var(--primary-color);
+        }
+
+        .option label {
+            color: var(--text-primary);
+            font-weight: 500;
+            cursor: pointer;
+            flex: 1;
+            font-size: 1.05rem;
+        }
+
+        /* Navigation */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            flex: 1; /* Ensure nav-buttons container takes available space */
+            justify-content: center; /* Center the buttons within the container */
+        }
+
+        .nav-btn {
+            padding: 0.9rem 1.8rem; /* Adjusted padding */
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: var(--shadow);
+            flex: 1; /* Make nav buttons take equal width */
+            min-height: 55px; /* Ensure consistent height for nav buttons */
+            justify-content: center; /* Center content horizontally */
+            max-width: 180px; /* Limit max width for smaller buttons on larger screens */
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .nav-btn.prev {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-btn.next {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .nav-btn.submit {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            opacity: 0.95;
+        }
+
+        /* Ensure text color for answered count */
+        .nav-container span {
+            color: var(--text-secondary);
+        }
+
+        /* Result Screen */
+        .result-container {
+            text-align: center;
+            padding: 2.5rem;
+        }
+
+        .result-score {
+            font-size: 4.5rem; /* Larger score */
+            font-weight: 700;
+            margin: 1.5rem 0;
+            background: linear-gradient(135deg, var(--success-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .result-status {
+            font-size: 1.8rem; /* Larger status */
+            font-weight: 600;
+            margin: 1.5rem 0;
+        }
+
+        .result-status.pass {
+            color: var(--success-color);
+        }
+
+        .result-status.fail {
+            color: var(--danger-color);
+        }
+
+        .result-details {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .result-details h3 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-details p {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color); /* Primary color for detail numbers */
+        }
+
+        /* Utilities */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-2 {
+            margin-bottom: 1rem;
+        }
+
+        .mt-2 {
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .palette {
+                grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+            }
+
+            .palette-btn {
+                width: 45px;
+                height: 45px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .nav-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .control-buttons {
+                right: 10px;
+                top: 10px;
+            }
+
+            .control-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .top-info-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .timer-display-wrapper {
+                margin-top: 10px; /* Add some space if stacked */
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,0.2); /* Darker border for light mode */
+            border-radius: 50%;
+            border-top-color: var(--primary-color); /* Primary color for loading spinner */
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Important Notice Modal Styles */
+        .notice-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1002; /* Higher than other modals */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .notice-content {
+            background: var(--bg-primary);
+            border-radius: 15px;
+            padding: 2.5rem;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            color: var(--text-primary);
+        }
+
+        .notice-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .notice-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .notice-content .btn-primary {
+            width: auto;
+            padding: 0.8rem 2rem;
+            /* Centering the button */
+            display: block; /* Make it a block element to apply margin auto */
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 250px; /* Optional: limit width for a better centered appearance */
+        }
+
+        /* New styles for top info bar */
+        .top-info-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .question-progress-display {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .timer-display-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem; /* Sets the size for both icon and text */
+            font-weight: 600;
+            color: var(--danger-color); /* Always red as requested */
+        }
+
+        .timer-display-wrapper .timer {
+            color: inherit; /* Inherit color from parent (.timer-display-wrapper) */
+            background: none;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            animation: none;
+            font-size: inherit; /* Inherit font size from parent */
+            font-weight: inherit; /* Inherit font weight from parent */
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Control Buttons -->
+    <div class="control-buttons">
+        <button class="control-btn" id="theme-toggle" title="Theme Toggle">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <button class="control-btn" id="sound-toggle" title="Sound Toggle">
+            <i class="fas fa-volume-up" id="sound-icon"></i>
+        </button>
+        <button class="control-btn" id="fullscreen-toggle" title="Fullscreen">
+            <i class="fas fa-expand" id="fullscreen-icon"></i>
+        </button>
+    </div>
+
+    <div class="main-container">
+        <div class="container">
+            <!-- Welcome Screen -->
+            <div id="welcome-screen">
+                <div class="header">
+                    <h1><i class="fas fa-graduation-cap"></i> Junior Science Teacher (JST) Mock Test For Freebies</h1>
+                    <p>Apne knowledge ko test karein aur JST exam ke liye tayyar ho jayen!</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Apka Naam</label>
+                    <input type="text" id="name" placeholder="Yahan apna naam likhiye..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" placeholder="example@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number (Optional)</label>
+                    <input type="tel" id="phone" placeholder="+92 300 1234567">
+                </div>
+
+                <button class="btn btn-primary" id="start-test-btn">
+                    <i class="fas fa-play"></i> Test Shuru Kariye
+                </button>
+
+                <div class="mt-2 text-center">
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        <i class="fas fa-clock"></i> Test ka waqt: 100 minutes | 
+                        <i class="fas fa-question-circle"></i> Total Questions: 100 |
+                        <i class="fas fa-check-circle"></i> Pass Marks: 40%
+                    </p>
+                </div>
+            </div>
+
+            <!-- Test Screen -->
+            <div id="test-screen" class="hidden">
+                <!-- Top Info Bar: Question Progress and Timer -->
+                <div class="top-info-bar">
+                    <div class="question-progress-display" id="question-progress-display">
+                        <!-- Question X of Y will be inserted here by JS -->
+                    </div>
+                    <div class="timer-display-wrapper">
+                        <i class="fas fa-clock"></i> <span class="timer" id="timer">Time Left: 100:00</span>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <!-- The progress-text is now part of question-progress-display -->
+                </div>
+
+                <!-- Question Container -->
+                <div class="question-container">
+                    <div class="question-header">
+                        <div class="question-number" id="question-number">Question 1</div>
+                        <button class="bookmark-btn" id="bookmark-btn" title="Bookmark this question">
+                            <i class="fas fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="passage-display hidden" id="passage-display">
+                        <!-- Passage content will be loaded here -->
+                    </div>
+                    <div class="question-text" id="question-text">
+                        <!-- Question content will be loaded here -->
+                    </div>
+                    <div class="options" id="options">
+                        <!-- Options will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="nav-container">
+                    <div class="nav-buttons">
+                        <button class="nav-btn prev" id="prev-btn" disabled>
+                            <i class="fas fa-chevron-left"></i> Previous
+                        </button>
+                        <button class="nav-btn next" id="next-btn">
+                            Next <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <button class="nav-btn submit hidden" id="submit-btn">
+                            <i class="fas fa-check"></i> Review & Submit
+                        </button>
+                    </div>
+                    
+                    <div style="color: var(--text-secondary); font-size: 0.9rem;">
+                        <span id="answered-count">0</span> answered out of <span id="total-questions">100</span>
+                    </div>
+                </div>
+
+                <!-- Question Palette -->
+                <div class="palette-container">
+                    <div class="palette-title">
+                        <i class="fas fa-th"></i> Question Navigator
+                        <span style="margin-left: auto; font-size: 0.9rem;">
+                            <span style="color: var(--success-color);">● Answered</span>
+                            <span style="color: var(--primary-color); margin-left: 1rem;">● Current</span>
+                            <span style="color: var(--warning-color); margin-left: 1rem;">★ Bookmarked</span>
+                        </span>
+                    </div>
+                    <div class="palette" id="palette"></div>
+                </div>
+            </div>
+
+            <!-- Result Screen -->
+            <div id="result-screen" class="hidden">
+                <div class="result-container">
+                    <div class="header">
+                        <h1><i class="fas fa-trophy"></i> Apka Result</h1>
+                    </div>
+
+                    <div class="result-score" id="result-score">0 / 100</div>
+                    <div class="result-status" id="result-status"></div>
+
+                    <div class="result-details">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                            <div>
+                                <h3 style="color: var(--success-color);"><i class="fas fa-check-circle"></i> Correct</h3>
+                                <p style="font-size: 2rem; font-weight: 700;" id="correct-count">0</p>
+                            </div>
+                            <div>
+                                <h3 style="color: var(--danger-color);"><i class="fas fa-times-circle"></i> Incorrect</h3>
+                                <p style="font-size: 2rem; font-weight: 700;" id="incorrect-count">0</p>
+                            </div>
+                            <div>
+                                <h3 style="color: var(--warning-color);"><i class="fas fa-clock"></i> Time Taken</h3>
+                                <p style="font-size: 2rem; font-weight: 700;" id="time-taken">0:00</p>
+                            </div>
+                            <div>
+                                <h3 style="color: var(--accent-color);"><i class="fas fa-percentage"></i> Percentage</h3>
+                                <p style="font-size: 2rem; font-weight: 700;" id="percentage">0%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nav-buttons">
+                        <!-- Removed "Dobara Try Kariye" button as per user request -->
+                        <button class="btn btn-primary" id="certificate-btn" style="display: none;">
+                            <i class="fas fa-download"></i> Certificate Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Important Notice Modal -->
+    <div id="notice-modal" class="notice-modal">
+        <div class="notice-content">
+            <h2><i class="fas fa-info-circle"></i> Aham Elaan</h2>
+            <p>
+                Test dene se pehle aap ko batate chalen ke yeh ek Free Mock Test hai. Aap sirf ek hi baar test de sakte hain. 
+                Ek baar test submit hone ke baad, aap apne system se dobara test nahin de sakte.
+            </p>
+            <p>Aap ke taawun ka behad shukriya.</p>
+            <button class="btn btn-primary" id="close-notice-modal-btn">
+                <i class="fas fa-check-circle"></i>&nbsp;Samajh Gaya
+            </button>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div id="review-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+        <div style="background: var(--bg-primary); border-radius: 15px; padding: 2.5rem; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: var(--shadow-lg);">
+            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;"><i class="fas fa-eye"></i> Final Review</h2>
+            <!-- Buttons moved to the top -->
+            <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                <button class="btn btn-secondary" id="close-review-modal-btn" style="flex: 1; min-width: 150px;">
+                    <i class="fas fa-arrow-left"></i> Back to Test
+                </button>
+                <button class="btn btn-primary" id="final-submit-btn" style="flex: 1; min-width: 150px;">
+                    <i class="fas fa-check"></i> Final Submit
+                </button>
+            </div>
+            <hr style="border-color: var(--border-color); margin-bottom: 1.5rem;">
+            <div id="review-content" style="color: var(--text-primary);"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+        import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+        import { getFirestore, collection, addDoc, query, where, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDX3UMTlZiCB0CL9yAeJnuzKg022jbEJEY",
+            authDomain: "mocktestapp-353db.firebaseapp.com",
+            projectId: "mocktestapp-353db",
+            storageBucket: "mocktestapp-353db.firebasestorage.app",
+            messagingSenderId: "658583028202",
+            appId: "1:658583028202:web:d3c264ce467fab3a61b293",
+            measurementId: "G-HVTV85W3Z4"
+        };
+
+        // Initialize Firebase
+        let auth, db;
+        try {
+            const app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            console.log('Firebase successfully initialized.');
+        } catch (error) {
+            console.error('Firebase initialization error:', error);
+        }
+
+        /*
+         * IMPORTANT: Firestore Security Rules Configuration
+         *
+         * Aapko apne Firebase project mein Firestore security rules ko update karna hoga
+         * taake yeh application data ko read aur write kar sake.
+         *
+         * Firebase Console (Firestore -> Rules tab) mein in rules ko copy paste karein:
+         *
+         * rules_version = '2';
+         * service cloud.firestore {
+         * match /databases/{database}/documents {
+         * // Public data collection for test results
+         * match /artifacts/{appId}/public/data/results/{document=**} {
+         * allow read, write: if request.auth != null;
+         * }
+         * }
+         * }
+         *
+         * Yeh rules kisi bhi authenticated user (anonymous users bhi shamil hain) ko
+         * 'results' collection mein data read aur write karne ki ijazat denge.
+         *
+         * Agar aapko ab bhi permissions ka masla aata hai, to confirm karein ke:
+         * 1. Aapne rules sahi tarah se deploy kiye hain.
+         * 2. Aapka Firebase config sahi hai.
+         * 3. Browser console mein koi aur error nahi hai.
+         */
+
+        // Enhanced Questions in Roman Urdu
+        const questions = [
+           {
+    question: "1. What is the main theme of the passage?",
+    options: ["Urban growth in Sindh", "Preservation of cultural heritage", "Economic benefits", "Political changes"],
+    answer: "Preservation of cultural heritage",
+    subject: "English"
+  },
+  {
+    question: "2. 'Woven through centuries' means:",
+    options: ["Recently invented", "Gradually integrated", "Easily forgotten", "Structurally unstable"],
+    answer: "Gradually integrated",
+    subject: "English"
+  },
+  {
+    question: "3. Folk songs are described as:",
+    options: ["Entertainment", "Living archives", "Religious chants", "Commercial products"],
+    answer: "Living archives",
+    subject: "English"
+  },
+  {
+    question: "4. Which phrase indicates community unity?",
+    options: ["'woven through centuries'", "'dust rises red'", "'band together'", "'rivers flow calm'"],
+    answer: "'band together'",
+    subject: "English"
+  },
+  {
+    question: "5. The tone of the passage is:",
+    options: ["Critical", "Nostalgic yet hopeful", "Satirical", "Indifferent"],
+    answer: "Nostalgic yet hopeful",
+    subject: "English"
+  },
+  {
+    question: "6. 'Break the ice' means:",
+    options: ["Create conflict", "Start a conversation", "Freeze something", "Stop a joke"],
+    answer: "Start a conversation",
+    subject: "English"
+  },
+  {
+    question: "7. 'Cost an arm and a leg' means:",
+    options: ["Very painful", "Extremely expensive", "Very easy", "Free"],
+    answer: "Extremely expensive",
+    subject: "English"
+  },
+  {
+    question: "8. 'Hit the nail on the head' means:",
+    options: ["Be accurate", "Cause damage", "Misunderstand", "Lose confidence"],
+    answer: "Be accurate",
+    subject: "English"
+  },
+  {
+    question: "9. 'Speak of the devil' means:",
+    options: ["Curse someone", "Someone appears after being mentioned", "Avoid mentioning a name", "Talk about evil"],
+    answer: "Someone appears after being mentioned",
+    subject: "English"
+  },
+  {
+    question: "10. 'Bite the bullet' means:",
+    options: ["Avoid conflict", "Endure pain bravely", "Take revenge", "Use a weapon"],
+    answer: "Endure pain bravely",
+    subject: "English"
+  },
+  {
+    question: "11. By the time the guests arrived, she ________ cooking.",
+    options: ["finished", "had finished", "has finished", "finishes"],
+    answer: "had finished",
+    subject: "English"
+  },
+  {
+    question: "12. If he ________ harder, he would pass.",
+    options: ["had studied", "studies", "will study", "study"],
+    answer: "studies",
+    subject: "English"
+  },
+  {
+    question: "13. Next month, she ________ her internship.",
+    options: ["will start", "starts", "would start", "will have started"],
+    answer: "will start",
+    subject: "English"
+  },
+  {
+    question: "14. Identify the subordinate clause: 'Although it rained, the farmers who planted rice were hopeful.'",
+    options: ["Although it rained", "the farmers", "who planted rice", "were hopeful"],
+    answer: "who planted rice",
+    subject: "English"
+  },
+  {
+    question: "15. Which is a simile?",
+    options: ["His mind was a fortress.", "She danced like the wind.", "Time marches on.", "The city sleeps."],
+    answer: "She danced like the wind.",
+    subject: "English"
+  },
+  {
+    question: "16. He said, 'I will arrive tomorrow.' → Indirect speech:",
+    options: ["He said he will arrive tomorrow.", "He said he would arrive the next day.", "He said he arrives tomorrow.", "He said arriving tomorrow."],
+    answer: "He said he would arrive the next day.",
+    subject: "English"
+  },
+  {
+    question: "17. 'The teacher explained the lesson.' → Passive:",
+    options: ["The lesson was explained by the teacher.", "The lesson is explained by the teacher.", "The teacher explained the lesson.", "The lesson explained the teacher."],
+    answer: "The lesson was explained by the teacher.",
+    subject: "English"
+  },
+  {
+    question: "18. 'They built the bridge in 1995.' → Correct passive:",
+    options: ["The bridge built in 1995.", "The bridge was built in 1995.", "The bridge is built in 1995.", "The bridge had been built in 1995."],
+    answer: "The bridge was built in 1995.",
+    subject: "English"
+  },
+  {
+    question: "19. Correct: 'She don't know Sindhi idioms.'",
+    options: ["doesn't", "do not", "don't knows", "not know"],
+    answer: "doesn't",
+    subject: "English"
+  },
+  {
+    question: "20. Correct pronoun: 'Between you and I, this is unique.'",
+    options: ["Between you and me", "Between you and mine", "Between me and you", "Between my friend and me"],
+    answer: "Between you and me",
+    subject: "English"
+  },
+  {
+    question: "21. 'Powerhouse' of the cell?",
+    options: ["Nucleus", "Mitochondria", "Chloroplast", "Ribosome"],
+    answer: "Mitochondria",
+    subject: "Biology"
+  },
+  {
+    question: "22. Photosynthesis occurs in:",
+    options: ["Root cells", "Leaf mesophyll", "Stem phloem", "Guard cells"],
+    answer: "Leaf mesophyll",
+    subject: "Biology"
+  },
+  {
+    question: "23. Largest human organ?",
+    options: ["Heart", "Skin", "Liver", "Brain"],
+    answer: "Skin",
+    subject: "Biology"
+  },
+  {
+    question: "24. Blood cell that fights infection:",
+    options: ["RBC", "WBC", "Platelet", "Plasma"],
+    answer: "WBC",
+    subject: "Biology"
+  },
+  {
+    question: "25. Genetic material housed in:",
+    options: ["Cytoplasm", "Nucleus", "Mitochondria", "Ribosome"],
+    answer: "Nucleus",
+    subject: "Biology"
+  },
+  {
+    question: "26. Plant transport vessel for water:",
+    options: ["Phloem", "Xylem", "Cortex", "Epidermis"],
+    answer: "Xylem",
+    subject: "Biology"
+  },
+  {
+    question: "27. Enzyme in saliva:",
+    options: ["Amylase", "Lipase", "Protease", "Lactase"],
+    answer: "Amylase",
+    subject: "Biology"
+  },
+  {
+    question: "28. Mosquito disease vector:",
+    options: ["Malaria", "Tuberculosis", "Cholera", "Diabetes"],
+    answer: "Malaria",
+    subject: "Biology"
+  },
+  {
+    question: "29. Homeostasis maintains:",
+    options: ["Body temp", "Blood sugar", "Water balance", "All of the above"],
+    answer: "All of the above",
+    subject: "Biology"
+  },
+  {
+    question: "30. Bacteria are:",
+    options: ["Multicellular eukaryotes", "Unicellular prokaryotes", "Viruses", "Fungi"],
+    answer: "Unicellular prokaryotes",
+    subject: "Biology"
+  },
+  {
+    question: "31. Avogadro's number ≈",
+    options: ["6.02×10^20", "6.02×10^23", "6.02×10^26", "6.02×10^29"],
+    answer: "6.02×10^23",
+    subject: "Chemistry"
+  },
+  {
+    question: "32. Catalyst effect:",
+    options: ["Increases activation energy", "Lowers activation energy", "Changes equilibrium", "Gets consumed"],
+    answer: "Lowers activation energy",
+    subject: "Chemistry"
+  },
+  {
+    question: "33. pH of neutral solution:",
+    options: ["7", "1", "14", "0"],
+    answer: "7",
+    subject: "Chemistry"
+  },
+  {
+    question: "34. Atomic number = proton count?",
+    options: ["True", "False", "Depends on isotope", "None"],
+    answer: "True",
+    subject: "Chemistry"
+  },
+  {
+    question: "35. Ionic bond formed by:",
+    options: ["Sharing electrons", "Transferring electrons", "Metallic bonding", "Nuclear bond"],
+    answer: "Transferring electrons",
+    subject: "Chemistry"
+  },
+  {
+    question: "36. Empirical formula of C2H6O?",
+    options: ["C2H6O", "CH3O", "C2H3O", "CH6O2"],
+    answer: "C2H6O",
+    subject: "Chemistry"
+  },
+  {
+    question: "37. Gas at room temperature:",
+    options: ["Mercury", "Oxygen", "Gold", "Iron"],
+    answer: "Oxygen",
+    subject: "Chemistry"
+  },
+  {
+    question: "38. Matter state with fixed shape:",
+    options: ["Solid", "Liquid", "Gas", "Plasma"],
+    answer: "Solid",
+    subject: "Chemistry"
+  },
+  {
+    question: "39. Molecule vs atom:",
+    options: ["Atom > molecule", "Molecule has atoms", "Same thing", "Molecule = ion"],
+    answer: "Molecule has atoms",
+    subject: "Chemistry"
+  },
+  {
+    question: "40. Solution concentration measured in:",
+    options: ["Mol/L", "g/L", "% mass", "All"],
+    answer: "All",
+    subject: "Chemistry"
+  },
+  {
+    question: "41. SI unit of electric field:",
+    options: ["N/C", "V/m", "Both", "J/C"],
+    answer: "Both",
+    subject: "Physics"
+  },
+  {
+    question: "42. Current unit:",
+    options: ["V", "A", "Ω", "W"],
+    answer: "A",
+    subject: "Physics"
+  },
+  {
+    question: "43. Ohm's law:",
+    options: ["V=IR", "I=VR", "R=IV", "P=VI"],
+    answer: "V=IR",
+    subject: "Physics"
+  },
+  {
+    question: "44. Light speed ~?",
+    options: ["3×10^6 m/s", "3×10^8 m/s", "3×10^10 m/s", "3×10^4 m/s"],
+    answer: "3×10^8 m/s",
+    subject: "Physics"
+  },
+  {
+    question: "45. Acceleration due to gravity:",
+    options: ["9.8 m/s²", "1.6 m/s²", "10 km/h²", "0"],
+    answer: "9.8 m/s²",
+    subject: "Physics"
+  },
+  {
+    question: "46. SI unit of force:",
+    options: ["Joule", "Newton", "Pascal", "Watt"],
+    answer: "Newton",
+    subject: "Physics"
+  },
+  {
+    question: "47. Magnet north pole repels:",
+    options: ["South", "North", "Metal", "Plastic"],
+    answer: "North",
+    subject: "Physics"
+  },
+  {
+    question: "48. Sound travels fastest in:",
+    options: ["Air", "Water", "Steel", "Vacuum"],
+    answer: "Steel",
+    subject: "Physics"
+  },
+  {
+    question: "49. Frequency measured in:",
+    options: ["Hz", "m/s", "N", "J"],
+    answer: "Hz",
+    subject: "Physics"
+  },
+  {
+    question: "50. Kinetic energy formula:",
+    options: ["1/2mv²", "mgh", "mv²", "mg"],
+    answer: "1/2mv²",
+    subject: "Physics"
+  },
+  {
+    question: "51. Atmosphere mainly:",
+    options: ["O2", "N2", "CO2", "Ar"],
+    answer: "N2",
+    subject: "Everyday Science"
+  },
+  {
+    question: "52. Water boils at:",
+    options: ["50°C", "100°C", "150°C", "200°C"],
+    answer: "100°C",
+    subject: "Everyday Science"
+  },
+  {
+    question: "53. Solar energy is:",
+    options: ["Renewable", "Non-renewable", "Fossil fuel", "Nuclear"],
+    answer: "Renewable",
+    subject: "Everyday Science"
+  },
+  {
+    question: "54. Plastic pollution harms:",
+    options: ["Wildlife", "Soil", "Water", "All"],
+    answer: "All",
+    subject: "Everyday Science"
+  },
+  {
+    question: "55. Best way to save energy:",
+    options: ["Turn off lights", "Leave appliances on", "Waste water", "Open all windows"],
+    answer: "Turn off lights",
+    subject: "Everyday Science"
+  },
+  {
+    question: "56. Vaccine prevents:",
+    options: ["Illness", "Pollution", "Poverty", "Heat"],
+    answer: "Illness",
+    subject: "Everyday Science"
+  },
+  {
+    question: "57. Hybrid car uses:",
+    options: ["Diesel only", "Petrol + Electric", "Solar", "Coal"],
+    answer: "Petrol + Electric",
+    subject: "Everyday Science"
+  },
+  {
+    question: "58. Recycling glass reduces:",
+    options: ["Landfill", "Water use", "Air pollution", "Soil erosion"],
+    answer: "Landfill",
+    subject: "Everyday Science"
+  },
+  {
+    question: "59. First aid for burn:",
+    options: ["Ice", "Run cool water", "Butter", "Alcohol"],
+    answer: "Run cool water",
+    subject: "Everyday Science"
+  },
+  {
+    question: "60. Tooth decay caused by:",
+    options: ["Sugar", "Salt", "Protein", "Fiber"],
+    answer: "Sugar",
+    subject: "Everyday Science"
+  },
+  {
+    question: "61. Solve x² - 5x + 6 = 0:",
+    options: ["2, 3", "-2, -3", "1, 6", "3, 2"],
+    answer: "2, 3",
+    subject: "Mathematics"
+  },
+  {
+    question: "62. Slope of y = 2x + 1:",
+    options: ["1", "2", "-1", "0"],
+    answer: "2",
+    subject: "Mathematics"
+  },
+  {
+    question: "63. Area of circle radius r:",
+    options: ["πr²", "2πr", "πd", "πr"],
+    answer: "πr²",
+    subject: "Mathematics"
+  },
+  {
+    question: "64. sin(90°) = ?",
+    options: ["0", "1/2", "1", "√2/2"],
+    answer: "1",
+    subject: "Mathematics"
+  },
+  {
+    question: "65. 5 x 5 =",
+    options: ["10", "15", "25", "30"],
+    answer: "25",
+    subject: "Mathematics"
+  },
+  {
+    question: "66. Perimeter of square side a:",
+    options: ["a²", "4a", "2a", "a"],
+    answer: "4a",
+    subject: "Mathematics"
+  },
+  {
+    question: "67. A right angle =",
+    options: ["45°", "90°", "180°", "360°"],
+    answer: "90°",
+    subject: "Mathematics"
+  },
+  {
+    question: "68. 7 + 8 =",
+    options: ["14", "15", "16", "13"],
+    answer: "15",
+    subject: "Mathematics"
+  },
+  {
+    question: "69. Volume of cube side a:",
+    options: ["a²", "a³", "2a³", "3a²"],
+    answer: "a³",
+    subject: "Mathematics"
+  },
+  {
+    question: "70. √49 =",
+    options: ["6", "7", "8", "9"],
+    answer: "7",
+    subject: "Mathematics"
+  },
+  {
+    question: "71. Hijrah began in:",
+    options: ["610 CE", "622 CE", "632 CE", "650 CE"],
+    answer: "622 CE",
+    subject: "Islamiat"
+  },
+  {
+    question: "72. First pillar of Islam:",
+    options: ["Salah", "Shahada", "Zakat", "Hajj"],
+    answer: "Shahada",
+    subject: "Islamiat"
+  },
+  {
+    question: "73. Prophet's mother's name:",
+    options: ["Aisha", "Khadija", "Aminah", "Fatima"],
+    answer: "Aminah",
+    subject: "Islamiat"
+  },
+  {
+    question: "74. Ramadan is the:",
+    options: ["Month of fasting", "Month of pilgrimage", "Month of charity", "Month of prayer"],
+    answer: "Month of fasting",
+    subject: "Islamiat"
+  },
+  {
+    question: "75. Zamzam well located in:",
+    options: ["Medina", "Mecca", "Jerusalem", "Cairo"],
+    answer: "Mecca",
+    subject: "Islamiat"
+  },
+  {
+    question: "76. CPU stands for:",
+    options: ["Central Processing Unit", "Computer Program Utility", "Central Print Unit", "Core Power Unit"],
+    answer: "Central Processing Unit",
+    subject: "Computer"
+  },
+  {
+    question: "77. RAM is:",
+    options: ["Read-Only Memory", "Random Access Memory", "Remote Access Memory", "Rapid Action Module"],
+    answer: "Random Access Memory",
+    subject: "Computer"
+  },
+  {
+    question: "78. Input device:",
+    options: ["Monitor", "Keyboard", "Printer", "Speaker"],
+    answer: "Keyboard",
+    subject: "Computer"
+  },
+  {
+    question: "79. Output device:",
+    options: ["Mouse", "Scanner", "Projector", "Microphone"],
+    answer: "Projector",
+    subject: "Computer"
+  },
+  {
+    question: "80. The internet is:",
+    options: ["LAN", "WAN", "Only wired", "Only wireless"],
+    answer: "WAN",
+    subject: "Computer"
+  },
+  {
+    question: "81. Pakistan's first constitution:",
+    options: ["1947", "1956", "1962", "1973"],
+    answer: "1956",
+    subject: "Social Studies / Pak Studies"
+  },
+  {
+    question: "82. First Governor-General of Pakistan:",
+    options: ["Liaquat Ali Khan", "Jinnah", "Ghulam Muhammad", "Iskander Mirza"],
+    answer: "Jinnah",
+    subject: "Social Studies / Pak Studies"
+  },
+  {
+    question: "83. The Indus River flows into the:",
+    options: ["Arabian Sea", "Bay of Bengal", "Red Sea", "Indian Ocean"],
+    answer: "Arabian Sea",
+    subject: "Social Studies / Pak Studies"
+  },
+  {
+    question: "84. Quaid-e-Azam's title:",
+    options: ["Father of the Nation", "Great Leader", "Supreme Guide", "People's Friend"],
+    answer: "Father of the Nation",
+    subject: "Social Studies / Pak Studies"
+  },
+  {
+    question: "85. Province with the largest area:",
+    options: ["Sindh", "Punjab", "Balochistan", "Khyber Pakhtunkhwa"],
+    answer: "Balochistan",
+    subject: "Social Studies / Pak Studies"
+  },
+  {
+    question: "86. Pakistan's national language:",
+    options: ["Urdu", "Punjabi", "Sindhi", "Pashto"],
+    answer: "Urdu",
+    subject: "Social Studies / Pak Studies"
+  },
+  {
+    question: "87. Pakistan became a republic in:",
+    options: ["1947", "1956", "1962", "1973"],
+    answer: "1956",
+    subject: "Social Studies / Pak Studies"
+  },
+  {
+    question: "88. State religion of Pakistan:",
+    options: ["Islam", "Christianity", "Hinduism", "Buddhism"],
+    answer: "Islam",
+    subject: "Social Studies / Pak Studies"
+  },
+  {
+    question: "89. National animal:",
+    options: ["Markhor", "Tiger", "Elephant", "Kangaroo"],
+    answer: "Markhor",
+    subject: "Social Studies / Pak Studies"
+  },
+  {
+    question: "90. Pakistan's highest mountain is:",
+    options: ["K2", "Nanga Parbat", "Mount Everest", "Tirich Mir"],
+    answer: "K2",
+    subject: "Social Studies / Pak Studies"
+  },
+  {
+    question: "91. ICC T20 World Cup 2024 winner:",
+    options: ["England", "India", "Pakistan", "Australia"],
+    answer: "India",
+    subject: "GK & Current Affairs"
+  },
+  {
+    question: "92. 2023 Nobel Peace Prize went to:",
+    options: ["Nadia Murad", "Maria Ressa", "Narges Mohammadi", "Ukraine"],
+    answer: "Narges Mohammadi",
+    subject: "GK & Current Affairs"
+  },
+  {
+    question: "93. Global climate summit 2024 (COP29) held in:",
+    options: ["Paris", "Dubai", "Glasgow", "Baku"],
+    answer: "Baku",
+    subject: "GK & Current Affairs"
+  },
+  {
+    question: "94. Elon Musk CEO of:",
+    options: ["Facebook", "Tesla", "Amazon", "Apple"],
+    answer: "Tesla",
+    subject: "GK & Current Affairs"
+  },
+  {
+    question: "95. Who invented the telephone?",
+    options: ["Edison", "Bell", "Tesla", "Marconi"],
+    answer: "Bell",
+    subject: "GK & Current Affairs"
+  },
+  {
+    question: "96. Largest desert on Earth:",
+    options: ["Sahara", "Gobi", "Kalahari", "Antarctic Polar Desert"],
+    answer: "Antarctic Polar Desert",
+    subject: "GK & Current Affairs"
+  },
+  {
+    question: "97. First female astronaut:",
+    options: ["Sally Ride", "Valentina Tereshkova", "Peggy Whitson", "Mae Jemison"],
+    answer: "Valentina Tereshkova",
+    subject: "GK & Current Affairs"
+  },
+  {
+    question: "98. Nobel Prize in Physics 2023 was for:",
+    options: ["attosecond pulses of light", "climate science", "quantum sensors", "AI"],
+    answer: "attosecond pulses of light",
+    subject: "GK & Current Affairs"
+  },
+  {
+    question: "99. WHO headquarters in:",
+    options: ["New York", "Geneva", "Paris", "Vienna"],
+    answer: "Geneva",
+    subject: "GK & Current Affairs"
+  },
+  {
+    question: "100. 2027 Cricket World Cup host:",
+    options: ["India", "Australia", "England", "South Africa, Zimbabwe, and Namibia"],
+    answer: "South Africa, Zimbabwe, and Namibia",
+    subject: "GK & Current Affairs"
+  }
+        ];
+
+        let currentQuestion = 0;
+        let answers = JSON.parse(localStorage.getItem('mockTestAnswers')) || {};
+        let bookmarkedQuestions = new Set(JSON.parse(localStorage.getItem('bookmarkedQuestions')) || []);
+        let timeLeft = 100 * 60; // 100 minutes in seconds
+        let timerInterval;
+        let testStartTime;
+        let userAuthToken = null; // Store the Firebase auth token
+
+        const startTestBtn = document.getElementById('start-test-btn');
+        const closeNoticeModalBtn = document.getElementById('close-notice-modal-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const finalSubmitBtn = document.getElementById('final-submit-btn');
+        const closeReviewModalBtn = document.getElementById('close-review-modal-btn');
+        const bookmarkBtn = document.getElementById('bookmark-btn');
+        const themeToggle = document.getElementById('theme-toggle');
+        const soundToggle = document.getElementById('sound-toggle');
+        const fullscreenToggle = document.getElementById('fullscreen-toggle');
+        const certificateBtn = document.getElementById('certificate-btn');
+
+        const questionContainerElement = document.querySelector('#test-screen .question-container');
+        const questionNumberElement = document.getElementById('question-number');
+        const questionTextElement = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options');
+        const progressFill = document.getElementById('progress-fill');
+        const questionProgressDisplay = document.getElementById('question-progress-display'); // New element reference
+        const palette = document.getElementById('palette');
+        const timerElement = document.getElementById('timer');
+        const answeredCountElement = document.getElementById('answered-count');
+        const totalQuestionsElement = document.getElementById('total-questions');
+        const passageDisplayElement = document.getElementById('passage-display'); // New element reference
+
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const testScreen = document.getElementById('test-screen');
+        const resultScreen = document.getElementById('result-screen');
+        const noticeModal = document.getElementById('notice-modal');
+        const reviewModal = document.getElementById('review-modal');
+        const reviewContent = document.getElementById('review-content');
+
+
+        totalQuestionsElement.textContent = questions.length;
+
+        async function authenticateAnonymously() {
+            try {
+                const userCredential = await signInAnonymously(auth);
+                userAuthToken = await userCredential.user.getIdToken();
+                console.log('Anonymous authentication successful. Token obtained.');
+            } catch (error) {
+                console.error('Anonymous authentication failed:', error);
+                alert('Authentication failed. Please try again later.');
+            }
+        }
+
+        async function startTest() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            if (!name || !email) {
+                alert('Please enter your Name and Email to start the test.');
+                return;
+            }
+
+            // Client-side email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Check if user has already submitted a test
+            const userId = localStorage.getItem('mockTestUserId');
+            if (userId) {
+                const q = query(collection(db, `artifacts/mocktestapp/public/data/results`), where("userId", "==", userId));
+                const querySnapshot = await getDocs(q);
+                if (!querySnapshot.empty) {
+                    alert('You have already attempted the test. You can only attempt it once.');
+                    // Optionally, redirect to a page showing previous results or a message
+                    return;
+                }
+            }
+
+            await authenticateAnonymously(); // Ensure authenticated before starting
+
+            welcomeScreen.classList.add('hidden');
+            testScreen.classList.remove('hidden');
+            noticeModal.classList.add('hidden'); // Ensure notice is hidden
+            testStartTime = new Date();
+            startTimer();
+            loadQuestion();
+            generatePalette();
+        }
+
+        function loadQuestion() {
+            const currentQ = questions[currentQuestion];
+
+            // Passage for questions 1 to 5 (0-indexed 0 to 4)
+            const passageContent = `
+                <p>Read the following passage carefully & answer the questions (1 – 5):</p>
+                <p style="text-align:justify">Sindh's traditional crafts, such as Ajrak, pottery, and embroidery, have been woven through centuries of local heritage. Despite modern challenges, artisans pass these skills from elders to the young, ensuring their cultural legacy remains a beacon for identity and pride. Oral storytelling and folk songs act as living archives, capturing the spirit of the land where dust rises red and rivers flow calm. As urbanization spreads, these traditions face a test, yet communities band together through festivals, workshops, and cultural exchange—to preserve what makes Sindh unique.</p>
+            `;
+
+            if (currentQuestion >= 0 && currentQuestion <= 4) {
+                passageDisplayElement.innerHTML = passageContent;
+                passageDisplayElement.classList.remove('hidden');
+            } else {
+                passageDisplayElement.innerHTML = '';
+                passageDisplayElement.classList.add('hidden');
+            }
+
+            questionNumberElement.textContent = `Question ${currentQuestion + 1}`;
+            questionTextElement.innerHTML = currentQ.question;
+            optionsContainer.innerHTML = '';
+            currentQ.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.classList.add('option');
+                optionDiv.innerHTML = `
+                    <input type="radio" id="option${index}" name="question${currentQuestion}" value="${option}">
+                    <label for="option${index}">${option}</label>
+                `;
+                optionDiv.addEventListener('click', () => selectOption(option));
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            // Highlight selected answer
+            const selectedOption = answers[currentQuestion];
+            if (selectedOption) {
+                const radios = document.querySelectorAll(`input[name="question${currentQuestion}"]`);
+                radios.forEach(radio => {
+                    if (radio.value === selectedOption) {
+                        radio.checked = true;
+                        radio.parentElement.classList.add('selected');
+                    }
+                });
+            }
+
+            updateNavigationButtons();
+            updatePalette();
+            updateProgress();
+            updateBookmarkButton();
+        }
+
+        function selectOption(option) {
+            answers[currentQuestion] = option;
+            const optionsDivs = document.querySelectorAll('.option');
+            optionsDivs.forEach(div => div.classList.remove('selected'));
+
+            const selectedRadio = document.querySelector(`input[name="question${currentQuestion}"][value="${option}"]`);
+            if (selectedRadio) {
+                selectedRadio.parentElement.classList.add('selected');
+                selectedRadio.checked = true;
+            }
+            updatePalette();
+            updateProgress();
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+                smoothScrollToTop();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+                smoothScrollToTop();
+            }
+        }
+
+        function updateNavigationButtons() {
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.disabled = currentQuestion === questions.length - 1;
+
+            if (currentQuestion === questions.length - 1) {
+                submitBtn.classList.remove('hidden');
+                nextBtn.classList.add('hidden');
+            } else {
+                submitBtn.classList.add('hidden');
+                nextBtn.classList.remove('hidden');
+            }
+        }
+
+        function generatePalette() {
+            palette.innerHTML = '';
+            questions.forEach((q, index) => {
+                const paletteBtn = document.createElement('button');
+                paletteBtn.classList.add('palette-btn');
+                paletteBtn.textContent = index + 1;
+                paletteBtn.addEventListener('click', () => {
+                    currentQuestion = index;
+                    loadQuestion();
+                });
+                palette.appendChild(paletteBtn);
+            });
+            updatePalette();
+        }
+
+        function updatePalette() {
+            const paletteButtons = document.querySelectorAll('.palette-btn');
+            paletteButtons.forEach((btn, index) => {
+                btn.classList.remove('current', 'answered', 'bookmarked');
+                if (index === currentQuestion) {
+                    btn.classList.add('current');
+                }
+                if (answers[index]) {
+                    btn.classList.add('answered');
+                }
+                if (bookmarkedQuestions.has(index)) {
+                    btn.classList.add('bookmarked');
+                }
+            });
+            // Scroll current question into view
+            const currentBtn = palette.querySelector('.palette-btn.current');
+            if (currentBtn) {
+                currentBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        }
+
+        function toggleBookmark() {
+            if (bookmarkedQuestions.has(currentQuestion)) {
+                bookmarkedQuestions.delete(currentQuestion);
+                bookmarkBtn.classList.remove('active');
+            } else {
+                bookmarkedQuestions.add(currentQuestion);
+                bookmarkBtn.classList.add('active');
+            }
+            updatePalette();
+        }
+
+        function updateBookmarkButton() {
+            if (bookmarkedQuestions.has(currentQuestion)) {
+                bookmarkBtn.classList.add('active');
+            } else {
+                bookmarkBtn.classList.remove('active');
+            }
+        }
+
+        function updateProgress() {
+            const answeredCount = Object.keys(answers).length;
+            const totalQuestions = questions.length;
+            const percentage = (answeredCount / totalQuestions) * 100;
+            progressFill.style.width = `${percentage}%`;
+            // Update the new question progress display
+            questionProgressDisplay.textContent = `Question ${currentQuestion + 1} of ${totalQuestions}`;
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerElement.textContent = `Time Left: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft <= 300 && !timerElement.classList.contains('warning')) { // 5 minutes warning
+                    timerElement.classList.add('warning');
+                    playWarningSound();
+                }
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest(true); // Auto-submit on time up
+                }
+            }, 1000);
+        }
+
+        async function submitTest(timeUp = false) {
+            clearInterval(timerInterval);
+
+            let correctAnswers = 0;
+            let incorrectAnswers = 0;
+
+            questions.forEach((q, index) => {
+                if (answers[index] === q.answer) {
+                    correctAnswers++;
+                } else if (answers[index]) { // Only count if answered but wrong
+                    incorrectAnswers++;
+                }
+            });
+
+            const totalQuestions = questions.length;
+            const percentage = (correctAnswers / totalQuestions) * 100;
+            const passMarks = 40;
+            const status = percentage >= passMarks ? 'Pass' : 'Fail';
+
+            testScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+            reviewModal.classList.add('hidden'); // Ensure review modal is hidden
+
+            document.getElementById('result-score').textContent = `${correctAnswers} / ${totalQuestions}`;
+            const resultStatusElement = document.getElementById('result-status');
+            resultStatusElement.textContent = status === 'Pass' ? 'Mubarak ho! Aap Pass ho gaye hain.' : 'Afsoos! Aap Fail ho gaye hain.';
+            resultStatusElement.className = `result-status ${status.toLowerCase()}`;
+            document.getElementById('correct-count').textContent = correctAnswers;
+            document.getElementById('incorrect-count').textContent = incorrectAnswers;
+
+            const timeTakenSeconds = (new Date() - testStartTime) / 1000;
+            const timeTakenMinutes = Math.floor(timeTakenSeconds / 60);
+            const timeTakenRemainingSeconds = Math.floor(timeTakenSeconds % 60);
+            document.getElementById('time-taken').textContent = `${timeTakenMinutes.toString().padStart(2, '0')}:${timeTakenRemainingSeconds.toString().padStart(2, '0')}`;
+            document.getElementById('percentage').textContent = `${percentage.toFixed(2)}%`;
+
+            // Handle certificate download button visibility
+            if (status === 'Pass' && correctAnswers >= 60) { // Example: 60 correct answers for certificate
+                certificateBtn.style.display = 'inline-block';
+            } else {
+                certificateBtn.style.display = 'none';
+            }
+
+            // Save result to Firebase
+            try {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+
+                // Generate a unique user ID and store it
+                let userId = localStorage.getItem('mockTestUserId');
+                if (!userId) {
+                    userId = auth.currentUser ? auth.currentUser.uid : null; // Use Firebase UID if available
+                    if (!userId) {
+                        userId = 'guest_' + Date.now(); // Fallback for truly anonymous/untracked users
+                    }
+                    localStorage.setItem('mockTestUserId', userId);
+                }
+
+                await addDoc(collection(db, `artifacts/mocktestapp/public/data/results`), {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    userId: userId, // Store the user ID
+                    correctAnswers: correctAnswers,
+                    incorrectAnswers: incorrectAnswers,
+                    totalQuestions: totalQuestions,
+                    percentage: percentage.toFixed(2),
+                    status: status,
+                    timeTaken: `${timeTakenMinutes}:${timeTakenRemainingSeconds}`,
+                    timestamp: serverTimestamp(),
+                    timeUp: timeUp
+                });
+                console.log("Test result saved to Firebase.");
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                alert("Error saving your result. Please try again or contact support.");
+            }
+
+            // Clear saved progress regardless of pass/fail
+            localStorage.removeItem('mockTestProgress');
+            localStorage.removeItem('mockTestAnswers');
+            localStorage.removeItem('bookmarkedQuestions');
+        }
+
+        // Function to download certificate
+        function downloadCertificate() {
+            // Placeholder for certificate generation logic
+            alert('Certificate will be generated and downloaded soon!');
+            // In a real application, you'd send a request to a server to generate a PDF certificate
+            // and trigger a download. This would typically involve more complex server-side logic.
+        }
+
+        // Handle full screen toggle
+        const fullscreenIcon = document.getElementById('fullscreen-icon');
+
+        fullscreenToggle.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().then(() => {
+                    fullscreenIcon.classList.remove('fa-expand');
+                    fullscreenIcon.classList.add('fa-compress');
+                }).catch(err => {
+                    console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                document.exitFullscreen().then(() => {
+                    fullscreenIcon.classList.remove('fa-compress');
+                    fullscreenIcon.classList.add('fa-expand');
+                }).catch(err => {
+                    console.error(`Error attempting to exit full-screen mode: ${err.message} (${err.name})`);
+                });
+            }
+        });
+
+        // Theme Toggle (Light/Dark Mode)
+        const themeIcon = document.getElementById('theme-icon');
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme === 'dark') {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        });
+
+        // Apply saved theme on load
+        const savedTheme = localStorage.getItem('theme') || 'light'; // Default to light
+        setTheme(savedTheme);
+
+        // Sound Toggle
+        const soundIcon = document.getElementById('sound-icon');
+        let isSoundMuted = JSON.parse(localStorage.getItem('isSoundMuted')) || false; // Default to not muted
+
+        // Create audio elements for feedback
+        const correctSound = new Audio('https://commondatastorage.googleapis.com/codeskulptor-assets/week7-bounce.m4a');
+        const incorrectSound = new Audio('https://commondatastorage.googleapis.com/codeskulptor-assets/jump.m4a');
+        const warningSound = new Audio('https://commondatastorage.googleapis.com/codeskulptor-assets/Collision_8-bit.mp3');
+
+        function updateSoundIcon() {
+            if (isSoundMuted) {
+                soundIcon.classList.remove('fa-volume-up');
+                soundIcon.classList.add('fa-volume-mute');
+                soundToggle.classList.add('muted');
+            } else {
+                soundIcon.classList.remove('fa-volume-mute');
+                soundIcon.classList.add('fa-volume-up');
+                soundToggle.classList.remove('muted');
+            }
+        }
+
+        function playCorrectSound() {
+            if (!isSoundMuted) {
+                correctSound.play();
+            }
+        }
+
+        function playIncorrectSound() {
+            if (!isSoundMuted) {
+                incorrectSound.play();
+            }
+        }
+
+        function playWarningSound() {
+            if (!isSoundMuted) {
+                warningSound.play();
+            }
+        }
+
+        soundToggle.addEventListener('click', () => {
+            isSoundMuted = !isSoundMuted;
+            localStorage.setItem('isSoundMuted', JSON.stringify(isSoundMuted));
+            updateSoundIcon();
+        });
+
+        // Initialize sound icon on load
+        updateSoundIcon();
+
+        // Particle background animation
+        const particlesContainer = document.getElementById('particles');
+        const numParticles = 30;
+
+        for (let i = 0; i < numParticles; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 6}s`;
+            particlesContainer.appendChild(particle);
+        }
+
+        // Important Notice Modal Logic
+        function showNoticeModal() {
+            noticeModal.classList.remove('hidden');
+            startTestBtn.disabled = true; // Disable start test button until notice is acknowledged
+        }
+
+        function closeNoticeModal() {
+            noticeModal.classList.add('hidden');
+            startTestBtn.disabled = false; // Enable start test button after notice is acknowledged
+        }
+
+        // Smooth scroll to top when changing questions
+        function smoothScrollToTop() {
+            if (questionContainerElement) {
+                questionContainerElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Review Modal Logic
+        function showReviewModal() {
+            reviewContent.innerHTML = ''; // Clear previous content
+            questions.forEach((q, index) => {
+                const userAnswer = answers[index];
+                const isCorrect = userAnswer === q.answer;
+                const statusIcon = isCorrect ? '<i class="fas fa-check-circle" style="color: var(--success-color);"></i>' : '<i class="fas fa-times-circle" style="color: var(--danger-color);"></i>';
+                const statusText = isCorrect ? 'Correct' : 'Incorrect';
+                const userAnswerText = userAnswer ? userAnswer : 'Not Answered';
+                const answerColor = isCorrect ? 'var(--text-primary)' : 'var(--danger-color)';
+
+                const questionReviewDiv = document.createElement('div');
+                questionReviewDiv.style.marginBottom = '1.5rem';
+                questionReviewDiv.style.paddingBottom = '1rem';
+                questionReviewDiv.style.borderBottom = '1px dashed var(--border-color)';
+                if (index === questions.length - 1) {
+                    questionReviewDiv.style.borderBottom = 'none'; // No border for the last question
+                }
+
+                questionReviewDiv.innerHTML = `
+                    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem;">
+                        Question ${index + 1}: ${q.question}
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.3rem;">
+                        Your Answer: <span style="font-weight: 500; color: ${answerColor};">${userAnswerText}</span> ${statusIcon}
+                    </p>
+                    <p style="color: var(--text-secondary);">
+                        Correct Answer: <span style="font-weight: 500; color: var(--success-color);">${q.answer}</span>
+                    </p>
+                `;
+                reviewContent.appendChild(questionReviewDiv);
+            });
+            reviewModal.classList.remove('hidden');
+        }
+
+        function closeReviewModal() {
+            reviewModal.classList.add('hidden');
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // Attach event listeners to buttons
+            startTestBtn.addEventListener('click', startTest);
+            closeNoticeModalBtn.addEventListener('click', closeNoticeModal);
+            prevBtn.addEventListener('click', prevQuestion);
+            nextBtn.addEventListener('click', nextQuestion);
+            submitBtn.addEventListener('click', showReviewModal);
+            finalSubmitBtn.addEventListener('click', () => submitTest(false)); // Pass false for not time-up submission
+            closeReviewModalBtn.addEventListener('click', closeReviewModal);
+            bookmarkBtn.addEventListener('click', toggleBookmark);
+            certificateBtn.addEventListener('click', downloadCertificate);
+
+            // Show notice modal on initial load
+            showNoticeModal();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (testScreen.classList.contains('hidden')) return; // Only active on test screen
+            
+            switch (e.key) {
+                case 'ArrowRight':
+                    e.preventDefault();
+                    nextQuestion();
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    prevQuestion();
+                    break;
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                    e.preventDefault();
+                    const optionIndex = parseInt(e.key) - 1;
+                    const currentQ = questions[currentQuestion];
+                    if (optionIndex < currentQ.options.length) {
+                        selectOption(currentQ.options[optionIndex]);
+                    }
+                    break;
+                case 'b':
+                case 'B':
+                    e.preventDefault();
+                    toggleBookmark(); // No need to pass currentQuestion, it's a global var
+                    break;
+            }
+        });
+
+        // Auto-save functionality
+        setInterval(() => {
+            if (!testScreen.classList.contains('hidden')) {
+                localStorage.setItem('mockTestProgress', JSON.stringify({
+                    currentQuestion,
+                    answers,
+                    bookmarkedQuestions: Array.from(bookmarkedQuestions),
+                    timeLeft
+                }));
+            }
+        }, 10000); // Save every 10 seconds
+
+        // Load saved progress (on window load, but clear it if user doesn't want to be prompted)
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem('mockTestProgress');
+            if (saved) {
+                // As per previous instruction, clear saved progress if user doesn't want to be prompted.
+                localStorage.removeItem('mockTestProgress');
+            }
+        });
+    </script>
+</body>
+</html>
