@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Junior Science Teacher (JST) Mock Test For Freebies</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome CDN link corrected -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -855,16 +854,11 @@
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
     <div class="particles" id="particles"></div>
 
-    <!-- Control Buttons -->
     <div class="control-buttons">
         <button class="control-btn" id="theme-toggle" title="Theme Toggle">
             <i class="fas fa-moon" id="theme-icon"></i>
-        </button>
-        <button class="control-btn" id="sound-toggle" title="Sound Toggle">
-            <i class="fas fa-volume-up" id="sound-icon"></i>
         </button>
         <button class="control-btn" id="fullscreen-toggle" title="Fullscreen">
             <i class="fas fa-expand" id="fullscreen-icon"></i>
@@ -873,7 +867,6 @@
 
     <div class="main-container">
         <div class="container">
-            <!-- Welcome Screen -->
             <div id="welcome-screen">
                 <div class="header">
                     <h1><i class="fas fa-graduation-cap"></i> Junior Science Teacher (JST) Mock Test For Freebies</h1>
@@ -904,27 +897,21 @@
                 </div>
             </div>
 
-            <!-- Test Screen -->
             <div id="test-screen" class="hidden">
-                <!-- Top Info Bar: Question Progress and Timer -->
                 <div class="top-info-bar">
                     <div class="question-progress-display" id="question-progress-display">
-                        <!-- Question X of Y will be inserted here by JS -->
-                    </div>
+                        </div>
                     <div class="timer-display-wrapper">
                         <i class="fas fa-clock"></i> <span class="timer" id="timer">Time Left: 100:00</span>
                     </div>
                 </div>
 
-                <!-- Progress Bar -->
                 <div class="progress-container">
                     <div class="progress-bar">
                         <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
                     </div>
-                    <!-- The progress-text is now part of question-progress-display -->
-                </div>
+                    </div>
 
-                <!-- Question Container -->
                 <div class="question-container">
                     <div class="question-header">
                         <div class="question-number" id="question-number">Question 1</div>
@@ -933,17 +920,13 @@
                         </button>
                     </div>
                     <div class="passage-display hidden" id="passage-display">
-                        <!-- Passage content will be loaded here -->
-                    </div>
+                        </div>
                     <div class="question-text" id="question-text">
-                        <!-- Question content will be loaded here -->
-                    </div>
+                        </div>
                     <div class="options" id="options">
-                        <!-- Options will be loaded here -->
-                    </div>
+                        </div>
                 </div>
 
-                <!-- Navigation -->
                 <div class="nav-container">
                     <div class="nav-buttons">
                         <button class="nav-btn prev" id="prev-btn" disabled>
@@ -962,7 +945,6 @@
                     </div>
                 </div>
 
-                <!-- Question Palette -->
                 <div class="palette-container">
                     <div class="palette-title">
                         <i class="fas fa-th"></i> Question Navigator
@@ -976,7 +958,6 @@
                 </div>
             </div>
 
-            <!-- Result Screen -->
             <div id="result-screen" class="hidden">
                 <div class="result-container">
                     <div class="header">
@@ -1008,7 +989,6 @@
                     </div>
 
                     <div class="nav-buttons">
-                        <!-- Removed "Dobara Try Kariye" button as per user request -->
                         <button class="btn btn-primary" id="certificate-btn" style="display: none;">
                             <i class="fas fa-download"></i> Certificate Download
                         </button>
@@ -1018,7 +998,6 @@
         </div>
     </div>
 
-    <!-- Important Notice Modal -->
     <div id="notice-modal" class="notice-modal">
         <div class="notice-content">
             <h2><i class="fas fa-info-circle"></i> Aham Elaan</h2>
@@ -1033,15 +1012,12 @@
         </div>
     </div>
 
-    <!-- Review Modal -->
     <div id="review-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; display: flex; align-items: center; justify-content: center;">
         <div style="background: var(--bg-primary); border-radius: 15px; padding: 2.5rem; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: var(--shadow-lg);">
             <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;"><i class="fas fa-eye"></i> Final Review</h2>
-            <!-- Buttons moved to the top -->
             <div class="modal-buttons-row">
                
-                <button class="btn btn-secondary" id="close-review-modal-btn"><i class="fas fa-arrow-left"></i> Back to Test
-                </button>
+                <button class="btn btn-secondary" id="close-review-modal-btn"><i class="fas fa-arrow-left"></i> Back to Test </button>
                 <button class="btn btn-primary" id="final-submit-btn">
                     <i class="fas fa-check"></i> Final Submit
                 </button>
@@ -1112,891 +1088,356 @@
 
         // Enhanced Questions in Roman Urdu
         const questions = [
-           {
-    question: "1. What is the main theme of the passage?",
-    options: ["Urban growth in Sindh", "Preservation of cultural heritage", "Economic benefits", "Political changes"],
-    answer: "Preservation of cultural heritage",
-    subject: "English"
-  },
-  {
-    question: "2. 'Woven through centuries' means:",
-    options: ["Recently invented", "Gradually integrated", "Easily forgotten", "Structurally unstable"],
-    answer: "Gradually integrated",
-    subject: "English"
-  },
-  {
-    question: "3. Folk songs are described as:",
-    options: ["Entertainment", "Living archives", "Religious chants", "Commercial products"],
-    answer: "Living archives",
-    subject: "English"
-  },
-  {
-    question: "4. Which phrase indicates community unity?",
-    options: ["'woven through centuries'", "'dust rises red'", "'band together'", "'rivers flow calm'"],
-    answer: "'band together'",
-    subject: "English"
-  },
-  {
-    question: "5. The tone of the passage is:",
-    options: ["Critical", "Nostalgic yet hopeful", "Satirical", "Indifferent"],
-    answer: "Nostalgic yet hopeful",
-    subject: "English"
-  },
-  {
-    question: "6. 'Break the ice' means:",
-    options: ["Create conflict", "Start a conversation", "Freeze something", "Stop a joke"],
-    answer: "Start a conversation",
-    subject: "English"
-  },
-  {
-    question: "7. 'Cost an arm and a leg' means:",
-    options: ["Very painful", "Extremely expensive", "Very easy", "Free"],
-    answer: "Extremely expensive",
-    subject: "English"
-  },
-  {
-    question: "8. 'Hit the nail on the head' means:",
-    options: ["Be accurate", "Cause damage", "Misunderstand", "Lose confidence"],
-    answer: "Be accurate",
-    subject: "English"
-  },
-  {
-    question: "9. 'Speak of the devil' means:",
-    options: ["Curse someone", "Someone appears after being mentioned", "Avoid mentioning a name", "Talk about evil"],
-    answer: "Someone appears after being mentioned",
-    subject: "English"
-  },
-  {
-    question: "10. 'Bite the bullet' means:",
-    options: ["Avoid conflict", "Endure pain bravely", "Take revenge", "Use a weapon"],
-    answer: "Endure pain bravely",
-    subject: "English"
-  },
-  {
-    question: "11. By the time the guests arrived, she ________ cooking.",
-    options: ["finished", "had finished", "has finished", "finishes"],
-    answer: "had finished",
-    subject: "English"
-  },
-  {
-    question: "12. If he ________ harder, he would pass.",
-    options: ["had studied", "studies", "will study", "study"],
-    answer: "studies",
-    subject: "English"
-  },
-  {
-    question: "13. Next month, she ________ her internship.",
-    options: ["will start", "starts", "would start", "will have started"],
-    answer: "will start",
-    subject: "English"
-  },
-  {
-    question: "14. Identify the subordinate clause: 'Although it rained, the farmers who planted rice were hopeful.'",
-    options: ["Although it rained", "the farmers", "who planted rice", "were hopeful"],
-    answer: "who planted rice",
-    subject: "English"
-  },
-  {
-    question: "15. Which is a simile?",
-    options: ["His mind was a fortress.", "She danced like the wind.", "Time marches on.", "The city sleeps."],
-    answer: "She danced like the wind.",
-    subject: "English"
-  },
-  {
-    question: "16. He said, 'I will arrive tomorrow.' → Indirect speech:",
-    options: ["He said he will arrive tomorrow.", "He said he would arrive the next day.", "He said he arrives tomorrow.", "He said arriving tomorrow."],
-    answer: "He said he would arrive the next day.",
-    subject: "English"
-  },
-  {
-    question: "17. 'The teacher explained the lesson.' → Passive:",
-    options: ["The lesson was explained by the teacher.", "The lesson is explained by the teacher.", "The teacher explained the lesson.", "The lesson explained the teacher."],
-    answer: "The lesson was explained by the teacher.",
-    subject: "English"
-  },
-  {
-    question: "18. 'They built the bridge in 1995.' → Correct passive:",
-    options: ["The bridge built in 1995.", "The bridge was built in 1995.", "The bridge is built in 1995.", "The bridge had been built in 1995."],
-    answer: "The bridge was built in 1995.",
-    subject: "English"
-  },
-  {
-    question: "19. Correct: 'She don't know Sindhi idioms.'",
-    options: ["doesn't", "do not", "don't knows", "not know"],
-    answer: "doesn't",
-    subject: "English"
-  },
-  {
-    question: "20. Correct pronoun: 'Between you and I, this is unique.'",
-    options: ["Between you and me", "Between you and mine", "Between me and you", "Between my friend and me"],
-    answer: "Between you and me",
-    subject: "English"
-  },
-  {
-    question: "21. 'Powerhouse' of the cell?",
-    options: ["Nucleus", "Mitochondria", "Chloroplast", "Ribosome"],
-    answer: "Mitochondria",
-    subject: "Biology"
-  },
-  {
-    question: "22. Photosynthesis occurs in:",
-    options: ["Root cells", "Leaf mesophyll", "Stem phloem", "Guard cells"],
-    answer: "Leaf mesophyll",
-    subject: "Biology"
-  },
-  {
-    question: "23. Largest human organ?",
-    options: ["Heart", "Skin", "Liver", "Brain"],
-    answer: "Skin",
-    subject: "Biology"
-  },
-  {
-    question: "24. Blood cell that fights infection:",
-    options: ["RBC", "WBC", "Platelet", "Plasma"],
-    answer: "WBC",
-    subject: "Biology"
-  },
-  {
-    question: "25. Genetic material housed in:",
-    options: ["Cytoplasm", "Nucleus", "Mitochondria", "Ribosome"],
-    answer: "Nucleus",
-    subject: "Biology"
-  },
-  {
-    question: "26. Plant transport vessel for water:",
-    options: ["Phloem", "Xylem", "Cortex", "Epidermis"],
-    answer: "Xylem",
-    subject: "Biology"
-  },
-  {
-    question: "27. Enzyme in saliva:",
-    options: ["Amylase", "Lipase", "Protease", "Lactase"],
-    answer: "Amylase",
-    subject: "Biology"
-  },
-  {
-    question: "28. Mosquito disease vector:",
-    options: ["Malaria", "Tuberculosis", "Cholera", "Diabetes"],
-    answer: "Malaria",
-    subject: "Biology"
-  },
-  {
-    question: "29. Homeostasis maintains:",
-    options: ["Body temp", "Blood sugar", "Water balance", "All of the above"],
-    answer: "All of the above",
-    subject: "Biology"
-  },
-  {
-    question: "30. Bacteria are:",
-    options: ["Multicellular eukaryotes", "Unicellular prokaryotes", "Viruses", "Fungi"],
-    answer: "Unicellular prokaryotes",
-    subject: "Biology"
-  },
-  {
-    question: "31. Avogadro's number ≈",
-    options: ["6.02×10^20", "6.02×10^23", "6.02×10^26", "6.02×10^29"],
-    answer: "6.02×10^23",
-    subject: "Chemistry"
-  },
-  {
-    question: "32. Catalyst effect:",
-    options: ["Increases activation energy", "Lowers activation energy", "Changes equilibrium", "Gets consumed"],
-    answer: "Lowers activation energy",
-    subject: "Chemistry"
-  },
-  {
-    question: "33. pH of neutral solution:",
-    options: ["7", "1", "14", "0"],
-    answer: "7",
-    subject: "Chemistry"
-  },
-  {
-    question: "34. Atomic number = proton count?",
-    options: ["True", "False", "Depends on isotope", "None"],
-    answer: "True",
-    subject: "Chemistry"
-  },
-  {
-    question: "35. Ionic bond formed by:",
-    options: ["Sharing electrons", "Transferring electrons", "Metallic bonding", "Nuclear bond"],
-    answer: "Transferring electrons",
-    subject: "Chemistry"
-  },
-  {
-    question: "36. Empirical formula of C2H6O?",
-    options: ["C2H6O", "CH3O", "C2H3O", "CH6O2"],
-    answer: "C2H6O",
-    subject: "Chemistry"
-  },
-  {
-    question: "37. Gas at room temperature:",
-    options: ["Mercury", "Oxygen", "Gold", "Iron"],
-    answer: "Oxygen",
-    subject: "Chemistry"
-  },
-  {
-    question: "38. Matter state with fixed shape:",
-    options: ["Solid", "Liquid", "Gas", "Plasma"],
-    answer: "Solid",
-    subject: "Chemistry"
-  },
-  {
-    question: "39. Molecule vs atom:",
-    options: ["Atom > molecule", "Molecule has atoms", "Same thing", "Molecule = ion"],
-    answer: "Molecule has atoms",
-    subject: "Chemistry"
-  },
-  {
-    question: "40. Solution concentration measured in:",
-    options: ["Mol/L", "g/L", "% mass", "All"],
-    answer: "All",
-    subject: "Chemistry"
-  },
-  {
-    question: "41. SI unit of electric field:",
-    options: ["N/C", "V/m", "Both", "J/C"],
-    answer: "Both",
-    subject: "Physics"
-  },
-  {
-    question: "42. Current unit:",
-    options: ["V", "A", "Ω", "W"],
-    answer: "A",
-    subject: "Physics"
-  },
-  {
-    question: "43. Ohm's law:",
-    options: ["V=IR", "I=VR", "R=IV", "P=VI"],
-    answer: "V=IR",
-    subject: "Physics"
-  },
-  {
-    question: "44. Light speed ~?",
-    options: ["3×10^6 m/s", "3×10^8 m/s", "3×10^10 m/s", "3×10^4 m/s"],
-    answer: "3×10^8 m/s",
-    subject: "Physics"
-  },
-  {
-    question: "45. Acceleration due to gravity:",
-    options: ["9.8 m/s²", "1.6 m/s²", "10 km/h²", "0"],
-    answer: "9.8 m/s²",
-    subject: "Physics"
-  },
-  {
-    question: "46. SI unit of force:",
-    options: ["Joule", "Newton", "Pascal", "Watt"],
-    answer: "Newton",
-    subject: "Physics"
-  },
-  {
-    question: "47. Magnet north pole repels:",
-    options: ["South", "North", "Metal", "Plastic"],
-    answer: "North",
-    subject: "Physics"
-  },
-  {
-    question: "48. Sound travels fastest in:",
-    options: ["Air", "Water", "Steel", "Vacuum"],
-    answer: "Steel",
-    subject: "Physics"
-  },
-  {
-    question: "49. Frequency measured in:",
-    options: ["Hz", "m/s", "N", "J"],
-    answer: "Hz",
-    subject: "Physics"
-  },
-  {
-    question: "50. Kinetic energy formula:",
-    options: ["1/2mv²", "mgh", "mv²", "mg"],
-    answer: "1/2mv²",
-    subject: "Physics"
-  },
-  {
-    question: "51. Atmosphere mainly:",
-    options: ["O2", "N2", "CO2", "Ar"],
-    answer: "N2",
-    subject: "Everyday Science"
-  },
-  {
-    question: "52. Water boils at:",
-    options: ["50°C", "100°C", "150°C", "200°C"],
-    answer: "100°C",
-    subject: "Everyday Science"
-  },
-  {
-    question: "53. Solar energy is:",
-    options: ["Renewable", "Non-renewable", "Fossil fuel", "Nuclear"],
-    answer: "Renewable",
-    subject: "Everyday Science"
-  },
-  {
-    question: "54. Plastic pollution harms:",
-    options: ["Wildlife", "Soil", "Water", "All"],
-    answer: "All",
-    subject: "Everyday Science"
-  },
-  {
-    question: "55. Best way to save energy:",
-    options: ["Turn off lights", "Leave appliances on", "Waste water", "Open all windows"],
-    answer: "Turn off lights",
-    subject: "Everyday Science"
-  },
-  {
-    question: "56. Vaccine prevents:",
-    options: ["Illness", "Pollution", "Poverty", "Heat"],
-    answer: "Illness",
-    subject: "Everyday Science"
-  },
-  {
-    question: "57. Hybrid car uses:",
-    options: ["Diesel only", "Petrol + Electric", "Solar", "Coal"],
-    answer: "Petrol + Electric",
-    subject: "Everyday Science"
-  },
-  {
-    question: "58. Recycling glass reduces:",
-    options: ["Landfill", "Water use", "Air pollution", "Soil erosion"],
-    answer: "Landfill",
-    subject: "Everyday Science"
-  },
-  {
-    question: "59. First aid for burn:",
-    options: ["Ice", "Run cool water", "Butter", "Alcohol"],
-    answer: "Run cool water",
-    subject: "Everyday Science"
-  },
-  {
-    question: "60. Tooth decay caused by:",
-    options: ["Sugar", "Salt", "Protein", "Fiber"],
-    answer: "Sugar",
-    subject: "Everyday Science"
-  },
-  {
-    question: "61. Solve x² - 5x + 6 = 0:",
-    options: ["2, 3", "-2, -3", "1, 6", "3, 2"],
-    answer: "2, 3",
-    subject: "Mathematics"
-  },
-  {
-    question: "62. Slope of y = 2x + 1:",
-    options: ["1", "2", "-1", "0"],
-    answer: "2",
-    subject: "Mathematics"
-  },
-  {
-    question: "63. Area of circle radius r:",
-    options: ["πr²", "2πr", "πd", "πr"],
-    answer: "πr²",
-    subject: "Mathematics"
-  },
-  {
-    question: "64. sin(90°) = ?",
-    options: ["0", "1/2", "1", "√2/2"],
-    answer: "1",
-    subject: "Mathematics"
-  },
-  {
-    question: "65. 5 x 5 =",
-    options: ["10", "15", "25", "30"],
-    answer: "25",
-    subject: "Mathematics"
-  },
-  {
-    question: "66. Perimeter of square side a:",
-    options: ["a²", "4a", "2a", "a"],
-    answer: "4a",
-    subject: "Mathematics"
-  },
-  {
-    question: "67. A right angle =",
-    options: ["45°", "90°", "180°", "360°"],
-    answer: "90°",
-    subject: "Mathematics"
-  },
-  {
-    question: "68. 7 + 8 =",
-    options: ["14", "15", "16", "13"],
-    answer: "15",
-    subject: "Mathematics"
-  },
-  {
-    question: "69. Volume of cube side a:",
-    options: ["a²", "a³", "2a³", "3a²"],
-    answer: "a³",
-    subject: "Mathematics"
-  },
-  {
-    question: "70. √49 =",
-    options: ["6", "7", "8", "9"],
-    answer: "7",
-    subject: "Mathematics"
-  },
-  {
-    question: "71. Hijrah began in:",
-    options: ["610 CE", "622 CE", "632 CE", "650 CE"],
-    answer: "622 CE",
-    subject: "Islamiat"
-  },
-  {
-    question: "72. First pillar of Islam:",
-    options: ["Salah", "Shahada", "Zakat", "Hajj"],
-    answer: "Shahada",
-    subject: "Islamiat"
-  },
-  {
-    question: "73. Prophet's mother's name:",
-    options: ["Aisha", "Khadija", "Aminah", "Fatima"],
-    answer: "Aminah",
-    subject: "Islamiat"
-  },
-  {
-    question: "74. Ramadan is the:",
-    options: ["Month of fasting", "Month of pilgrimage", "Month of charity", "Month of prayer"],
-    answer: "Month of fasting",
-    subject: "Islamiat"
-  },
-  {
-    question: "75. Zamzam well located in:",
-    options: ["Medina", "Mecca", "Jerusalem", "Cairo"],
-    answer: "Mecca",
-    subject: "Islamiat"
-  },
-  {
-    question: "76. CPU stands for:",
-    options: ["Central Processing Unit", "Computer Program Utility", "Central Print Unit", "Core Power Unit"],
-    answer: "Central Processing Unit",
-    subject: "Computer"
-  },
-  {
-    question: "77. RAM is:",
-    options: ["Read-Only Memory", "Random Access Memory", "Remote Access Memory", "Rapid Action Module"],
-    answer: "Random Access Memory",
-    subject: "Computer"
-  },
-  {
-    question: "78. Input device:",
-    options: ["Monitor", "Keyboard", "Printer", "Speaker"],
-    answer: "Keyboard",
-    subject: "Computer"
-  },
-  {
-    question: "79. Output device:",
-    options: ["Mouse", "Scanner", "Projector", "Microphone"],
-    answer: "Projector",
-    subject: "Computer"
-  },
-  {
-    question: "80. The internet is:",
-    options: ["LAN", "WAN", "Only wired", "Only wireless"],
-    answer: "WAN",
-    subject: "Computer"
-  },
-  {
-    question: "81. Pakistan's first constitution:",
-    options: ["1947", "1956", "1962", "1973"],
-    answer: "1956",
-    subject: "Social Studies / Pak Studies"
-  },
-  {
-    question: "82. First Governor-General of Pakistan:",
-    options: ["Liaquat Ali Khan", "Jinnah", "Ghulam Muhammad", "Iskander Mirza"],
-    answer: "Jinnah",
-    subject: "Social Studies / Pak Studies"
-  },
-  {
-    question: "83. The Indus River flows into the:",
-    options: ["Arabian Sea", "Bay of Bengal", "Red Sea", "Indian Ocean"],
-    answer: "Arabian Sea",
-    subject: "Social Studies / Pak Studies"
-  },
-  {
-    question: "84. Quaid-e-Azam's title:",
-    options: ["Father of the Nation", "Great Leader", "Supreme Guide", "People's Friend"],
-    answer: "Father of the Nation",
-    subject: "Social Studies / Pak Studies"
-  },
-  {
-    question: "85. Province with the largest area:",
-    options: ["Sindh", "Punjab", "Balochistan", "Khyber Pakhtunkhwa"],
-    answer: "Balochistan",
-    subject: "Social Studies / Pak Studies"
-  },
-  {
-    question: "86. Pakistan's national language:",
-    options: ["Urdu", "Punjabi", "Sindhi", "Pashto"],
-    answer: "Urdu",
-    subject: "Social Studies / Pak Studies"
-  },
-  {
-    question: "87. Pakistan became a republic in:",
-    options: ["1947", "1956", "1962", "1973"],
-    answer: "1956",
-    subject: "Social Studies / Pak Studies"
-  },
-  {
-    question: "88. State religion of Pakistan:",
-    options: ["Islam", "Christianity", "Hinduism", "Buddhism"],
-    answer: "Islam",
-    subject: "Social Studies / Pak Studies"
-  },
-  {
-    question: "89. National animal:",
-    options: ["Markhor", "Tiger", "Elephant", "Kangaroo"],
-    answer: "Markhor",
-    subject: "Social Studies / Pak Studies"
-  },
-  {
-    question: "90. Pakistan's highest mountain is:",
-    options: ["K2", "Nanga Parbat", "Mount Everest", "Tirich Mir"],
-    answer: "K2",
-    subject: "Social Studies / Pak Studies"
-  },
-  {
-    question: "91. ICC T20 World Cup 2024 winner:",
-    options: ["England", "India", "Pakistan", "Australia"],
-    answer: "India",
-    subject: "GK & Current Affairs"
-  },
-  {
-    question: "92. 2023 Nobel Peace Prize went to:",
-    options: ["Nadia Murad", "Maria Ressa", "Narges Mohammadi", "Ukraine"],
-    answer: "Narges Mohammadi",
-    subject: "GK & Current Affairs"
-  },
-  {
-    question: "93. Global climate summit 2024 (COP29) held in:",
-    options: ["Paris", "Dubai", "Glasgow", "Baku"],
-    answer: "Baku",
-    subject: "GK & Current Affairs"
-  },
-  {
-    question: "94. Elon Musk CEO of:",
-    options: ["Facebook", "Tesla", "Amazon", "Apple"],
-    answer: "Tesla",
-    subject: "GK & Current Affairs"
-  },
-  {
-    question: "95. Who invented the telephone?",
-    options: ["Edison", "Bell", "Tesla", "Marconi"],
-    answer: "Bell",
-    subject: "GK & Current Affairs"
-  },
-  {
-    question: "96. Largest desert on Earth:",
-    options: ["Sahara", "Gobi", "Kalahari", "Antarctic Polar Desert"],
-    answer: "Antarctic Polar Desert",
-    subject: "GK & Current Affairs"
-  },
-  {
-    question: "97. First female astronaut:",
-    options: ["Sally Ride", "Valentina Tereshkova", "Peggy Whitson", "Mae Jemison"],
-    answer: "Valentina Tereshkova",
-    subject: "GK & Current Affairs"
-  },
-  {
-    question: "98. Nobel Prize in Physics 2023 was for:",
-    options: ["attosecond pulses of light", "climate science", "quantum sensors", "AI"],
-    answer: "attosecond pulses of light",
-    subject: "GK & Current Affairs"
-  },
-  {
-    question: "99. WHO headquarters in:",
-    options: ["New York", "Geneva", "Paris", "Vienna"],
-    answer: "Geneva",
-    subject: "GK & Current Affairs"
-  },
-  {
-    question: "100. 2027 Cricket World Cup host:",
-    options: ["India", "Australia", "England", "South Africa, Zimbabwe, and Namibia"],
-    answer: "South Africa, Zimbabwe, and Namibia",
-    subject: "GK & Current Affairs"
-  }
+            { question: "1. What is the main theme of the passage?", options: ["Urban growth in Sindh", "Preservation of cultural heritage", "Economic benefits", "Political changes"], answer: "Preservation of cultural heritage", subject: "English" },
+            { question: "2. 'Woven through centuries' means:", options: ["Recently invented", "Gradually integrated", "Easily forgotten", "Structurally unstable"], answer: "Gradually integrated", subject: "English" },
+            { question: "3. Folk songs are described as:", options: ["Entertainment", "Living archives", "Religious chants", "Commercial products"], answer: "Living archives", subject: "English" },
+            { question: "4. Which phrase indicates community unity?", options: ["'woven through centuries'", "'dust rises red'", "'band together'", "'rivers flow calm'"], answer: "'band together'", subject: "English" },
+            { question: "5. The tone of the passage is:", options: ["Critical", "Nostalgic yet hopeful", "Satirical", "Indifferent"], answer: "Nostalgic yet hopeful", subject: "English" },
+            { question: "6. 'Break the ice' means:", options: ["Create conflict", "Start a conversation", "Freeze something", "Stop a joke"], answer: "Start a conversation", subject: "English" },
+            { question: "7. 'Cost an arm and a leg' means:", options: ["Very painful", "Extremely expensive", "Very easy", "Free"], answer: "Extremely expensive", subject: "English" },
+            { question: "8. 'Hit the nail on the head' means:", options: ["Be accurate", "Cause damage", "Misunderstand", "Lose confidence"], answer: "Be accurate", subject: "English" },
+            { question: "9. 'Speak of the devil' means:", options: ["Curse someone", "Someone appears after being mentioned", "Avoid mentioning a name", "Talk about evil"], answer: "Someone appears after being mentioned", subject: "English" },
+            { question: "10. 'Bite the bullet' means:", options: ["Avoid conflict", "Endure pain bravely", "Take revenge", "Use a weapon"], answer: "Endure pain bravely", subject: "English" },
+            { question: "11. By the time the guests arrived, she ________ cooking.", options: ["finished", "had finished", "has finished", "finishes"], answer: "had finished", subject: "English" },
+            { question: "12. If he ________ harder, he would pass.", options: ["had studied", "studies", "will study", "study"], answer: "studies", subject: "English" },
+            { question: "13. Next month, she ________ her internship.", options: ["will start", "starts", "would start", "will have started"], answer: "will start", subject: "English" },
+            { question: "14. Identify the subordinate clause: 'Although it rained, the farmers who planted rice were hopeful.'", options: ["Although it rained", "the farmers", "who planted rice", "were hopeful"], answer: "who planted rice", subject: "English" },
+            { question: "15. Which is a simile?", options: ["His mind was a fortress.", "She danced like the wind.", "Time marches on.", "The city sleeps."], answer: "She danced like the wind.", subject: "English" },
+            { question: "16. He said, 'I will arrive tomorrow.' → Indirect speech:", options: ["He said he will arrive tomorrow.", "He said he would arrive the next day.", "He said he arrives tomorrow.", "He said arriving tomorrow."], answer: "He said he would arrive the next day.", subject: "English" },
+            { question: "17. 'The teacher explained the lesson.' → Passive:", options: ["The lesson was explained by the teacher.", "The lesson is explained by the teacher.", "The teacher explained the lesson.", "The lesson explained the teacher."], answer: "The lesson was explained by the teacher.", subject: "English" },
+            { question: "18. 'They built the bridge in 1995.' → Correct passive:", options: ["The bridge built in 1995.", "The bridge was built in 1995.", "The bridge is built in 1995.", "The bridge had been built in 1995."], answer: "The bridge was built in 1995.", subject: "English" },
+            { question: "19. Correct: 'She don't know Sindhi idioms.'", options: ["doesn't", "do not", "don't knows", "not know"], answer: "doesn't", subject: "English" },
+            { question: "20. Correct pronoun: 'Between you and I, this is unique.'", options: ["Between you and me", "Between you and mine", "Between me and you", "Between my friend and me"], answer: "Between you and me", subject: "English" },
+            { question: "21. 'Powerhouse' of the cell?", options: ["Nucleus", "Mitochondria", "Chloroplast", "Ribosome"], answer: "Mitochondria", subject: "Biology" },
+            { question: "22. Photosynthesis occurs in:", options: ["Root cells", "Leaf mesophyll", "Stem phloem", "Guard cells"], answer: "Leaf mesophyll", subject: "Biology" },
+            { question: "23. Largest human organ?", options: ["Heart", "Skin", "Liver", "Brain"], answer: "Skin", subject: "Biology" },
+            { question: "24. Blood cell that fights infection:", options: ["RBC", "WBC", "Platelet", "Plasma"], answer: "WBC", subject: "Biology" },
+            { question: "25. Genetic material housed in:", options: ["Cytoplasm", "Nucleus", "Mitochondria", "Ribosome"], answer: "Nucleus", subject: "Biology" },
+            { question: "26. Plant transport vessel for water:", options: ["Phloem", "Xylem", "Cortex", "Epidermis"], answer: "Xylem", subject: "Biology" },
+            { question: "27. Enzyme in saliva:", options: ["Amylase", "Lipase", "Protease", "Lactase"], answer: "Amylase", subject: "Biology" },
+            { question: "28. Mosquito disease vector:", options: ["Malaria", "Tuberculosis", "Cholera", "Diabetes"], answer: "Malaria", subject: "Biology" },
+            { question: "29. Homeostasis maintains:", options: ["Body temp", "Blood sugar", "Water balance", "All of the above"], answer: "All of the above", subject: "Biology" },
+            { question: "30. Bacteria are:", options: ["Multicellular eukaryotes", "Unicellular prokaryotes", "Viruses", "Fungi"], answer: "Unicellular prokaryotes", subject: "Biology" },
+            { question: "31. Avogadro's number ≈", options: ["6.02×10^20", "6.02×10^23", "6.02×10^26", "6.02×10^29"], answer: "6.02×10^23", subject: "Chemistry" },
+            { question: "32. Catalyst effect:", options: ["Increases activation energy", "Lowers activation energy", "Changes equilibrium", "Gets consumed"], answer: "Lowers activation energy", subject: "Chemistry" },
+            { question: "33. pH of neutral solution:", options: ["7", "1", "14", "0"], answer: "7", subject: "Chemistry" },
+            { question: "34. Atomic number = proton count?", options: ["True", "False", "Depends on isotope", "None"], answer: "True", subject: "Chemistry" },
+            { question: "35. Ionic bond formed by:", options: ["Sharing electrons", "Transferring electrons", "Metallic bonding", "Nuclear bond"], answer: "Transferring electrons", subject: "Chemistry" },
+            { question: "36. Empirical formula of C2H6O?", options: ["C2H6O", "CH3O", "C2H3O", "CH6O2"], answer: "C2H6O", subject: "Chemistry" },
+            { question: "37. Gas at room temperature:", options: ["Mercury", "Oxygen", "Gold", "Iron"], answer: "Oxygen", subject: "Chemistry" },
+            { question: "38. Matter state with fixed shape:", options: ["Solid", "Liquid", "Gas", "Plasma"], answer: "Solid", subject: "Chemistry" },
+            { question: "39. Molecule vs atom:", options: ["Atom > molecule", "Molecule has atoms", "Same thing", "Molecule = ion"], answer: "Molecule has atoms", subject: "Chemistry" },
+            { question: "40. Solution concentration measured in:", options: ["Mol/L", "g/L", "% mass", "All"], answer: "All", subject: "Chemistry" },
+            { question: "41. SI unit of electric field:", options: ["N/C", "V/m", "Both", "J/C"], answer: "Both", subject: "Physics" },
+            { question: "42. Current unit:", options: ["V", "A", "Ω", "W"], answer: "A", subject: "Physics" },
+            { question: "43. Ohm's law:", options: ["V=IR", "I=VR", "R=IV", "P=VI"], answer: "V=IR", subject: "Physics" },
+            { question: "44. Light speed ~?", options: ["3×10^6 m/s", "3×10^8 m/s", "3×10^10 m/s", "3×10^4 m/s"], answer: "3×10^8 m/s", subject: "Physics" },
+            { question: "45. Acceleration due to gravity is approximately:", options: ["9.8 m/s²", "98 m/s²", "0.98 m/s²", "980 m/s²"], answer: "9.8 m/s²", subject: "Physics" },
+            { question: "46. What does a fuse do in an electrical circuit?", options: ["Increases current", "Decreases voltage", "Protects from overcurrent", "Stores energy"], answer: "Protects from overcurrent", subject: "Physics" },
+            { question: "47. Which of the following is a renewable energy source?", options: ["Coal", "Natural Gas", "Solar", "Nuclear"], answer: "Solar", subject: "Physics" },
+            { question: "48. The law of conservation of energy states that energy:", options: ["Can be created and destroyed", "Can only be transformed", "Is always lost as heat", "Is conserved only in ideal systems"], answer: "Can only be transformed", subject: "Physics" },
+            { question: "49. What is the phenomenon where light bends as it passes from one medium to another?", options: ["Reflection", "Diffraction", "Refraction", "Interference"], answer: "Refraction", subject: "Physics" },
+            { question: "50. Which force keeps planets in orbit around the sun?", options: ["Electromagnetic force", "Strong nuclear force", "Weak nuclear force", "Gravitational force"], answer: "Gravitational force", subject: "Physics" },
+            { question: "51. What is the SI unit of power?", options: ["Joule", "Watt", "Volt", "Ampere"], answer: "Watt", subject: "Physics" },
+            { question: "52. Which type of mirror produces an inverted image?", options: ["Plane mirror", "Convex mirror", "Concave mirror (if object beyond focal point)", "Both convex and concave"], answer: "Concave mirror (if object beyond focal point)", subject: "Physics" },
+            { question: "53. The process of splitting an atom to release energy is called:", options: ["Nuclear fusion", "Nuclear fission", "Radioactive decay", "Chain reaction"], answer: "Nuclear fission", subject: "Physics" },
+            { question: "54. What is the unit of resistance?", options: ["Volt", "Ampere", "Ohm", "Watt"], answer: "Ohm", subject: "Physics" },
+            { question: "55. First Governor General of Pakistan?", options: ["Liaquat Ali Khan", "Muhammad Ali Jinnah", "Ghulam Muhammad", "Iskander Mirza"], answer: "Muhammad Ali Jinnah", subject: "Pak Studies" },
+            { question: "56. Pakistan Resolution passed on?", options: ["March 23, 1940", "August 14, 1947", "September 11, 1948", "October 24, 1954"], answer: "March 23, 1940", subject: "Pak Studies" },
+            { question: "57. Pakistan's national poet?", options: ["Faiz Ahmad Faiz", "Allama Muhammad Iqbal", "Ahmed Faraz", "Parveen Shakir"], answer: "Allama Muhammad Iqbal", subject: "Pak Studies" },
+            { question: "58. Largest province by area in Pakistan?", options: ["Punjab", "Sindh", "Balochistan", "Khyber Pakhtunkhwa"], answer: "Balochistan", subject: "Pak Studies" },
+            { question: "59. Capital of Pakistan?", options: ["Karachi", "Lahore", "Islamabad", "Rawalpindi"], answer: "Islamabad", subject: "Pak Studies" },
+            { question: "60. Quaid-e-Azam's tomb located in:", options: ["Lahore", "Islamabad", "Karachi", "Peshawar"], answer: "Karachi", subject: "Pak Studies" },
+            { question: "61. Highest peak in Pakistan?", options: ["Nanga Parbat", "Broad Peak", "K2 (Mount Godwin Austen)", "Gasherbrum I"], answer: "K2 (Mount Godwin Austen)", subject: "Pak Studies" },
+            { question: "62. Indus Valley Civilization's major site in Sindh:", options: ["Harappa", "Taxila", "Mohenjo-Daro", "Gandhara"], answer: "Mohenjo-Daro", subject: "Pak Studies" },
+            { question: "63. National language of Pakistan?", options: ["Punjabi", "Sindhi", "Urdu", "Pashto"], answer: "Urdu", subject: "Pak Studies" },
+            { question: "64. First Prime Minister of Pakistan?", options: ["Muhammad Ali Jinnah", "Liaquat Ali Khan", "Khawaja Nazimuddin", "Muhammad Ali Bogra"], answer: "Liaquat Ali Khan", subject: "Pak Studies" },
+            { question: "65. Who is the current Chief Justice of Pakistan (as of latest general info)?", options: ["Umar Ata Bandial", "Qazi Faez Isa", "Gulzar Ahmed", "Asif Saeed Khosa"], answer: "Qazi Faez Isa", subject: "Current Affairs" },
+            { question: "66. Which country hosted the 2024 Summer Olympics?", options: ["Japan", "France", "USA", "Australia"], answer: "France", subject: "Current Affairs" },
+            { question: "67. What is the name of the current UN Secretary-General?", options: ["Kofi Annan", "Ban Ki-moon", "António Guterres", "Boutros Boutros-Ghali"], answer: "António Guterres", subject: "Current Affairs" },
+            { question: "68. Which organization aims to promote international peace and security?", options: ["NATO", "ASEAN", "UN", "EU"], answer: "UN", subject: "Current Affairs" },
+            { question: "69. What is the current global challenge related to climate?", options: ["Deforestation", "Ocean acidification", "Global warming", "All of the above"], answer: "All of the above", subject: "Current Affairs" },
+            { question: "70. Which international body deals with trade rules between countries?", options: ["IMF", "World Bank", "WTO", "UNICEF"], answer: "WTO", subject: "Current Affairs" },
+            { question: "71. Who won the Nobel Peace Prize in 2024?", options: ["The answer depends on the year's actual recipient, not predictable", "A prominent environmental activist", "A leader from a conflict zone", "A global health organization"], answer: "The answer depends on the year's actual recipient, not predictable", subject: "Current Affairs" },
+            { question: "72. What is the primary focus of the World Health Organization (WHO)?", options: ["Economic development", "Global health", "Human rights", "Environmental protection"], answer: "Global health", subject: "Current Affairs" },
+            { question: "73. Which country is known for the Great Barrier Reef?", options: ["Brazil", "Australia", "Canada", "Indonesia"], answer: "Australia", subject: "Current Affairs" },
+            { question: "74. What is the purpose of the COP (Conference of the Parties) summits?", options: ["To discuss global economic policies", "To address climate change issues", "To promote cultural exchange", "To resolve international disputes"], answer: "To address climate change issues", subject: "Current Affairs" },
+            { question: "75. What is 15% of 200?", options: ["15", "20", "30", "40"], answer: "30", subject: "Math" },
+            { question: "76. If x + 5 = 12, then x = ?", options: ["5", "7", "12", "17"], answer: "7", subject: "Math" },
+            { question: "77. What is the area of a rectangle with length 8 cm and width 5 cm?", options: ["13 cm²", "26 cm²", "40 cm²", "80 cm²"], answer: "40 cm²", subject: "Math" },
+            { question: "78. Solve: 3 * (4 + 2) - 5", options: ["10", "13", "18", "21"], answer: "13", subject: "Math" },
+            { question: "79. What is the next number in the sequence: 2, 4, 8, 16, ...?", options: ["20", "24", "32", "64"], answer: "32", subject: "Math" },
+            { question: "80. Convert 0.75 to a fraction:", options: ["1/2", "3/4", "1/4", "7/5"], answer: "3/4", subject: "Math" },
+            { question: "81. If a shirt costs $25 and is on sale for 20% off, what is the sale price?", options: ["$5", "$15", "$20", "$22"], answer: "$20", subject: "Math" },
+            { question: "82. What is the square root of 81?", options: ["7", "8", "9", "18"], answer: "9", subject: "Math" },
+            { question: "83. How many sides does a hexagon have?", options: ["5", "6", "7", "8"], answer: "6", subject: "Math" },
+            { question: "84. The perimeter of a square with side length 6 cm is:", options: ["6 cm", "12 cm", "24 cm", "36 cm"], answer: "24 cm", subject: "Math" },
+            { question: "85. In MS Word, what is the default file extension?", options: [".docx", ".pdf", ".txt", ".xlsx"], answer: ".docx", subject: "Computer Science" },
+            { question: "86. What does CPU stand for?", options: ["Central Process Unit", "Central Program Unit", "Control Processing Unit", "Central Processing Unit"], answer: "Central Processing Unit", subject: "Computer Science" },
+            { question: "87. Which of these is an input device?", options: ["Printer", "Monitor", "Keyboard", "Speaker"], answer: "Keyboard", subject: "Computer Science" },
+            { question: "88. What is RAM?", options: ["Read Access Memory", "Random Access Memory", "Read Only Memory", "Remote Access Module"], answer: "Random Access Memory", subject: "Computer Science" },
+            { question: "89. What is an algorithm?", options: ["A programming language", "A step-by-step procedure to solve a problem", "A type of computer hardware", "A database system"], answer: "A step-by-step procedure to solve a problem", subject: "Computer Science" },
+            { question: "90. Which protocol is used for sending emails?", options: ["HTTP", "FTP", "SMTP", "TCP"], answer: "SMTP", subject: "Computer Science" },
+            { question: "91. What is a 'bug' in computer programming?", options: ["A small insect", "An error or defect in software", "A computer virus", "A hardware component"], answer: "An error or defect in software", subject: "Computer Science" },
+            { question: "92. Which programming language is known for web development?", options: ["Python", "Java", "HTML", "C++"], answer: "HTML", subject: "Computer Science" },
+            { question: "93. What is the function of an operating system?", options: ["To manage hardware and software resources", "To create documents", "To browse the internet", "To play games"], answer: "To manage hardware and software resources", subject: "Computer Science" },
+            { question: "94. What does 'WWW' stand for?", options: ["World Wide Web", "World Wide Widget", "Web World Wide", "Wide Web World"], answer: "World Wide Web", subject: "Computer Science" },
+            { question: "95. Which of the following is the largest desert in the world?", options: ["Sahara Desert", "Arabian Desert", "Gobi Desert", "Antarctic Polar Desert"], answer: "Antarctic Polar Desert", subject: "General Knowledge" },
+            { question: "96. Who painted the Mona Lisa?", options: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"], answer: "Leonardo da Vinci", subject: "General Knowledge" },
+            { question: "97. What is the chemical symbol for water?", options: ["O2", "CO2", "H2O", "NACL"], answer: "H2O", subject: "General Knowledge" },
+            { question: "98. Which planet is known as the 'Red Planet'?", options: ["Earth", "Mars", "Jupiter", "Venus"], answer: "Mars", subject: "General Knowledge" },
+            { question: "99. What is the capital of Japan?", options: ["Beijing", "Seoul", "Tokyo", "Bangkok"], answer: "Tokyo", subject: "General Knowledge" },
+            { question: "100. How many continents are there in the world?", options: ["5", "6", "7", "8"], answer: "7", subject: "General Knowledge" }
         ];
 
-        let currentQuestion = 0;
-        let answers = JSON.parse(localStorage.getItem('mockTestAnswers')) || {};
-        let bookmarkedQuestions = new Set(JSON.parse(localStorage.getItem('bookmarkedQuestions')) || []);
-        let timeLeft = 100 * 60; // 100 minutes in seconds
-        let timerInterval;
-        let testStartTime;
-        let userAuthToken = null; // Store the Firebase auth token
-        let authStateReady = false; // New flag to indicate if auth state is known
-
-        const startTestBtn = document.getElementById('start-test-btn');
-        const closeNoticeModalBtn = document.getElementById('close-notice-modal-btn');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const submitBtn = document.getElementById('submit-btn');
-        const finalSubmitBtn = document.getElementById('final-submit-btn');
-        const closeReviewModalBtn = document.getElementById('close-review-modal-btn');
-        const bookmarkBtn = document.getElementById('bookmark-btn');
-        const themeToggle = document.getElementById('theme-toggle');
-        const soundToggle = document.getElementById('sound-toggle');
-        const fullscreenToggle = document.getElementById('fullscreen-toggle');
-        const certificateBtn = document.getElementById('certificate-btn');
-
-        const questionContainerElement = document.querySelector('#test-screen .question-container');
-        const questionNumberElement = document.getElementById('question-number');
-        const questionTextElement = document.getElementById('question-text');
-        const optionsContainer = document.getElementById('options');
-        const progressFill = document.getElementById('progress-fill');
-        const questionProgressDisplay = document.getElementById('question-progress-display');
-        const palette = document.getElementById('palette');
-        const timerElement = document.getElementById('timer');
-        const answeredCountElement = document.getElementById('answered-count');
-        const totalQuestionsElement = document.getElementById('total-questions');
-        const passageDisplayElement = document.getElementById('passage-display');
-
+        // UI Elements
         const welcomeScreen = document.getElementById('welcome-screen');
         const testScreen = document.getElementById('test-screen');
         const resultScreen = document.getElementById('result-screen');
+
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const startTestBtn = document.getElementById('start-test-btn');
+
+        const questionProgressDisplay = document.getElementById('question-progress-display');
+        const timerDisplay = document.getElementById('timer');
+        const progressBar = document.getElementById('progress-fill');
+        const questionNumberElem = document.getElementById('question-number');
+        const bookmarkBtn = document.getElementById('bookmark-btn');
+        const passageDisplay = document.getElementById('passage-display');
+        const questionTextElem = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const answeredCountElem = document.getElementById('answered-count');
+        const totalQuestionsElem = document.getElementById('total-questions');
+        const paletteContainer = document.getElementById('palette');
+
+        const resultScoreElem = document.getElementById('result-score');
+        const resultStatusElem = document.getElementById('result-status');
+        const correctCountElem = document.getElementById('correct-count');
+        const incorrectCountElem = document.getElementById('incorrect-count');
+        const timeTakenElem = document.getElementById('time-taken');
+        const percentageElem = document.getElementById('percentage');
+        const certificateBtn = document.getElementById('certificate-btn');
+
         const noticeModal = document.getElementById('notice-modal');
+        const closeNoticeModalBtn = document.getElementById('close-notice-modal-btn');
+
         const reviewModal = document.getElementById('review-modal');
         const reviewContent = document.getElementById('review-content');
+        const closeReviewModalBtn = document.getElementById('close-review-modal-btn');
+        const finalSubmitBtn = document.getElementById('final-submit-btn');
 
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        // const soundToggle = document.getElementById('sound-toggle'); // Removed
+        // const soundIcon = document.getElementById('sound-icon'); // Removed
+        const fullscreenToggle = document.getElementById('fullscreen-toggle');
+        const fullscreenIcon = document.getElementById('fullscreen-icon');
 
-        totalQuestionsElement.textContent = questions.length;
+        // Quiz State Variables
+        let currentQuestion = 0;
+        let answers = {}; // {questionIndex: selectedOptionText}
+        let bookmarkedQuestions = new Set();
+        let timeLeft = 100 * 60; // 100 minutes in seconds
+        let timerInterval;
+        const passMarksPercentage = 40;
+        let userName = '';
+        let userEmail = '';
+        let submissionAttempted = false; // To track if a submission has been made for the user's current session
 
-        // Firebase initialization and authentication listener
-        // This ensures auth and db are ready before any operations
-        let appInstance; // Store the app instance
-        try {
-            appInstance = initializeApp(firebaseConfig);
-            auth = getAuth(appInstance);
-            db = getFirestore(appInstance);
-            firebaseInitialized = true; // Set flag to true on successful initialization
-            console.log('Firebase successfully initialized.');
+        // Sounds (Removed all sound-related objects and functions)
+        // const clickSound = new Audio('https://www.soundjay.com/buttons/button-2.mp3');
+        // const correctSound = new Audio('https://www.soundjay.com/misc/success-sound-2.mp3');
+        // const incorrectSound = new Audio('https://www.soundjay.com/misc/fail-sound-2.mp3');
+        // const finishSound = new Audio('https://www.soundjay.com/misc/ending-sound-effect.mp3');
+        // let soundEnabled = true; // Removed
 
-            // Listen for auth state changes
-            auth.onAuthStateChanged(async (user) => {
-                if (user) {
-                    userAuthToken = await user.getIdToken();
-                    console.log('User is authenticated. UID:', user.uid);
-                } else {
-                    // Sign in anonymously if no user is found
-                    try {
-                        const userCredential = await signInAnonymously(auth);
-                        userAuthToken = await userCredential.user.getIdToken();
-                        console.log('Anonymous authentication successful. UID:', userCredential.user.uid);
-                    } catch (error) {
-                        console.error('Anonymous authentication failed:', error);
-                        alert('Authentication failed. Please try again later.');
-                    }
-                }
-                authStateReady = true; // Set flag once auth state is known
+        // Particle Animation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            document.getElementById('particles').appendChild(particle);
+
+            const size = Math.random() * 5 + 3; // 3 to 8px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.animationDuration = `${Math.random() * 5 + 5}s`; // 5 to 10s
+            particle.style.animationDelay = `-${Math.random() * 5}s`; // Start at various points
+
+            particle.addEventListener('animationend', () => {
+                particle.remove();
             });
-
-        } catch (error) {
-            console.error('Firebase initialization error:', error);
-            // alert('Firebase initialization failed. Please check your console.'); // Removed alert as per instructions
         }
 
-
-        async function startTest() {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-
-            if (!name || !email) {
-                alert('Please enter your Name and Email to start the test.');
-                return;
+        function generateParticles() {
+            for (let i = 0; i < 50; i++) { // Generate 50 particles
+                createParticle();
             }
-
-            // Client-side email validation regex
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            // Ensure Firebase is initialized and auth state is ready
-            if (!firebaseInitialized || !authStateReady) {
-                console.warn('Firebase not fully initialized or authentication not ready. Retrying in 1 second...');
-                setTimeout(startTest, 1000); // Retry after a short delay
-                return;
-            }
-
-            // First, check if a test has already been submitted with this email address
-            try {
-                // Ensure db and auth are defined before using them
-                if (!db || !auth || !auth.currentUser) {
-                    console.error('Firestore or Auth not ready during email check. db:', db, 'auth:', auth);
-                    alert('An internal error occurred. Please refresh the page and try again.');
-                    return;
-                }
-                console.log('Checking for existing email with UID:', auth.currentUser.uid); // Log current UID
-                const emailQuery = query(collection(db, `results`), where("email", "==", email));
-                const emailQuerySnapshot = await getDocs(emailQuery);
-
-                if (!emailQuerySnapshot.empty) {
-                    alert('You have already attempted the test with this email address. You can only attempt it once.');
-                    return;
-                }
-            } catch (error) {
-                console.error('Error checking for existing email:', error);
-                alert('An error occurred while verifying your attempt. Please try again.');
-                return;
-            }
-
-            // Check if user has already submitted a test (this check is now secondary to email)
-            const userId = localStorage.getItem('mockTestUserId');
-            if (userId && db && auth && auth.currentUser) { // Add checks for db and auth.currentUser
-                const q = query(collection(db, `results`), where("userId", "==", userId));
-                const querySnapshot = await getDocs(q);
-                if (!querySnapshot.empty) {
-                    // This alert might still show if local storage userId matches but email didn't.
-                    // The email check above is more robust.
-                    alert('You have already attempted the test. You can only attempt it once.');
-                    return;
-                }
-            }
-
-            welcomeScreen.classList.add('hidden');
-            testScreen.classList.remove('hidden');
-            noticeModal.classList.add('hidden');
-            testStartTime = new Date();
-            startTimer();
-            loadQuestion();
-            generatePalette();
+            setInterval(createParticle, 500); // Add a new particle every 0.5 seconds
         }
 
-        function loadQuestion() {
-            const currentQ = questions[currentQuestion];
+        // Functions
+        // function playSound(sound) { // Removed playSound function
+        //     if (soundEnabled) {
+        //         sound.currentTime = 0;
+        //         sound.play().catch(e => console.error("Error playing sound:", e));
+        //     }
+        // }
 
-            // Passage for questions 1 to 5 (0-indexed 0 to 4)
-            const passageContent = `
-                <p>Read the following passage carefully & answer the questions (1 – 5):</p>
-                <p style="text-align:justify">Sindh's traditional crafts, such as Ajrak, pottery, and embroidery, have been woven through centuries of local heritage. Despite modern challenges, artisans pass these skills from elders to the young, ensuring their cultural legacy remains a beacon for identity and pride. Oral storytelling and folk songs act as living archives, capturing the spirit of the land where dust rises red and rivers flow calm. As urbanization spreads, these traditions face a test, yet communities band together through festivals, workshops, and cultural exchange—to preserve what makes Sindh unique.</p>
-            `;
+        function toggleTheme() {
+            document.documentElement.toggleAttribute('data-theme');
+            const isDarkMode = document.documentElement.hasAttribute('data-theme');
+            themeIcon.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            // playSound(clickSound); // Removed
+        }
 
-            if (currentQuestion >= 0 && currentQuestion <= 4) {
-                passageDisplayElement.innerHTML = passageContent;
-                passageDisplayElement.classList.remove('hidden');
+        // function toggleSound() { // Removed toggleSound function
+        //     soundEnabled = !soundEnabled;
+        //     soundIcon.className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
+        //     localStorage.setItem('soundEnabled', soundEnabled);
+        // }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().then(() => {
+                    fullscreenIcon.className = 'fas fa-compress';
+                }).catch(err => {
+                    console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                    alert('Fullscreen mode could not be activated. Your browser may block it.');
+                });
             } else {
-                passageDisplayElement.innerHTML = '';
-                passageDisplayElement.classList.add('hidden');
+                document.exitFullscreen().then(() => {
+                    fullscreenIcon.className = 'fas fa-expand';
+                }).catch(err => {
+                    console.error(`Error attempting to exit full-screen mode: ${err.message} (${err.name})`);
+                });
             }
+            // playSound(clickSound); // Removed
+        }
 
-            questionNumberElement.textContent = `Question ${currentQuestion + 1}`;
-            questionTextElement.innerHTML = currentQ.question;
+        function loadQuestion(index) {
+            currentQuestion = index;
+            const question = questions[currentQuestion];
+
+            questionNumberElem.textContent = `Question ${currentQuestion + 1}`;
+            questionProgressDisplay.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+
+            // Handle Passage
+            if (question.passage) {
+                passageDisplay.textContent = question.passage;
+                passageDisplay.classList.remove('hidden');
+            } else {
+                passageDisplay.classList.add('hidden');
+            }
+            questionTextElem.textContent = question.question;
+
             optionsContainer.innerHTML = '';
-            currentQ.options.forEach((option, index) => {
+            question.options.forEach((option, idx) => {
                 const optionDiv = document.createElement('div');
                 optionDiv.classList.add('option');
                 optionDiv.innerHTML = `
-                    <input type="radio" id="option${index}" name="question${currentQuestion}" value="${option}">
-                    <label for="option${index}">${option}</label>
+                    <input type="radio" id="option${idx}" name="question${currentQuestion}" value="${option}">
+                    <label for="option${idx}">${option}</label>
                 `;
-                optionDiv.addEventListener('click', () => selectOption(option));
+                optionDiv.addEventListener('click', () => {
+                    selectOption(option);
+                    // playSound(clickSound); // Removed
+                });
                 optionsContainer.appendChild(optionDiv);
+
+                // Pre-select if already answered
+                if (answers[currentQuestion] === option) {
+                    optionDiv.classList.add('selected');
+                    optionDiv.querySelector('input').checked = true;
+                }
             });
 
-            // Highlight selected answer
-            const selectedOption = answers[currentQuestion];
-            if (selectedOption) {
-                const radios = document.querySelectorAll(`input[name="question${currentQuestion}"]`);
-                radios.forEach(radio => {
-                    if (radio.value === selectedOption) {
-                        radio.checked = true;
-                        radio.parentElement.classList.add('selected');
-                    }
-                });
-            }
-
-            updateNavigationButtons();
-            updatePalette();
-            updateProgress();
-            updateBookmarkButton();
-        }
-
-        function selectOption(option) {
-            answers[currentQuestion] = option;
-            const optionsDivs = document.querySelectorAll('.option');
-            optionsDivs.forEach(div => div.classList.remove('selected'));
-
-            const selectedRadio = document.querySelector(`input[name="question${currentQuestion}"][value="${option}"]`);
-            if (selectedRadio) {
-                selectedRadio.parentElement.classList.add('selected');
-                selectedRadio.checked = true;
-            }
-            updatePalette();
-            updateProgress();
-        }
-
-        function nextQuestion() {
-            if (currentQuestion < questions.length - 1) {
-                currentQuestion++;
-                loadQuestion();
-                smoothScrollToTop();
-            }
-        }
-
-        function prevQuestion() {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                loadQuestion();
-                smoothScrollToTop();
-            }
-        }
-
-        function updateNavigationButtons() {
+            // Update navigation buttons
             prevBtn.disabled = currentQuestion === 0;
             nextBtn.disabled = currentQuestion === questions.length - 1;
 
             if (currentQuestion === questions.length - 1) {
-                submitBtn.classList.remove('hidden');
                 nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
             } else {
-                submitBtn.classList.add('hidden');
                 nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+
+            updatePalette();
+            updateBookmarkButton();
+            updateProgress();
+        }
+
+        function selectOption(selectedOption) {
+            answers[currentQuestion] = selectedOption;
+            updatePalette(); // Mark question as answered in palette
+            updateProgress(); // Update answered count and progress bar
+            // Visually update selected option
+            optionsContainer.querySelectorAll('.option').forEach(optDiv => {
+                optDiv.classList.remove('selected');
+                optDiv.querySelector('input').checked = false;
+            });
+            const selectedDiv = Array.from(optionsContainer.querySelectorAll('.option')).find(optDiv =>
+                optDiv.querySelector('input').value === selectedOption
+            );
+            if (selectedDiv) {
+                selectedDiv.classList.add('selected');
+                selectedDiv.querySelector('input').checked = true;
             }
         }
 
-        function generatePalette() {
-            palette.innerHTML = '';
-            questions.forEach((q, index) => {
+        function updatePalette() {
+            paletteContainer.innerHTML = '';
+            questions.forEach((_, index) => {
                 const paletteBtn = document.createElement('button');
                 paletteBtn.classList.add('palette-btn');
                 paletteBtn.textContent = index + 1;
                 paletteBtn.addEventListener('click', () => {
-                    currentQuestion = index;
-                    loadQuestion();
+                    loadQuestion(index);
+                    // playSound(clickSound); // Removed
                 });
-                palette.appendChild(paletteBtn);
-            });
-            updatePalette();
-        }
 
-        function updatePalette() {
-            const paletteButtons = document.querySelectorAll('.palette-btn');
-            paletteButtons.forEach((btn, index) => {
-                btn.classList.remove('current', 'answered', 'bookmarked');
                 if (index === currentQuestion) {
-                    btn.classList.add('current');
+                    paletteBtn.classList.add('current');
                 }
                 if (answers[index]) {
-                    btn.classList.add('answered');
+                    paletteBtn.classList.add('answered');
                 }
                 if (bookmarkedQuestions.has(index)) {
-                    btn.classList.add('bookmarked');
+                    paletteBtn.classList.add('bookmarked');
                 }
+                paletteContainer.appendChild(paletteBtn);
             });
-            // Scroll current question into view
-            const currentBtn = palette.querySelector('.palette-btn.current');
-            if (currentBtn) {
-                currentBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
         }
 
-        function toggleBookmark() {
-            if (bookmarkedQuestions.has(currentQuestion)) {
-                bookmarkedQuestions.delete(currentQuestion);
-                bookmarkBtn.classList.remove('active');
-            } else {
-                bookmarkedQuestions.add(currentQuestion);
-                bookmarkBtn.classList.add('active');
-            }
-            updatePalette();
+        function updateProgress() {
+            const answeredCount = Object.keys(answers).length;
+            answeredCountElem.textContent = answeredCount;
+            totalQuestionsElem.textContent = questions.length;
+
+            const progressPercentage = (answeredCount / questions.length) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerDisplay.textContent = `Time Left: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    submitTest(true); // Auto-submit when time runs out
+                }
+            }, 1000);
         }
 
         function updateBookmarkButton() {
@@ -2007,337 +1448,288 @@
             }
         }
 
-        function updateProgress() {
-            const answeredCount = Object.keys(answers).length;
-            const totalQuestions = questions.length;
-            const percentage = (answeredCount / totalQuestions) * 100;
-            progressFill.style.width = `${percentage}%`;
-            // Update the new question progress display
-            questionProgressDisplay.textContent = `Question ${currentQuestion + 1} of ${totalQuestions}`;
-        }
-
-        function startTimer() {
-            timerInterval = setInterval(() => {
-                timeLeft--;
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
-                timerElement.textContent = `Time Left: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-                if (timeLeft <= 300 && !timerElement.classList.contains('warning')) {
-                    timerElement.classList.add('warning');
-                    playWarningSound();
-                }
-
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    submitTest(true);
-                }
-            }, 1000);
+        function toggleBookmark() {
+            if (bookmarkedQuestions.has(currentQuestion)) {
+                bookmarkedQuestions.delete(currentQuestion);
+            } else {
+                bookmarkedQuestions.add(currentQuestion);
+            }
+            updateBookmarkButton();
+            updatePalette(); // Update palette to show bookmark status
+            // playSound(clickSound); // Removed
         }
 
         async function submitTest(timeUp = false) {
-            clearInterval(timerInterval);
+            // playSound(clickSound); // Removed
+
+            // If time is up, directly proceed to review/result if no submission attempted
+            if (timeUp && submissionAttempted) {
+                return; // Prevent multiple submissions if timer runs out after manual submission
+            }
+
+            if (!timeUp && Object.keys(answers).length < questions.length) {
+                // Show review modal if not all questions are answered
+                showReviewModal();
+            } else {
+                // Directly calculate and show results if all answered or time is up
+                if (!submissionAttempted) { // Prevent double submission
+                    await calculateResult(timeUp);
+                }
+            }
+        }
+
+
+        async function calculateResult(timeUp = false) {
+            if (submissionAttempted) return; // Prevent multiple submissions
+            submissionAttempted = true;
+
+            clearInterval(timerInterval); // Stop the timer
 
             let correctAnswers = 0;
             let incorrectAnswers = 0;
-
+            const unansweredQuestions = questions.length - Object.keys(answers).length;
+            
             questions.forEach((q, index) => {
-                if (answers[index] === q.answer) {
-                    correctAnswers++;
-                } else if (answers[index]) {
-                    incorrectAnswers++;
+                if (answers[index]) {
+                    if (answers[index] === q.answer) {
+                        correctAnswers++;
+                    } else {
+                        incorrectAnswers++;
+                    }
                 }
             });
 
-            const totalQuestions = questions.length;
-            const percentage = (correctAnswers / totalQuestions) * 100;
-            const passMarks = 40;
-            const status = percentage >= passMarks ? 'Pass' : 'Fail';
+            const totalScore = correctAnswers;
+            const percentage = (totalScore / questions.length) * 100;
+            const timeTakenInSeconds = (100 * 60) - timeLeft; // Total time - remaining time
+            const timeTakenMinutes = Math.floor(timeTakenInSeconds / 60);
+            const timeTakenSeconds = timeTakenInSeconds % 60;
 
-            testScreen.classList.add('hidden');
-            resultScreen.classList.remove('hidden');
-            reviewModal.classList.add('hidden');
+            const resultData = {
+                name: userName,
+                email: userEmail,
+                score: totalScore,
+                totalQuestions: questions.length,
+                correct: correctAnswers,
+                incorrect: incorrectAnswers,
+                unanswered: unansweredQuestions,
+                percentage: percentage.toFixed(2),
+                timeTaken: `${timeTakenMinutes}:${String(timeTakenSeconds).padStart(2, '0')}`,
+                passStatus: percentage >= passMarksPercentage ? "Pass" : "Fail",
+                timestamp: serverTimestamp() // Use server timestamp
+            };
 
-            document.getElementById('result-score').textContent = `${correctAnswers} / ${totalQuestions}`;
-            const resultStatusElement = document.getElementById('result-status');
-            resultStatusElement.textContent = status === 'Pass' ? 'Mubarak ho! Aap Pass ho gaye hain.' : 'Afsoos! Aap Fail ho gaye hain.';
-            resultStatusElement.className = `result-status ${status.toLowerCase()}`;
-            document.getElementById('correct-count').textContent = correctAnswers;
-            document.getElementById('incorrect-count').textContent = incorrectAnswers;
+            await saveResultToFirestore(resultData);
+            showResult(resultData);
+        }
 
-            const timeTakenSeconds = (new Date() - testStartTime) / 1000;
-            const timeTakenMinutes = Math.floor(timeTakenSeconds / 60);
-            const timeTakenRemainingSeconds = Math.floor(timeTakenSeconds % 60);
-            document.getElementById('time-taken').textContent = `${timeTakenMinutes.toString().padStart(2, '0')}:${timeTakenRemainingSeconds.toString().padStart(2, '0')}`;
-            document.getElementById('percentage').textContent = `${percentage.toFixed(2)}%`;
-
-            // Handle certificate download button visibility
-            if (status === 'Pass' && correctAnswers >= 60) {
-                certificateBtn.style.display = 'inline-block';
-            } else {
-                certificateBtn.style.display = 'none';
+        async function saveResultToFirestore(resultData) {
+            if (!firebaseInitialized) {
+                console.warn('Firebase not initialized. Result will not be saved.');
+                return;
             }
 
-            // Save result to Firebase
             try {
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                // Assuming 'phone' input is added in the HTML, if not, it will be undefined
-                const phoneInput = document.getElementById('phone');
-                const phone = phoneInput ? phoneInput.value : '';
+                // Authenticate anonymously
+                const userCredential = await signInAnonymously(auth);
+                const user = userCredential.user;
+                console.log("Anonymous user signed in:", user.uid);
 
+                // Check if user has already submitted a test
+                const resultsRef = collection(db, "results");
+                const q = query(resultsRef, where("email", "==", userEmail));
+                const querySnapshot = await getDocs(q);
 
-                // Generate a unique user ID and store it
-                let userId = localStorage.getItem('mockTestUserId');
-                if (!userId) {
-                    userId = auth.currentUser ? auth.currentUser.uid : null;
-                    if (!userId) {
-                        userId = 'guest_' + Date.now();
-                    }
-                    localStorage.setItem('mockTestUserId', userId);
+                if (!querySnapshot.empty) {
+                    console.warn('A test result for this email already exists. Skipping new submission.');
+                    alert('A test has already been submitted with this email address. You can only take the test once.');
+                    return; // Do not save if already submitted
                 }
 
-                // Ensure db and auth are defined before using them
-                if (!db || !auth || !auth.currentUser) {
-                    console.error('Firestore or Auth not ready during result save. db:', db, 'auth:', auth);
-                    alert('An internal error occurred while saving results. Please refresh the page and try again.');
-                    return;
-                }
-                console.log('Saving result to Firebase with UID:', auth.currentUser.uid); // Log current UID
-
-                await addDoc(collection(db, `results`), {
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    userId: userId,
-                    correctAnswers: correctAnswers,
-                    incorrectAnswers: incorrectAnswers,
-                    totalQuestions: totalQuestions,
-                    // --- START OF MODIFICATION ---
-                    // Save percentage as a number, not a string
-                    percentage: parseFloat(percentage.toFixed(2)), 
-                    // --- END OF MODIFICATION ---
-                    status: status,
-                    timeTaken: `${timeTakenMinutes}:${timeTakenRemainingSeconds}`,
-                    timestamp: serverTimestamp(),
-                    timeUp: timeUp,
-                    score: correctAnswers
-                });
-                console.log("Test result saved to Firebase.");
+                await addDoc(resultsRef, resultData);
+                console.log("Document successfully written!");
             } catch (e) {
                 console.error("Error adding document: ", e);
-                alert("Error saving your result. Please try again or contact support.");
+                alert("Could not save your result. Please try again later or contact support. Error: " + e.message);
             }
-
-            // Clear saved progress regardless of pass/fail
-            localStorage.removeItem('mockTestProgress');
-            localStorage.removeItem('mockTestAnswers');
-            localStorage.removeItem('bookmarkedQuestions');
         }
 
-        // Function to download certificate
-        function downloadCertificate() {
-            alert('Certificate will be generated and downloaded soon!');
-        }
 
-        // Handle full screen toggle
-        const fullscreenIcon = document.getElementById('fullscreen-icon');
+        function showResult(resultData) {
+            testScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
 
-        fullscreenToggle.addEventListener('click', () => {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().then(() => {
-                    fullscreenIcon.classList.remove('fa-expand');
-                    fullscreenIcon.classList.add('fa-compress');
-                }).catch(err => {
-                    console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                });
+            resultScoreElem.textContent = `${resultData.score} / ${resultData.totalQuestions}`;
+            resultStatusElem.textContent = resultData.passStatus === "Pass" ? "Mubarak Ho! Aap Pass Ho Gaye!" : "Afsoos! Aap Fail Ho Gaye.";
+            resultStatusElem.className = resultData.passStatus === "Pass" ? "result-status pass" : "result-status fail";
+            correctCountElem.textContent = resultData.correct;
+            incorrectCountElem.textContent = resultData.incorrect;
+            timeTakenElem.textContent = resultData.timeTaken;
+            percentageElem.textContent = `${resultData.percentage}%`;
+
+            if (resultData.passStatus === "Pass") {
+                // playSound(correctSound); // Removed
+                certificateBtn.style.display = 'block'; // Show certificate button if passed
             } else {
-                document.exitFullscreen().then(() => {
-                    fullscreenIcon.classList.remove('fa-compress');
-                    fullscreenIcon.classList.add('fa-expand');
-                }).catch(err => {
-                    console.error(`Error attempting to exit full-screen mode: ${err.message} (${err.name})`);
-                });
+                // playSound(incorrectSound); // Removed
+                certificateBtn.style.display = 'none'; // Hide certificate button if failed
             }
-        });
-
-        // Theme Toggle (Light/Dark Mode)
-        const themeIcon = document.getElementById('theme-icon');
-
-        function setTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            if (theme === 'dark') {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
+            // playSound(finishSound); // Removed
         }
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = localStorage.getItem('theme');
-            if (currentTheme === 'dark') {
-                setTheme('light');
-            } else {
-                setTheme('dark');
-            }
-        });
-
-        // Apply saved theme on load
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        setTheme(savedTheme);
-
-        // Sound Toggle
-        const soundIcon = document.getElementById('sound-icon');
-        let isSoundMuted = JSON.parse(localStorage.getItem('isSoundMuted')) || false;
-
-        // Create audio elements for feedback - REPLACE THESE PLACEHOLDER URLs
-        // You need to upload your audio files to your Netlify project (e.g., in an 'audio' folder)
-        // and update these paths accordingly.
-        const correctSound = new Audio('https://placehold.co/1x1?text=correct_sound_placeholder'); // Replace with your correct sound URL
-        const incorrectSound = new Audio('https://placehold.co/1x1?text=incorrect_sound_placeholder'); // Replace with your incorrect sound URL
-        const warningSound = new Audio('https://placehold.co/1x1?text=warning_sound_placeholder'); // Replace with your warning sound URL
-
-        function updateSoundIcon() {
-            if (isSoundMuted) {
-                soundIcon.classList.remove('fa-volume-up');
-                soundIcon.classList.add('fa-volume-mute');
-                soundToggle.classList.add('muted');
-            } else {
-                soundIcon.classList.remove('fa-volume-mute');
-                soundIcon.classList.add('fa-volume-up');
-                soundToggle.classList.remove('muted');
-            }
-        }
-
-        function playCorrectSound() {
-            if (!isSoundMuted) {
-                correctSound.play().catch(e => console.error("Error playing correct sound:", e));
-            }
-        }
-
-        function playIncorrectSound() {
-            if (!isSoundMuted) {
-                incorrectSound.play().catch(e => console.error("Error playing incorrect sound:", e));
-            }
-        }
-
-        function playWarningSound() {
-            if (!isSoundMuted) {
-                warningSound.play().catch(e => console.error("Error playing warning sound:", e));
-            }
-        }
-
-        soundToggle.addEventListener('click', () => {
-            isSoundMuted = !isSoundMuted;
-            localStorage.setItem('isSoundMuted', JSON.stringify(isSoundMuted));
-            updateSoundIcon();
-        });
-
-        // Initialize sound icon on load
-        updateSoundIcon();
-
-        // Particle background animation
-        const particlesContainer = document.getElementById('particles');
-        const numParticles = 30;
-
-        for (let i = 0; i < numParticles; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            particle.style.left = `${Math.random() * 100}%`;
-            particle.style.top = `${Math.random() * 100}%`;
-            particle.style.animationDelay = `${Math.random() * 6}s`;
-            particlesContainer.appendChild(particle);
-        }
-
-        // Important Notice Modal Logic
-        function showNoticeModal() {
-            noticeModal.classList.remove('hidden');
-            startTestBtn.disabled = true;
-        }
-
-        function closeNoticeModal() {
-            noticeModal.classList.add('hidden');
-            startTestBtn.disabled = false;
-        }
-
-        // Smooth scroll to top when changing questions
-        function smoothScrollToTop() {
-            if (questionContainerElement) {
-                questionContainerElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-
-        // Review Modal Logic
         function showReviewModal() {
-            reviewContent.innerHTML = '';
+            reviewContent.innerHTML = ''; // Clear previous content
             questions.forEach((q, index) => {
                 const userAnswer = answers[index];
-                const isCorrect = userAnswer === q.answer;
-                const statusIcon = isCorrect ? '<i class="fas fa-check-circle" style="color: var(--success-color);"></i>' : '<i class="fas fa-times-circle" style="color: var(--danger-color);"></i>';
-                const statusText = isCorrect ? 'Correct' : 'Incorrect';
-                const userAnswerText = userAnswer ? userAnswer : 'Not Answered';
-                const answerColor = isCorrect ? 'var(--text-primary)' : 'var(--danger-color)';
+                const isAnswered = userAnswer !== undefined;
+                const isCorrect = isAnswered && userAnswer === q.answer;
+                const isBookmarked = bookmarkedQuestions.has(index);
 
                 const questionReviewDiv = document.createElement('div');
                 questionReviewDiv.style.marginBottom = '1.5rem';
-                questionReviewDiv.style.paddingBottom = '1rem';
-                questionReviewDiv.style.borderBottom = '1px dashed var(--border-color)';
-                if (index === questions.length - 1) {
-                    questionReviewDiv.style.borderBottom = 'none';
-                }
-
+                questionReviewDiv.style.padding = '1rem';
+                questionReviewDiv.style.border = `1px solid ${isCorrect ? 'var(--success-color)' : isAnswered ? 'var(--danger-color)' : 'var(--border-color)'}`;
+                questionReviewDiv.style.borderRadius = '10px';
+                questionReviewDiv.style.background = isCorrect ? 'rgba(76, 175, 80, 0.05)' : isAnswered ? 'rgba(244, 67, 57, 0.05)' : 'var(--bg-secondary)';
+                
                 questionReviewDiv.innerHTML = `
-                    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem;">
+                    <p style="font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary);">
                         Question ${index + 1}: ${q.question}
+                        ${isBookmarked ? '<i class="fas fa-bookmark" style="color: var(--warning-color); margin-left: 0.5rem;"></i>' : ''}
                     </p>
-                    <p style="color: var(--text-secondary); margin-bottom: 0.3rem;">
-                        Your Answer: <span style="font-weight: 500; color: ${answerColor};">${userAnswerText}</span> ${statusIcon}
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">
+                        Your Answer: <span style="font-weight: 500; color: ${isAnswered ? 'var(--text-primary)' : 'var(--danger-color)'};">${isAnswered ? userAnswer : 'Not Answered'}</span>
                     </p>
-                    <p style="color: var(--text-secondary);">
-                        Correct Answer: <span style="font-weight: 500; color: var(--success-color);">${q.answer}</span>
-                    </p>
+                    ${isAnswered ? `<p style="color: var(--text-secondary);">
+                        Status: <span style="font-weight: 500; color: ${isCorrect ? 'var(--success-color)' : 'var(--danger-color)'};">
+                            ${isCorrect ? '<i class="fas fa-check-circle"></i> Correct' : '<i class="fas fa-times-circle"></i> Incorrect'}
+                        </span>
+                    </p>` : ''}
                 `;
                 reviewContent.appendChild(questionReviewDiv);
             });
+
             reviewModal.classList.remove('hidden');
         }
 
-        function closeReviewModal() {
-            reviewModal.classList.add('hidden');
+
+        function resetTest() {
+            currentQuestion = 0;
+            answers = {};
+            bookmarkedQuestions = new Set();
+            timeLeft = 100 * 60;
+            submissionAttempted = false; // Reset submission flag
+            clearInterval(timerInterval);
+            timerDisplay.textContent = `Time Left: 100:00`;
+            loadQuestion(0);
+            welcomeScreen.classList.remove('hidden');
+            testScreen.classList.add('hidden');
+            resultScreen.classList.add('hidden');
+            noticeModal.classList.remove('hidden'); // Show notice again for new test
+            nameInput.value = '';
+            emailInput.value = '';
         }
 
         // Event Listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            // Attach event listeners to buttons
-            startTestBtn.addEventListener('click', startTest);
-            closeNoticeModalBtn.addEventListener('click', closeNoticeModal);
-            prevBtn.addEventListener('click', prevQuestion);
-            nextBtn.addEventListener('click', nextQuestion);
-            submitBtn.addEventListener('click', showReviewModal);
-            finalSubmitBtn.addEventListener('click', () => submitTest(false));
-            closeReviewModalBtn.addEventListener('click', closeReviewModal);
-            bookmarkBtn.addEventListener('click', toggleBookmark);
-            certificateBtn.addEventListener('click', downloadCertificate);
+        startTestBtn.addEventListener('click', async () => {
+            userName = nameInput.value.trim();
+            userEmail = emailInput.value.trim();
 
-            // Show notice modal on initial load
-            showNoticeModal();
+            if (!userName || !userEmail) {
+                alert('Please enter your name and email to start the test.');
+                return;
+            }
+
+            // Simple email validation
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            if (firebaseInitialized) {
+                // Check if user already submitted
+                try {
+                    const q = query(collection(db, "results"), where("email", "==", userEmail));
+                    const querySnapshot = await getDocs(q);
+                    if (!querySnapshot.empty) {
+                        alert('A test has already been submitted with this email address. You can only take the test once.');
+                        return;
+                    }
+                } catch (e) {
+                    console.error("Error checking existing submission:", e);
+                    alert("Could not check previous submissions. Please try again.");
+                    return;
+                }
+            } else {
+                alert('Firebase is not initialized. Test results cannot be saved. Please check console for errors.');
+                // Optionally, you could still let them take the test without saving results
+                // if (!confirm("Firebase is not initialized, results cannot be saved. Do you want to proceed anyway?")) {
+                //     return;
+                // }
+            }
+            
+            noticeModal.classList.add('hidden');
+            welcomeScreen.classList.add('hidden');
+            testScreen.classList.remove('hidden');
+            loadQuestion(0);
+            startTimer();
+            generateParticles();
+            // playSound(clickSound); // Removed
         });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                loadQuestion(currentQuestion - 1);
+                // playSound(clickSound); // Removed
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestion < questions.length - 1) {
+                loadQuestion(currentQuestion + 1);
+                // playSound(clickSound); // Removed
+            }
+        });
+
+        submitBtn.addEventListener('click', () => submitTest());
+        bookmarkBtn.addEventListener('click', toggleBookmark);
+
+        closeNoticeModalBtn.addEventListener('click', () => {
+            noticeModal.classList.add('hidden');
+            // playSound(clickSound); // Removed
+        });
+
+        closeReviewModalBtn.addEventListener('click', () => {
+            reviewModal.classList.add('hidden');
+            // playSound(clickSound); // Removed
+        });
+
+        finalSubmitBtn.addEventListener('click', async () => {
+            reviewModal.classList.add('hidden');
+            await calculateResult();
+            // playSound(clickSound); // Removed
+        });
+
+        themeToggle.addEventListener('click', toggleTheme);
+        // soundToggle.addEventListener('click', toggleSound); // Removed
+        fullscreenToggle.addEventListener('click', toggleFullscreen);
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (testScreen.classList.contains('hidden')) return;
-            
+            if (testScreen.classList.contains('hidden')) return; // Only active on test screen
+
             switch (e.key) {
-                case 'ArrowRight':
-                    e.preventDefault();
-                    nextQuestion();
-                    break;
                 case 'ArrowLeft':
-                    e.preventDefault();
-                    prevQuestion();
+                    if (currentQuestion > 0) {
+                        e.preventDefault();
+                        loadQuestion(currentQuestion - 1);
+                    }
+                    break;
+                case 'ArrowRight':
+                    if (currentQuestion < questions.length - 1) {
+                        e.preventDefault();
+                        loadQuestion(currentQuestion + 1);
+                    }
                     break;
                 case '1':
                 case '2':

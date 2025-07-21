@@ -62,7 +62,7 @@
             border-radius: 15px;
             padding: 2.5rem;
             width: 100%;
-            max-width: 900px; /* Keep max-width for overall container */
+            max-width: 1200px; /* Increased max-width for overall container */
             box-shadow: var(--shadow-lg);
             transition: all 0.3s ease;
         }
@@ -161,7 +161,7 @@
 
         .dashboard-content {
             margin-top: 2rem;
-            /* Add overflow-x to make table scrollable if content is too wide */
+            /* Add overflow-x to make table scrollable */
             overflow-x: auto; 
         }
 
@@ -178,12 +178,19 @@
             gap: 1rem;
             margin-bottom: 1.5rem;
             flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center; /* Center buttons horizontally */
         }
+        .dashboard-controls .btn {
+            min-width: 150px; /* Ensure buttons have a minimum width */
+            flex-grow: 1; /* Allow buttons to grow and fill space */
+            max-width: 200px; /* Limit max width for larger screens */
+        }
+
 
         .dashboard-content table {
             width: 100%;
             /* min-width added to ensure table doesn't shrink too much */
-            min-width: 700px; /* Adjust this value as needed based on your content */
+            min-width: 850px; /* Increased table min-width */
             border-collapse: collapse;
             margin-top: 1.5rem;
             box-shadow: var(--shadow);
@@ -199,8 +206,8 @@
             white-space: nowrap; /* Prevent text wrapping within cells by default */
         }
         /* Allow wrapping for specific columns if needed, e.g., email or name */
-        .dashboard-content td:nth-child(1), /* Name column */
-        .dashboard-content td:nth-child(2)  /* Email column */
+        .dashboard-content td:nth-child(2), /* Name column */
+        .dashboard-content td:nth-child(3)  /* Email column */
         {
             white-space: normal; /* Allow normal wrapping for these columns */
             word-break: break-word; /* Break long words */
@@ -249,7 +256,7 @@
             background: #E53935;
         }
 
-        .delete-all-btn {
+        .delete-all-btn, .delete-selected-btn { /* Apply same style to delete-all and delete-selected */
             background: var(--danger-color);
             color: white;
             width: auto;
@@ -257,7 +264,7 @@
             box-shadow: var(--shadow);
         }
 
-        .delete-all-btn:hover {
+        .delete-all-btn:hover, .delete-selected-btn:hover {
             background: #E53935;
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
@@ -291,6 +298,20 @@
             box-shadow: var(--shadow-lg);
         }
 
+        .delete-single-btn {
+            background: var(--danger-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .delete-single-btn:hover {
+            background: #E53935;
+        }
 
         .loading-indicator {
             text-align: center;
@@ -379,7 +400,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Login Screen -->
         <div id="login-screen">
             <div class="header">
                 <h1><i class="fas fa-user-shield"></i> Admin Login</h1>
@@ -401,7 +421,6 @@
             </button>
         </div>
 
-        <!-- Admin Dashboard -->
         <div id="admin-dashboard" class="hidden">
             <div class="header">
                 <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
@@ -414,6 +433,9 @@
                 </button>
                 <button class="btn print-pdf-btn" onclick="printResultsPdf()">
                     <i class="fas fa-file-pdf"></i> Print PDF
+                </button>
+                <button class="btn delete-selected-btn" onclick="deleteSelectedResults()">
+                    <i class="fas fa-trash-alt"></i> Delete Selected
                 </button>
                 <button class="btn delete-all-btn" onclick="deleteAllResults()">
                     <i class="fas fa-trash-alt"></i> Delete All Data
@@ -435,7 +457,6 @@
                             <option value="100">100</option>
                         </select>
                     </div>
-                    <!-- Sort By Control -->
                     <div class="sort-controls">
                         <label for="sort-by-select">Sort By:</label>
                         <select id="sort-by-select" onchange="applySortAndRender()">
@@ -462,7 +483,7 @@
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
         import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
-        import { getFirestore, collection, getDocs, deleteDoc, doc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+        import { getFirestore, collection, getDocs, deleteDoc, doc, writeBatch } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
         // Global variables for pagination and sorting
         let allResults = [];
@@ -733,14 +754,14 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th><input type="checkbox" id="selectAllCheckbox" onclick="toggleSelectAll()"></th> <th>Name</th>
                             <th>Email</th>
                             <th>Score</th>
                             <th>Percentage</th>
                             <th>Status</th>
                             <th>Time Taken</th>
                             <th>Date</th>
-                        </tr>
+                            <th>Action</th> </tr>
                     </thead>
                     <tbody>
             `;
@@ -785,19 +806,25 @@
                 
                 // Handle timestamp gracefully
                 let date = 'N/A';
+                let docId = data.id || ''; // Get the document ID for deletion
                 if (data.timestamp && typeof data.timestamp.toDate === 'function') {
                     date = new Date(data.timestamp.toDate()).toLocaleDateString('en-GB');
                 }
 
                 tableHtml += `
                     <tr>
-                        <td>${data.name || 'N/A'}</td>
+                        <td><input type="checkbox" class="result-checkbox" data-doc-id="${docId}"></td> <td>${data.name || 'N/A'}</td>
                         <td>${data.email || 'N/A'}</td>
                         <td>${score} / ${totalQuestions}</td>
                         <td>${percentage}%</td>
                         <td><span class="${statusClass}">${data.status || 'N/A'}</span></td>
                         <td>${formattedTime}</td>
                         <td>${date}</td>
+                        <td>
+                            <button class="delete-single-btn" onclick="deleteResult('${docId}')" title="Delete this result">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
                     </tr>
                 `;
             });
@@ -824,8 +851,8 @@
                 const querySnapshot = await getDocs(resultsCollectionRef);
 
                 allResults = []; // Clear previous results
-                querySnapshot.forEach(doc => {
-                    allResults.push(doc.data());
+                querySnapshot.forEach(documentSnapshot => { // Renamed doc to documentSnapshot to avoid confusion with doc() function
+                    allResults.push({ id: documentSnapshot.id, ...documentSnapshot.data() }); // Store document ID
                 });
 
                 // Apply current sort
@@ -856,11 +883,13 @@
             const nextBtn = document.getElementById('next-page-btn');
             const pageInfoSpan = document.getElementById('page-info');
             const resultsPerPageSelect = document.getElementById('results-per-page-select');
+            const selectAllCheckbox = document.getElementById('selectAllCheckbox');
 
             if (prevBtn) prevBtn.disabled = currentPage === 1;
             if (nextBtn) nextBtn.disabled = currentPage === totalPages || totalPages === 0; // Disable next if no pages
             if (pageInfoSpan) pageInfoSpan.textContent = `Page ${currentPage} of ${totalPages}`;
             if (resultsPerPageSelect) resultsPerPageSelect.value = resultsPerPage;
+            if (selectAllCheckbox) selectAllCheckbox.checked = false; // Uncheck select all on page change
         }
 
         window.prevPage = () => {
@@ -882,6 +911,76 @@
             totalPages = Math.ceil(allResults.length / resultsPerPage);
             currentPage = 1; // Reset to first page
             window.renderResultsTable();
+        };
+
+        // Toggle all checkboxes
+        window.toggleSelectAll = () => {
+            const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+            const checkboxes = document.querySelectorAll('.result-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        };
+
+        // Delete Single Result Function
+        window.deleteResult = (docId) => {
+            showCustomConfirm(
+                'Are you sure you want to delete this result? This action cannot be undone!',
+                async () => {
+                    // User confirmed deletion
+                    try {
+                        await deleteDoc(doc(db, 'results', docId));
+                        showCustomAlert('Result deleted successfully!');
+                        window.fetchTestResults(); // Refresh table after deletion
+                    } catch (error) {
+                        console.error('Error deleting single document:', error);
+                        showCustomAlert(`Error deleting result: ${error.message}. Please check Firebase rules.`);
+                    }
+                },
+                () => {
+                    // User cancelled deletion
+                    showCustomAlert('Result deletion cancelled.');
+                }
+            );
+        };
+
+        // Delete Selected Results Function
+        window.deleteSelectedResults = async () => {
+            const selectedIds = Array.from(document.querySelectorAll('.result-checkbox:checked'))
+                                   .map(checkbox => checkbox.dataset.docId)
+                                   .filter(id => id); // Filter out any empty IDs
+
+            if (selectedIds.length === 0) {
+                showCustomAlert('Please select at least one result to delete.');
+                return;
+            }
+
+            showCustomConfirm(
+                `Are you sure you want to delete ${selectedIds.length} selected result(s)? This action cannot be undone!`,
+                async () => {
+                    // User confirmed deletion
+                    const resultsTableContainer = document.getElementById('results-table-container');
+                    resultsTableContainer.innerHTML = '<p class="loading-indicator">Deleting selected data...</p>';
+
+                    try {
+                        const batch = writeBatch(db);
+                        selectedIds.forEach(id => {
+                            const docRef = doc(db, 'results', id);
+                            batch.delete(docRef);
+                        });
+                        await batch.commit();
+                        showCustomAlert(`${selectedIds.length} result(s) deleted successfully!`);
+                        window.fetchTestResults(); // Refresh table after deletion
+                    } catch (error) {
+                        console.error('Error deleting selected documents:', error);
+                        showCustomAlert(`Error deleting selected results: ${error.message}. Please check Firebase rules.`);
+                    }
+                },
+                () => {
+                    // User cancelled deletion
+                    showCustomAlert('Deletion of selected results cancelled.');
+                }
+            );
         };
 
 
@@ -994,6 +1093,9 @@
                         color: #F44347; /* --danger-color */
                         font-weight: 600;
                     }
+                    /* Hide checkboxes and action buttons in PDF */
+                    .pdf-container th:first-child, .pdf-container td:first-child { display: none; } /* Select column */
+                    .pdf-container th:last-child, .pdf-container td:last-child { display: none; } /* Action column */
                 `;
 
                 // Construct the full HTML for PDF, including styles and a title
@@ -1033,6 +1135,7 @@
                 showCustomAlert(`Error generating PDF: ${error.message}.`);
             } finally {
                 resultsTableContainer.innerHTML = originalContent; // Restore original content
+                window.renderResultsTable(); // Re-render to ensure checkboxes are restored correctly
             }
         };
 
