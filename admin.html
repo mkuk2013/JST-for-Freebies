@@ -62,7 +62,7 @@
             border-radius: 15px;
             padding: 2.5rem;
             width: 100%;
-            max-width: 900px;
+            max-width: 900px; /* Keep max-width for overall container */
             box-shadow: var(--shadow-lg);
             transition: all 0.3s ease;
         }
@@ -161,6 +161,8 @@
 
         .dashboard-content {
             margin-top: 2rem;
+            /* Add overflow-x to make table scrollable if content is too wide */
+            overflow-x: auto; 
         }
 
         .dashboard-content h2 {
@@ -180,6 +182,8 @@
 
         .dashboard-content table {
             width: 100%;
+            /* min-width added to ensure table doesn't shrink too much */
+            min-width: 700px; /* Adjust this value as needed based on your content */
             border-collapse: collapse;
             margin-top: 1.5rem;
             box-shadow: var(--shadow);
@@ -192,7 +196,16 @@
             text-align: left;
             border-bottom: 1px solid var(--border-color);
             font-size: 0.95rem; /* Slightly smaller font for table data */
+            white-space: nowrap; /* Prevent text wrapping within cells by default */
         }
+        /* Allow wrapping for specific columns if needed, e.g., email or name */
+        .dashboard-content td:nth-child(1), /* Name column */
+        .dashboard-content td:nth-child(2)  /* Email column */
+        {
+            white-space: normal; /* Allow normal wrapping for these columns */
+            word-break: break-word; /* Break long words */
+        }
+
 
         .dashboard-content th {
             background: var(--primary-color);
@@ -354,12 +367,18 @@
                 width: 100%;
                 margin-top: 0.5rem;
             }
+            /* Ensure horizontal scrolling on small screens if table content is still wide */
+            .dashboard-content {
+                overflow-x: auto;
+            }
+            .dashboard-content table {
+                min-width: unset; /* Remove min-width on small screens */
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Login Screen -->
         <div id="login-screen">
             <div class="header">
                 <h1><i class="fas fa-user-shield"></i> Admin Login</h1>
@@ -381,7 +400,6 @@
             </button>
         </div>
 
-        <!-- Admin Dashboard -->
         <div id="admin-dashboard" class="hidden">
             <div class="header">
                 <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
