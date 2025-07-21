@@ -379,6 +379,7 @@
 </head>
 <body>
     <div class="container">
+        <!-- Login Screen -->
         <div id="login-screen">
             <div class="header">
                 <h1><i class="fas fa-user-shield"></i> Admin Login</h1>
@@ -400,6 +401,7 @@
             </button>
         </div>
 
+        <!-- Admin Dashboard -->
         <div id="admin-dashboard" class="hidden">
             <div class="header">
                 <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
@@ -433,6 +435,7 @@
                             <option value="100">100</option>
                         </select>
                     </div>
+                    <!-- Sort By Control -->
                     <div class="sort-controls">
                         <label for="sort-by-select">Sort By:</label>
                         <select id="sort-by-select" onchange="applySortAndRender()">
@@ -691,7 +694,7 @@
                         return getPercentage(b) - getPercentage(a);
                     case 'score_asc':
                         // Sort by percentage (low to high)
-                        return getPercentage(a) - getPercentage(a);
+                        return getPercentage(a) - getPercentage(b);
                     case 'date_desc':
                         // Sort by date (newest first)
                         const dateA = a.timestamp && typeof a.timestamp.toDate === 'function' ? a.timestamp.toDate() : new Date(0);
