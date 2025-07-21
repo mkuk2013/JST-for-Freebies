@@ -314,12 +314,12 @@
             margin-bottom: 1rem;
         }
 
-        .pagination-header label {
+        .pagination-header label, .sort-controls label {
             font-weight: 500;
             color: var(--text-primary);
         }
 
-        .pagination-header select {
+        .pagination-header select, .sort-controls select {
             padding: 0.5rem 0.75rem;
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -386,8 +386,8 @@
             </div>
 
             <div class="form-group">
-                <label for="admin-username"><i class="fas fa-user"></i> Username</label>
-                <input type="text" id="admin-username" placeholder="Enter username..." required>
+                <label for="admin-email"><i class="fas fa-envelope"></i> Email</label>
+                <input type="email" id="admin-email" placeholder="Enter admin email..." required>
             </div>
 
             <div class="form-group">
@@ -433,6 +433,15 @@
                             <option value="100">100</option>
                         </select>
                     </div>
+                    <div class="sort-controls">
+                        <label for="sort-by-select">Sort By:</label>
+                        <select id="sort-by-select" onchange="applySortAndRender()">
+                            <option value="score_desc" selected>Score (High to Low)</option>
+                            <option value="score_asc">Score (Low to High)</option>
+                            <option value="date_desc">Date (Newest First)</option>
+                            <option value="name_asc">Name (A-Z)</option>
+                        </select>
+                    </div>
                     <div id="total-records-count">Total Records: 0</div>
                 </div>
                 <div id="results-table-container">
@@ -449,14 +458,15 @@
 
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
-        import { getAuth, signInAnonymously, signOut } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
         import { getFirestore, collection, getDocs, deleteDoc, doc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
-        // Global variables for pagination
+        // Global variables for pagination and sorting
         let allResults = [];
         let currentPage = 1;
         let resultsPerPage = 10; // Default
         let totalPages = 1;
+        let currentSort = 'score_desc'; // Default sort order
 
         // Load html2pdf.js library
         const loadScript = (src) => {
@@ -487,6 +497,23 @@
             auth = getAuth(app);
             db = getFirestore(app);
             console.log('Firebase successfully initialized for Admin Panel.');
+
+            // Listen for authentication state changes
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in (session is persistent)
+                    console.log('User is signed in:', user.email);
+                    document.getElementById('login-screen').classList.add('hidden');
+                    document.getElementById('admin-dashboard').classList.remove('hidden');
+                    window.fetchTestResults(); // Fetch results when logged in
+                } else {
+                    // User is signed out
+                    console.log('User is signed out.');
+                    document.getElementById('login-screen').classList.remove('hidden');
+                    document.getElementById('admin-dashboard').classList.add('hidden');
+                }
+            });
+
         } catch (error) {
             console.error('Firebase initialization error for Admin Panel:', error);
             showCustomAlert('Firebase initialization failed. Admin panel will not function.');
@@ -504,7 +531,7 @@
          * service cloud.firestore {
          * match /databases/{database}/documents {
          * // Rule for the 'results' collection at the root level
-         * // This rule allows any authenticated user (including anonymous) to READ, WRITE, and DELETE data from the 'results' collection.
+         * // This rule allows any authenticated user (including email/password users) to READ, WRITE, and DELETE data from the 'results' collection.
          * // Yeh rule main test app ko data save karne, admin panel ko data read aur delete karne ki ijazat dega.
          * match /results/{document=**} {
          * allow read, write, delete: if request.auth != null;
@@ -524,11 +551,6 @@
          * Agar main app abhi bhi 'artifacts/{appId}/public/data/results' mein save kar rahi hai,
          * to admin panel ko data nahi milega.
          */
-
-        // Hardcoded Admin Credentials (For demonstration purposes only)
-        // Production environment mein inko secure tareeqe se handle karein
-        const ADMIN_USERNAME = 'MockTestHub';
-        const ADMIN_PASSWORD = 'Admin@123+';
 
         // Custom Alert Box
         function showCustomAlert(message) {
@@ -619,29 +641,77 @@
 
         // Admin Login Function
         window.adminLogin = async () => {
-            const username = document.getElementById('admin-username').value;
+            const email = document.getElementById('admin-email').value;
             const password = document.getElementById('admin-password').value;
 
-            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-                try {
-                    if (!auth.currentUser) {
-                        await signInAnonymously(auth);
-                        console.log('Admin signed in anonymously for data access.');
-                    }
-                    document.getElementById('login-screen').classList.add('hidden');
-                    document.getElementById('admin-dashboard').classList.remove('hidden');
-                    fetchTestResults(); // Fetch results after successful login
-                } catch (error) {
-                    console.error('Firebase Auth Error during admin login:', error);
-                    showCustomAlert('Login failed. Firebase authentication failed: ' + error.message);
-                }
-            } else {
-                showCustomAlert('Incorrect username or password!');
+            if (!email || !password) {
+                showCustomAlert('Please enter both email and password.');
+                return;
+            }
+
+            try {
+                // Use signInWithEmailAndPassword for persistent login
+                await signInWithEmailAndPassword(auth, email, password);
+                console.log('Admin signed in successfully.');
+                // onAuthStateChanged listener will handle UI update and data fetch
+            } catch (error) {
+                console.error('Firebase Auth Error during admin login:', error);
+                showCustomAlert('Login failed: ' + error.message);
             }
         };
 
+        // Function to sort results
+        window.sortResults = () => {
+            const sortBySelect = document.getElementById('sort-by-select');
+            currentSort = sortBySelect.value; // Update global sort preference
+
+            allResults.sort((a, b) => {
+                // Safely parse correctAnswers and totalQuestions, default to 0 if not valid numbers
+                const getScore = (item) => typeof item.correctAnswers === 'number' && !isNaN(item.correctAnswers) ? item.correctAnswers : 0;
+                const getTotalQuestions = (item) => typeof item.totalQuestions === 'number' && !isNaN(item.totalQuestions) ? item.totalQuestions : 0;
+
+                // Calculate percentage, default to 0 if totalQuestions is 0 or invalid
+                const getPercentage = (item) => {
+                    const score = getScore(item);
+                    const total = getTotalQuestions(item);
+                    if (total > 0) {
+                        return (score / total) * 100;
+                    }
+                    // Try parsing from string if number is not available
+                    if (typeof item.percentage === 'string') {
+                        const parsed = parseFloat(item.percentage);
+                        if (!isNaN(parsed)) return parsed;
+                    }
+                    return 0; // Default to 0 if percentage cannot be calculated or parsed
+                };
+
+                switch (currentSort) {
+                    case 'score_desc':
+                        // Sort by percentage (high to low)
+                        return getPercentage(b) - getPercentage(a);
+                    case 'score_asc':
+                        // Sort by percentage (low to high)
+                        return getPercentage(a) - getPercentage(a);
+                    case 'date_desc':
+                        // Sort by date (newest first)
+                        const dateA = a.timestamp && typeof a.timestamp.toDate === 'function' ? a.timestamp.toDate() : new Date(0);
+                        const dateB = b.timestamp && typeof b.timestamp.toDate === 'function' ? b.timestamp.toDate() : new Date(0);
+                        return dateB.getTime() - dateA.getTime();
+                    case 'name_asc':
+                        // Sort by name (A-Z)
+                        const nameA = (a.name || '').toLowerCase();
+                        const nameB = (b.name || '').toLowerCase();
+                        if (nameA < nameB) return -1;
+                        if (nameA > nameB) return 1;
+                        return 0;
+                    default:
+                        return 0;
+                }
+            });
+        }
+
         // Function to render the results table based on current pagination settings
-        function renderResultsTable() {
+        window.renderResultsTable = () => {
             const resultsTableContainer = document.getElementById('results-table-container');
             const totalRecordsCountSpan = document.getElementById('total-records-count');
             
@@ -740,7 +810,7 @@
         }
 
         // Fetch Test Results from Firestore (fetches all data once)
-        async function fetchTestResults() {
+        window.fetchTestResults = async () => {
             const resultsTableContainer = document.getElementById('results-table-container');
             resultsTableContainer.innerHTML = '<p class="loading-indicator">Results are loading...</p>';
 
@@ -755,17 +825,27 @@
                     allResults.push(doc.data());
                 });
 
+                // Apply current sort
+                window.sortResults();
+
                 totalPages = Math.ceil(allResults.length / resultsPerPage);
                 currentPage = 1; // Reset to first page when new data is fetched
 
-                renderResultsTable(); // Call new function to render table and pagination
+                window.renderResultsTable(); // Call new function to render table and pagination
                 console.log('Test results successfully loaded and displayed.');
 
             } catch (error) {
                 console.error('Error fetching test results:', error);
                 resultsTableContainer.innerHTML = `<p style="color: var(--danger-color);">Error loading results: ${error.message}. Please check Firebase rules and ensure data exists at the correct path.</p>`;
             }
-        }
+        };
+
+        // Function to apply sort and re-render the table
+        window.applySortAndRender = () => {
+            window.sortResults(); // Sort the entire dataset
+            currentPage = 1; // Reset to the first page after sorting
+            window.renderResultsTable(); // Re-render the current page with sorted data
+        };
 
         // Functions for pagination controls
         function updatePaginationControls() {
@@ -783,14 +863,14 @@
         window.prevPage = () => {
             if (currentPage > 1) {
                 currentPage--;
-                renderResultsTable();
+                window.renderResultsTable();
             }
         };
 
         window.nextPage = () => {
             if (currentPage < totalPages) {
                 currentPage++;
-                renderResultsTable();
+                window.renderResultsTable();
             }
         };
 
@@ -798,7 +878,7 @@
             resultsPerPage = parseInt(selectElement.value, 10);
             totalPages = Math.ceil(allResults.length / resultsPerPage);
             currentPage = 1; // Reset to first page
-            renderResultsTable();
+            window.renderResultsTable();
         };
 
 
@@ -817,7 +897,7 @@
                         
                         if (querySnapshot.empty) {
                             showCustomAlert('No data found to delete.');
-                            fetchTestResults(); // Refresh table
+                            window.fetchTestResults(); // Refresh table
                             return;
                         }
 
@@ -828,7 +908,7 @@
 
                         await Promise.all(deletePromises);
                         showCustomAlert('All data deleted successfully!');
-                        fetchTestResults(); // Refresh table after deletion
+                        window.fetchTestResults(); // Refresh table after deletion
                     } catch (error) {
                         console.error('Error deleting data:', error);
                         showCustomAlert(`Error deleting data: ${error.message}. Please check Firebase rules.`);
@@ -958,20 +1038,16 @@
         window.adminLogout = async () => {
             try {
                 await signOut(auth);
-                document.getElementById('admin-dashboard').classList.add('hidden');
-                document.getElementById('login-screen').classList.remove('hidden');
-                document.getElementById('admin-username').value = '';
-                document.getElementById('admin-password').value = '';
+                // onAuthStateChanged listener will handle UI update
                 showCustomAlert('You have been logged out.');
+                // Clear input fields after logout
+                document.getElementById('admin-email').value = '';
+                document.getElementById('admin-password').value = '';
             } catch (error) {
                 console.error('Logout error:', error);
                 showCustomAlert('Error logging out: ' + error.message);
             }
         };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // No auto-login, always show login screen first for admin panel
-        });
     </script>
 </body>
 </html>
