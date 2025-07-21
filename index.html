@@ -1765,6 +1765,7 @@
             appInstance = initializeApp(firebaseConfig);
             auth = getAuth(appInstance);
             db = getFirestore(appInstance);
+            firebaseInitialized = true; // Set flag to true on successful initialization
             console.log('Firebase successfully initialized.');
 
             // Listen for auth state changes
