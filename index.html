@@ -199,7 +199,7 @@
             padding: 1rem 1.25rem; /* Adjusted padding */
             border: 1px solid var(--border-color);
             border-radius: 8px; /* Slightly less rounded */
-            background: var(--bg-secondary); /* Secondary background for inputs */
+            background: var(--bg-secondary);
             color: var(--text-primary);
             font-size: 1rem;
             transition: all 0.3s ease;
@@ -207,14 +207,14 @@
 
         .form-group input:focus {
             outline: none;
-            border-color: var(--primary-color); /* Primary color on focus */
-            background: #EBF2F7; /* Lighter blue on focus */
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* Soft blue shadow */
+            border-color: var(--primary-color);
+            background: #EBF2F7;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
         }
 
         html[data-theme="dark"] .form-group input:focus {
             background: #3A3A3A;
-            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3); /* Purple shadow for dark mode */
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3);
         }
 
         .form-group input::placeholder {
@@ -226,7 +226,7 @@
             padding: 1rem 2rem;
             border: none;
             border-radius: 8px;
-            font-size: 1.05rem; /* Slightly larger font */
+            font-size: 1.05rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -234,8 +234,8 @@
             overflow: hidden;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            /* Added for consistent height */
-            min-height: 55px; /* Ensure a minimum height */
+            /* Ensure consistent height and centered content */
+            min-height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -243,17 +243,17 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* Blue gradient */
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             width: 100%;
-            margin-top: 1.5rem; /* Increased margin */
+            margin-top: 1.5rem;
             box-shadow: var(--shadow);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
-            opacity: 0.95; /* Slight opacity change on hover */
+            opacity: 0.95;
         }
 
         .btn-secondary {
@@ -264,7 +264,7 @@
         }
 
         .btn-secondary:hover {
-            background: #EBEFF3; /* Lighter grey on hover */
+            background: #EBEFF3;
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
@@ -276,7 +276,7 @@
 
         .progress-bar {
             width: 100%;
-            height: 10px; /* Thicker progress bar */
+            height: 10px;
             background: var(--border-color);
             border-radius: 5px;
             overflow: hidden;
@@ -284,7 +284,7 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--success-color), var(--primary-color)); /* Green to blue gradient */
+            background: linear-gradient(90deg, var(--success-color), var(--primary-color));
             border-radius: 5px;
             transition: width 0.5s ease;
             position: relative;
@@ -330,9 +330,9 @@
             border-radius: 12px;
             border: 1px solid var(--border-color);
             gap: 10px;
-            padding-bottom: 15px; /* Space for scrollbar */
+            padding-bottom: 15px;
             scroll-snap-type: x mandatory;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* Inner shadow for depth */
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
             
             scrollbar-width: thin;
             scrollbar-color: var(--primary-color) var(--border-color);
@@ -354,7 +354,7 @@
         }
 
         .palette-btn {
-            width: 55px; /* Slightly larger buttons */
+            width: 55px;
             height: 55px;
             flex-shrink: 0;
             scroll-snap-align: start;
@@ -428,15 +428,6 @@
             margin-bottom: 1.75rem;
         }
 
-        .question-number {
-            background: var(--primary-color);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
         .bookmark-btn {
             background: none;
             border: none;
@@ -453,7 +444,7 @@
         }
 
         .question-text {
-            font-size: 1.25rem; /* Slightly larger question text */
+            font-size: 1.25rem;
             font-weight: 500;
             color: var(--text-primary);
             margin-bottom: 2rem;
@@ -467,7 +458,7 @@
             border-radius: 10px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inner shadow */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
             line-height: 1.6;
             color: var(--text-primary);
         }
@@ -479,7 +470,7 @@
         /* Options */
         .options {
             display: grid;
-            gap: 1.25rem; /* Increased gap */
+            gap: 1.25rem;
         }
 
         .option {
@@ -496,7 +487,7 @@
         }
 
         .option:hover {
-            background: #EBF2F7; /* Lighter blue on hover */
+            background: #EBF2F7;
             border-color: var(--primary-color);
             transform: translateX(5px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
@@ -508,19 +499,19 @@
         }
 
         .option.selected {
-            background: rgba(74, 144, 226, 0.1); /* Light primary color tint */
+            background: rgba(74, 144, 226, 0.1);
             border-color: var(--primary-color);
             box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
         }
 
         html[data-theme="dark"] .option.selected {
-            background: rgba(138, 43, 226, 0.2); /* Dark mode primary tint */
+            background: rgba(138, 43, 226, 0.2);
             border-color: var(--primary-color);
             box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
         }
 
         .option input[type="radio"] {
-            width: 22px; /* Larger radio button */
+            width: 22px;
             height: 22px;
             accent-color: var(--primary-color);
         }
@@ -545,12 +536,12 @@
         .nav-buttons {
             display: flex;
             gap: 1rem;
-            flex: 1; /* Ensure nav-buttons container takes available space */
-            justify-content: center; /* Center the buttons within the container */
+            margin: 0 auto;
+            max-width: 400px;
         }
 
         .nav-btn {
-            padding: 0.9rem 1.8rem; /* Adjusted padding */
+            padding: 0.9rem 1.8rem;
             border: none;
             border-radius: 8px;
             font-weight: 600;
@@ -558,12 +549,11 @@
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            justify-content: center;
+            text-align: center;
             box-shadow: var(--shadow);
-            flex: 1; /* Make nav buttons take equal width */
-            min-height: 55px; /* Ensure consistent height for nav buttons */
-            justify-content: center; /* Center content horizontally */
-            max-width: 180px; /* Limit max width for smaller buttons on larger screens */
+            flex: 1;
+            min-height: 60px;
         }
 
         .nav-btn:disabled {
@@ -606,7 +596,7 @@
         }
 
         .result-score {
-            font-size: 4.5rem; /* Larger score */
+            font-size: 4.5rem;
             font-weight: 700;
             margin: 1.5rem 0;
             background: linear-gradient(135deg, var(--success-color), var(--primary-color));
@@ -615,7 +605,7 @@
         }
 
         .result-status {
-            font-size: 1.8rem; /* Larger status */
+            font-size: 1.8rem;
             font-weight: 600;
             margin: 1.5rem 0;
         }
@@ -645,7 +635,7 @@
         .result-details p {
             font-size: 2.2rem;
             font-weight: 700;
-            color: var(--primary-color); /* Primary color for detail numbers */
+            color: var(--primary-color);
         }
 
         /* Utilities */
@@ -691,7 +681,7 @@
 
             .nav-buttons {
                 width: 100%;
-                justify-content: center;
+                max-width: none;
             }
 
             .control-buttons {
@@ -712,7 +702,21 @@
             }
 
             .timer-display-wrapper {
-                margin-top: 10px; /* Add some space if stacked */
+                margin-top: 10px;
+            }
+
+            /* Review Modal buttons on small screens */
+            #review-modal .modal-buttons-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+ 
+
+            #review-modal .btn-secondary,
+            #review-modal .btn-primary {
+                width: 100%;
+                min-width: unset;
             }
         }
 
@@ -721,9 +725,9 @@
             display: inline-block;
             width: 20px;
             height: 20px;
-            border: 3px solid rgba(0,0,0,0.2); /* Darker border for light mode */
+            border: 3px solid rgba(0,0,0,0.2);
             border-radius: 50%;
-            border-top-color: var(--primary-color); /* Primary color for loading spinner */
+            border-top-color: var(--primary-color);
             animation: spin 1s ease-in-out infinite;
         }
 
@@ -739,7 +743,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.7);
-            z-index: 1002; /* Higher than other modals */
+            z-index: 1002;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -772,11 +776,11 @@
         .notice-content .btn-primary {
             width: auto;
             padding: 0.8rem 2rem;
-            /* Centering the button */
-            display: block; /* Make it a block element to apply margin auto */
+            display: block;
             margin-left: auto;
             margin-right: auto;
-            max-width: 250px; /* Optional: limit width for a better centered appearance */
+            max-width: 250px;
+            min-height: 60px;
         }
 
         /* New styles for top info bar */
@@ -798,21 +802,56 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 1.2rem; /* Sets the size for both icon and text */
+            font-size: 1.2rem;
             font-weight: 600;
-            color: var(--danger-color); /* Always red as requested */
+            color: var(--danger-color);
         }
 
         .timer-display-wrapper .timer {
-            color: inherit; /* Inherit color from parent (.timer-display-wrapper) */
+            color: inherit;
             background: none;
             padding: 0;
             border: none;
             box-shadow: none;
             animation: none;
-            font-size: inherit; /* Inherit font size from parent */
-            font-weight: inherit; /* Inherit font weight from parent */
+            font-size: inherit;
+            font-weight: inherit;
         }
+
+
+
+.modal-buttons-row {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    gap: 1rem;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+#review-modal .btn-secondary,
+#review-modal .btn-primary {
+    width: 200px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    white-space: nowrap;
+}
+
+#review-modal .modal-buttons-row i {
+    margin-right: 8px;
+    font-size: 1rem;
+    line-height: 1;
+    position: relative;
+    top: 0;
+}
+
     </style>
 </head>
 <body>
@@ -993,7 +1032,7 @@
             </p>
             <p>Aap ke taawun ka behad shukriya.</p>
             <button class="btn btn-primary" id="close-notice-modal-btn">
-                <i class="fas fa-check-circle"></i>&nbsp;Samajh Gaya
+                <i class="fas fa-check-circle"></i> Samajh Gaya
             </button>
         </div>
     </div>
@@ -1003,11 +1042,11 @@
         <div style="background: var(--bg-primary); border-radius: 15px; padding: 2.5rem; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: var(--shadow-lg);">
             <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;"><i class="fas fa-eye"></i> Final Review</h2>
             <!-- Buttons moved to the top -->
-            <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
-                <button class="btn btn-secondary" id="close-review-modal-btn" style="flex: 1; min-width: 150px;">
-                    <i class="fas fa-arrow-left"></i> Back to Test
+            <div class="modal-buttons-row">
+               
+                <button class="btn btn-secondary" id="close-review-modal-btn"><i class="fas fa-arrow-left"></i> Back to Test
                 </button>
-                <button class="btn btn-primary" id="final-submit-btn" style="flex: 1; min-width: 150px;">
+                <button class="btn btn-primary" id="final-submit-btn">
                     <i class="fas fa-check"></i> Final Submit
                 </button>
             </div>
@@ -1026,7 +1065,7 @@
             apiKey: "AIzaSyDX3UMTlZiCB0CL9yAeJnuzKg022jbEJEY",
             authDomain: "mocktestapp-353db.firebaseapp.com",
             projectId: "mocktestapp-353db",
-            storageBucket: "mocktestapp-353db.firebasestorage.app",
+            storageBucket: "mocktestapp-353db.firebaseapp.com",
             messagingSenderId: "658583028202",
             appId: "1:658583028202:web:d3c264ce467fab3a61b293",
             measurementId: "G-HVTV85W3Z4"
@@ -1054,15 +1093,16 @@
          * rules_version = '2';
          * service cloud.firestore {
          * match /databases/{database}/documents {
-         * // Public data collection for test results
-         * match /artifacts/{appId}/public/data/results/{document=**} {
-         * allow read, write: if request.auth != null;
+         * // Rule for the 'results' collection at the root level
+         * // This rule allows any authenticated user (including anonymous) to READ, WRITE, and DELETE data from the 'results' collection.
+         * match /results/{document=**} {
+         * allow read, write, delete: if request.auth != null;
          * }
          * }
          * }
          *
          * Yeh rules kisi bhi authenticated user (anonymous users bhi shamil hain) ko
-         * 'results' collection mein data read aur write karne ki ijazat denge.
+         * 'results' collection mein data read, write, aur delete karne ki ijazat denge.
          *
          * Agar aapko ab bhi permissions ka masla aata hai, to confirm karein ke:
          * 1. Aapne rules sahi tarah se deploy kiye hain.
@@ -1700,12 +1740,12 @@
         const questionTextElement = document.getElementById('question-text');
         const optionsContainer = document.getElementById('options');
         const progressFill = document.getElementById('progress-fill');
-        const questionProgressDisplay = document.getElementById('question-progress-display'); // New element reference
+        const questionProgressDisplay = document.getElementById('question-progress-display');
         const palette = document.getElementById('palette');
         const timerElement = document.getElementById('timer');
         const answeredCountElement = document.getElementById('answered-count');
         const totalQuestionsElement = document.getElementById('total-questions');
-        const passageDisplayElement = document.getElementById('passage-display'); // New element reference
+        const passageDisplayElement = document.getElementById('passage-display');
 
         const welcomeScreen = document.getElementById('welcome-screen');
         const testScreen = document.getElementById('test-screen');
@@ -1744,14 +1784,30 @@
                 return;
             }
 
-            // Check if user has already submitted a test
+            // First, check if a test has already been submitted with this email address
+            try {
+                const emailQuery = query(collection(db, `results`), where("email", "==", email));
+                const emailQuerySnapshot = await getDocs(emailQuery);
+
+                if (!emailQuerySnapshot.empty) {
+                    alert('You have already attempted the test with this email address. You can only attempt it once.');
+                    return;
+                }
+            } catch (error) {
+                console.error('Error checking for existing email:', error);
+                alert('An error occurred while verifying your attempt. Please try again.');
+                return;
+            }
+
+            // Check if user has already submitted a test (this check is now secondary to email)
             const userId = localStorage.getItem('mockTestUserId');
             if (userId) {
-                const q = query(collection(db, `artifacts/mocktestapp/public/data/results`), where("userId", "==", userId));
+                const q = query(collection(db, `results`), where("userId", "==", userId));
                 const querySnapshot = await getDocs(q);
                 if (!querySnapshot.empty) {
+                    // This alert might still show if local storage userId matches but email didn't.
+                    // The email check above is more robust.
                     alert('You have already attempted the test. You can only attempt it once.');
-                    // Optionally, redirect to a page showing previous results or a message
                     return;
                 }
             }
@@ -1760,7 +1816,7 @@
 
             welcomeScreen.classList.add('hidden');
             testScreen.classList.remove('hidden');
-            noticeModal.classList.add('hidden'); // Ensure notice is hidden
+            noticeModal.classList.add('hidden');
             testStartTime = new Date();
             startTimer();
             loadQuestion();
@@ -1930,14 +1986,14 @@
                 const seconds = timeLeft % 60;
                 timerElement.textContent = `Time Left: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-                if (timeLeft <= 300 && !timerElement.classList.contains('warning')) { // 5 minutes warning
+                if (timeLeft <= 300 && !timerElement.classList.contains('warning')) {
                     timerElement.classList.add('warning');
                     playWarningSound();
                 }
 
                 if (timeLeft <= 0) {
                     clearInterval(timerInterval);
-                    submitTest(true); // Auto-submit on time up
+                    submitTest(true);
                 }
             }, 1000);
         }
@@ -1951,7 +2007,7 @@
             questions.forEach((q, index) => {
                 if (answers[index] === q.answer) {
                     correctAnswers++;
-                } else if (answers[index]) { // Only count if answered but wrong
+                } else if (answers[index]) {
                     incorrectAnswers++;
                 }
             });
@@ -1963,7 +2019,7 @@
 
             testScreen.classList.add('hidden');
             resultScreen.classList.remove('hidden');
-            reviewModal.classList.add('hidden'); // Ensure review modal is hidden
+            reviewModal.classList.add('hidden');
 
             document.getElementById('result-score').textContent = `${correctAnswers} / ${totalQuestions}`;
             const resultStatusElement = document.getElementById('result-status');
@@ -1979,7 +2035,7 @@
             document.getElementById('percentage').textContent = `${percentage.toFixed(2)}%`;
 
             // Handle certificate download button visibility
-            if (status === 'Pass' && correctAnswers >= 60) { // Example: 60 correct answers for certificate
+            if (status === 'Pass' && correctAnswers >= 60) {
                 certificateBtn.style.display = 'inline-block';
             } else {
                 certificateBtn.style.display = 'none';
@@ -1994,26 +2050,30 @@
                 // Generate a unique user ID and store it
                 let userId = localStorage.getItem('mockTestUserId');
                 if (!userId) {
-                    userId = auth.currentUser ? auth.currentUser.uid : null; // Use Firebase UID if available
+                    userId = auth.currentUser ? auth.currentUser.uid : null;
                     if (!userId) {
-                        userId = 'guest_' + Date.now(); // Fallback for truly anonymous/untracked users
+                        userId = 'guest_' + Date.now();
                     }
                     localStorage.setItem('mockTestUserId', userId);
                 }
 
-                await addDoc(collection(db, `artifacts/mocktestapp/public/data/results`), {
+                await addDoc(collection(db, `results`), {
                     name: name,
                     email: email,
                     phone: phone,
-                    userId: userId, // Store the user ID
+                    userId: userId,
                     correctAnswers: correctAnswers,
                     incorrectAnswers: incorrectAnswers,
                     totalQuestions: totalQuestions,
-                    percentage: percentage.toFixed(2),
+                    // --- START OF MODIFICATION ---
+                    // Save percentage as a number, not a string
+                    percentage: parseFloat(percentage.toFixed(2)), 
+                    // --- END OF MODIFICATION ---
                     status: status,
                     timeTaken: `${timeTakenMinutes}:${timeTakenRemainingSeconds}`,
                     timestamp: serverTimestamp(),
-                    timeUp: timeUp
+                    timeUp: timeUp,
+                    score: correctAnswers
                 });
                 console.log("Test result saved to Firebase.");
             } catch (e) {
@@ -2029,10 +2089,7 @@
 
         // Function to download certificate
         function downloadCertificate() {
-            // Placeholder for certificate generation logic
             alert('Certificate will be generated and downloaded soon!');
-            // In a real application, you'd send a request to a server to generate a PDF certificate
-            // and trigger a download. This would typically involve more complex server-side logic.
         }
 
         // Handle full screen toggle
@@ -2081,12 +2138,12 @@
         });
 
         // Apply saved theme on load
-        const savedTheme = localStorage.getItem('theme') || 'light'; // Default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
         setTheme(savedTheme);
 
         // Sound Toggle
         const soundIcon = document.getElementById('sound-icon');
-        let isSoundMuted = JSON.parse(localStorage.getItem('isSoundMuted')) || false; // Default to not muted
+        let isSoundMuted = JSON.parse(localStorage.getItem('isSoundMuted')) || false;
 
         // Create audio elements for feedback
         const correctSound = new Audio('https://commondatastorage.googleapis.com/codeskulptor-assets/week7-bounce.m4a');
@@ -2148,12 +2205,12 @@
         // Important Notice Modal Logic
         function showNoticeModal() {
             noticeModal.classList.remove('hidden');
-            startTestBtn.disabled = true; // Disable start test button until notice is acknowledged
+            startTestBtn.disabled = true;
         }
 
         function closeNoticeModal() {
             noticeModal.classList.add('hidden');
-            startTestBtn.disabled = false; // Enable start test button after notice is acknowledged
+            startTestBtn.disabled = false;
         }
 
         // Smooth scroll to top when changing questions
@@ -2165,7 +2222,7 @@
 
         // Review Modal Logic
         function showReviewModal() {
-            reviewContent.innerHTML = ''; // Clear previous content
+            reviewContent.innerHTML = '';
             questions.forEach((q, index) => {
                 const userAnswer = answers[index];
                 const isCorrect = userAnswer === q.answer;
@@ -2179,7 +2236,7 @@
                 questionReviewDiv.style.paddingBottom = '1rem';
                 questionReviewDiv.style.borderBottom = '1px dashed var(--border-color)';
                 if (index === questions.length - 1) {
-                    questionReviewDiv.style.borderBottom = 'none'; // No border for the last question
+                    questionReviewDiv.style.borderBottom = 'none';
                 }
 
                 questionReviewDiv.innerHTML = `
@@ -2210,7 +2267,7 @@
             prevBtn.addEventListener('click', prevQuestion);
             nextBtn.addEventListener('click', nextQuestion);
             submitBtn.addEventListener('click', showReviewModal);
-            finalSubmitBtn.addEventListener('click', () => submitTest(false)); // Pass false for not time-up submission
+            finalSubmitBtn.addEventListener('click', () => submitTest(false));
             closeReviewModalBtn.addEventListener('click', closeReviewModal);
             bookmarkBtn.addEventListener('click', toggleBookmark);
             certificateBtn.addEventListener('click', downloadCertificate);
@@ -2221,7 +2278,7 @@
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (testScreen.classList.contains('hidden')) return; // Only active on test screen
+            if (testScreen.classList.contains('hidden')) return;
             
             switch (e.key) {
                 case 'ArrowRight':
@@ -2246,7 +2303,7 @@
                 case 'b':
                 case 'B':
                     e.preventDefault();
-                    toggleBookmark(); // No need to pass currentQuestion, it's a global var
+                    toggleBookmark();
                     break;
             }
         });
@@ -2261,7 +2318,7 @@
                     timeLeft
                 }));
             }
-        }, 10000); // Save every 10 seconds
+        }, 10000);
 
         // Load saved progress (on window load, but clear it if user doesn't want to be prompted)
         window.addEventListener('load', () => {
